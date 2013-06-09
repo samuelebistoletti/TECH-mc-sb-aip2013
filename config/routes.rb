@@ -1,4 +1,5 @@
 TECHMcSbAip2013::Application.routes.draw do
+  root :to => 'home#index' #RAILS 3
   resources :products
   resources :home
   # The priority is based upon order of creation:
