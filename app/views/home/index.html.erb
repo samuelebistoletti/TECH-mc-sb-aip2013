@@ -1,2 +1,5 @@
 <h1>HOME INDEX</h1>
 <p>Find me in app/views/home/index.html.erb</p>
+<% @products.each do |product| %>
+    <li><%= product.title %></li>
+<% end %>
