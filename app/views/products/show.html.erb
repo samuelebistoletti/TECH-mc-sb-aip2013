@@ -1,5 +1,7 @@
 <p id="notice"><%= notice %></p>
 
+<%= image_tag "products/" + @product.image, :style => "float: right; width: 200px;" %>
+
 <p>
   <b>Title:</b>
   <%= @product.title %>
@@ -15,7 +17,6 @@
   <%= @product.category %>
 </p>
 
-<%= image_tag "products/divano.jpg", :style => "float: right; width: 200px;" %>
 <p>
   <b>Image:</b>
   <%= @product.image %>
