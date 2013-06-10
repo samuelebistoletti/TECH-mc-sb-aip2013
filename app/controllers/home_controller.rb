@@ -1,5 +1,6 @@
 class HomeController < ApplicationController
   def index
+    @breadcrumb = "<span class='current_crumb'>Home </span>"
     @products = Product.all
 
     respond_to do |format|
