@@ -20,7 +20,7 @@ TECHMcSbAip2013::Application.routes.draw do
 
   root :to => 'home#index'
   resources :products
-  match 'categories/:category' => 'categories#show'
+  match 'categories/:id' => 'categories#show'
   resources :home
   resources :categories
   match 'admin' => 'admin#index', :via => :get, :as => :admin
