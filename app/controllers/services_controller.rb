@@ -4,7 +4,8 @@ class ServicesController < ApplicationController
   def index
     @title = 'I nostri servizi'
     @breadcrumb = '<span class="current_crumb">Servizi </span>'
-    @services = Service.all
+    @generalServices = Service.find_all_by_service_type(0)
+    @specificServices = Service.find_all_by_service_type(1)
 
     respond_to do |format|
       format.html # index.html.erb

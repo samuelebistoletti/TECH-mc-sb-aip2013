@@ -69,12 +69,12 @@ ActiveRecord::Schema.define(:version => 20130619160633) do
 
   create_table "services", :force => true do |t|
     t.string   "name"
-    t.text     "description", :limit => 255
-    t.text     "procedure",   :limit => 255
+    t.text     "description",  :limit => 255
+    t.text     "procedure",    :limit => 255
     t.string   "image_url"
-    t.integer  "type"
-    t.datetime "created_at",                 :null => false
-    t.datetime "updated_at",                 :null => false
+    t.integer  "service_type"
+    t.datetime "created_at",                  :null => false
+    t.datetime "updated_at",                  :null => false
   end
 
 end

@@ -1,61 +1,25 @@
 <ul class="products">
   <h2>I seguenti servizi sono disponibili per tutte le categorie di mobili.</h2>
-  <li class="product first">
-    <a href="">
-    <%= image_tag "services/trasporto.jpg", :style => "width: 150px; height: 150px; class: attachment-shop_catalog" %>
-    <h3>Trasporto</h3>
-    </a>
-  </li>
-  <li class="product">
-    <%= image_tag "services/riparazione.jpg", :style => "width: 150px; height: 150px; class: attachment-shop_catalog" %>
-    <h3>Riparazione</h3>
-  </li>
-  <li class="product last">
-    <%= image_tag "services/ritiro.jpg", :style => "width: 150px; height: 150px; class: attachment-shop_catalog" %>
-    <h3>Ritiro e Smaltimento Usato</h3>
-  </li>
-</ul>
 
+  <% @generalServices.each do |service| %>
+      <li class="product">
+        <a href="<% link_to service_path(service) %>">
+          <%= image_tag "services/#{service.image_url}", :style => "width: 150px; height: 150px; class: attachment-shop_catalog" %>
+          <h3><%= service.name %></h3>
+        </a>
+      </li>
+    <% end %>
+</ul>
 
 <ul class="products">
-  <h2>I seguenti servizi sono disponibili per alcune tipologie di mobili.</h2>
-  <h4>Controlla nel catalogo per sapere a quali servizi può essere associato il tuo prodotto.</h4>
-  <li class="product first">
-    <%= image_tag "services/montaggio.jpg", :style => "width: 150px; height: 150px; class: attachment-shop_catalog" %>
-    <h3>Montaggio e Installazione</h3>
-  </li>
-  <li class="product last">
-    <%= image_tag "services/personalizzazione.jpg", :style => "width: 150px; height: 150px; class: attachment-shop_catalog" %>
-    <h3>Personalizzazione e Mobili Su Misura</h3>
-  </li>
+  <h2>I seguenti servizi sono disponibili per alcune categorie di mobili.</h2>
+
+  <% @specificServices.each do |service| %>
+      <li class="product">
+        <a href="<% link_to service_path(service) %>">
+          <%= image_tag "services/#{service.image_url}", :style => "width: 150px; height: 150px; class: attachment-shop_catalog" %>
+          <h3><% service.name %></h3>
+        </a>
+      </li>
+  <% end %>
 </ul>
-
-<table>
-  <tr>
-    <th>Name</th>
-    <th>Description</th>
-    <th>Procedure</th>
-    <th>Image url</th>
-    <th>Type</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-
-<% @services.each do |service| %>
-  <tr>
-    <td><%= service.name %></td>
-    <td><%= service.description %></td>
-    <td><%= service.procedure %></td>
-    <td><%= service.image_url %></td>
-    <td><%= service.type %></td>
-    <td><%= link_to 'Show', service %></td>
-    <td><%= link_to 'Edit', edit_service_path(service) %></td>
-    <td><%= link_to 'Destroy', service, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-  </tr>
-<% end %>
-</table>
-
-<br />
-
-<%= link_to 'New Service', new_service_path %>

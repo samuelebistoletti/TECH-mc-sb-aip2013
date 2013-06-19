@@ -5,7 +5,7 @@ class CreateServices < ActiveRecord::Migration
       t.string :description
       t.string :procedure
       t.string :image_url
-      t.integer :type
+      t.integer :service_type
 
       t.timestamps
     end

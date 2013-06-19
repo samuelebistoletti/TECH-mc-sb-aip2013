@@ -23,3 +23,35 @@ Product.create([{name: 'Graduate',
                  category: 'Divani'
                 }
                ])
+
+Service.delete_all
+Service.create([{name: 'Trasporto',
+                 description: '',
+                 procedure: '',
+                 image_url: 'trasporto.jpg',
+                 service_type: 0},
+
+                {name: 'Riparazione',
+                 description: '',
+                 procedure: '',
+                 image_url: 'riparazione.jpg',
+                 service_type: 0},
+
+                {name: 'Ritiro e Smaltimento Usato',
+                 description: '',
+                 procedure: '',
+                 image_url: 'ritiro.jpg',
+                 service_type: 0},
+
+                {name: 'Montaggio e Installazione',
+                 description: '',
+                 procedure: '',
+                 image_url: 'montaggio.jpg',
+                 service_type: 1},
+
+                {name: 'Personalizzazione Mobili su Misura',
+                 description: '',
+                 procedure: '',
+                 image_url: 'personalizzazione.jpg',
+                 service_type: 1}
+               ])
