@@ -1,0 +1,33 @@
+<h1>Listing resellers</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Region</th>
+    <th>Province</th>
+    <th>Address</th>
+    <th>Email</th>
+    <th>Telephone</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @resellers.each do |reseller| %>
+  <tr>
+    <td><%= reseller.name %></td>
+    <td><%= reseller.region %></td>
+    <td><%= reseller.province %></td>
+    <td><%= reseller.address %></td>
+    <td><%= reseller.email %></td>
+    <td><%= reseller.telephone %></td>
+    <td><%= link_to 'Show', reseller %></td>
+    <td><%= link_to 'Edit', edit_reseller_path(reseller) %></td>
+    <td><%= link_to 'Destroy', reseller, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Reseller', new_reseller_path %>

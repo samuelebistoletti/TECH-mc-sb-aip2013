@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @partner.name %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%= @partner.description %>
+</p>
+
+<p>
+  <b>External link:</b>
+  <%= @partner.external_link %>
+</p>
+
+<p>
+  <b>Image url:</b>
+  <%= @partner.image_url %>
+</p>
+
+
+<%= link_to 'Edit', edit_partner_path(@partner) %> |
+<%= link_to 'Back', partners_path %>
