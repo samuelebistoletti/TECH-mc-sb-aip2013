@@ -1,7 +1,15 @@
 TECHMcSbAip2013::Application.routes.draw do
-  root :to => 'home#index' #RAILS 3
+  get "admin/products"
+
+  get "admin/index"
+
+  root :to => 'home#index'
   resources :products
   resources :home
+
+  match 'admin' => 'admin#index', :via => :get, :as => :admin
+  match 'products' => 'products#index', :via => :get, :as => :products
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

@@ -84,16 +84,16 @@
 
           <nav>
             <ul id="menu-main-nav">
-              <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="products"><span><strong>Prodotti</strong><span class="navi-description">I nostri mobili</span></span></a>
+              <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="<%= products_path %>"><span><strong>Prodotti</strong><span class="navi-description">I nostri mobili</span></span></a>
                 <ul class="sub-menu">
-                  <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="products"><span>Divani</span></a></li>
-                  <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="products"><span>Cucina</span></a></li>
+                  <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href=""><span>Divani</span></a></li>
+                  <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href=""><span>Cucina</span></a></li>
                 </ul>
               </li>
-              <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="products"><span><strong>Designers</strong><span class="navi-description">I nostri mobili</span></span></a></li>
-              <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="products"><span><strong>Servizi</strong><span class="navi-description">I nostri mobili</span></span></a></li>
-              <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="products"><span><strong>Eventi</strong><span class="navi-description">I nostri mobili</span></span></a></li>
-              <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="products"><span><strong>Partners</strong><span class="navi-description">Le Aziende</span></span></a></li>
+              <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href=""><span><strong>Designers</strong><span class="navi-description">I nostri mobili</span></span></a></li>
+              <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href=""><span><strong>Servizi</strong><span class="navi-description">I nostri mobili</span></span></a></li>
+              <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href=""><span><strong>Eventi</strong><span class="navi-description">I nostri mobili</span></span></a></li>
+              <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href=""><span><strong>Partners</strong><span class="navi-description">Le Aziende</span></span></a></li>
             </ul>
           </nav>
 
@@ -159,6 +159,7 @@
           <ul>
             <li><a href="">Chi siamo</a></li>
             <li><a href="">Contatti</a></li>
+            <li><%= link_to 'Restricted Area', admin_path %></li>
           </ul>
 
 
