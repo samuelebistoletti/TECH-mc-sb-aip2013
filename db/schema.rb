@@ -11,42 +11,43 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130619095233) do
+ActiveRecord::Schema.define(:version => 20130619125408) do
 
   create_table "designers", :force => true do |t|
     t.string   "name"
-    t.string   "description"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
+    t.text     "description", :limit => 255
+    t.datetime "created_at",                 :null => false
+    t.datetime "updated_at",                 :null => false
     t.string   "image_url"
   end
 
   create_table "events", :force => true do |t|
     t.string   "name"
-    t.string   "description"
+    t.text     "description", :limit => 255
     t.datetime "date"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
+    t.datetime "created_at",                 :null => false
+    t.datetime "updated_at",                 :null => false
     t.string   "image_url"
   end
 
   create_table "partners", :force => true do |t|
     t.string   "name"
-    t.string   "description"
+    t.text     "description",   :limit => 255
     t.string   "external_link"
     t.string   "image_url"
-    t.datetime "created_at",    :null => false
-    t.datetime "updated_at",    :null => false
+    t.datetime "created_at",                   :null => false
+    t.datetime "updated_at",                   :null => false
   end
 
   create_table "products", :force => true do |t|
     t.string   "name"
-    t.string   "description"
+    t.text     "description",    :limit => 255
     t.string   "image_url"
-    t.string   "specifications"
+    t.text     "specifications", :limit => 255
     t.integer  "designer"
-    t.datetime "created_at",     :null => false
-    t.datetime "updated_at",     :null => false
+    t.datetime "created_at",                    :null => false
+    t.datetime "updated_at",                    :null => false
+    t.string   "category"
   end
 
   create_table "resellers", :force => true do |t|
@@ -63,12 +64,12 @@ ActiveRecord::Schema.define(:version => 20130619095233) do
 
   create_table "services", :force => true do |t|
     t.string   "name"
-    t.string   "description"
-    t.string   "procedure"
+    t.text     "description", :limit => 255
+    t.text     "procedure",   :limit => 255
     t.string   "image_url"
     t.integer  "type"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
+    t.datetime "created_at",                 :null => false
+    t.datetime "updated_at",                 :null => false
   end
 
 end
