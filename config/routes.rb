@@ -20,10 +20,13 @@ TECHMcSbAip2013::Application.routes.draw do
 
   root :to => 'home#index'
   resources :products
+
   resources :home
+
 
   match 'admin' => 'admin#index', :via => :get, :as => :admin
   match 'products' => 'products#index', :via => :get, :as => :products
+  match 'home' => 'home#index', :via => :get, :as => :home
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
