@@ -30,12 +30,12 @@
       </div><!-- .summary -->
 
       <div class="woocommerce_tabs">
-        <ul class="tabs">
+        <ul class="tabs" style="margin:0;">
           <li class="description_tab active"><a href="#tab-description">Specifiche tecniche</a></li>
         </ul>
         <div class="panel entry-content" id="tab-description" style="display: block;">
 
-          <p><%= @product.specifications %></p>
+          <p><%= raw(@product.specifications) %></p>
 
         </div>
 
