@@ -1,3 +1,3 @@
 class Product < ActiveRecord::Base
-  attr_accessible :category, :description, :image, :title
+  attr_accessible :description, :designer, :image_url, :name, :specifications
 end

@@ -1,13 +1,15 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
 one:
-  title: MyString
+  name: MyString
   description: MyString
-  category: MyString
-  image: MyString
+  image_url: MyString
+  specifications: MyString
+  designer: 1
 
 two:
-  title: MyString
+  name: MyString
   description: MyString
-  category: MyString
-  image: MyString
+  image_url: MyString
+  specifications: MyString
+  designer: 1

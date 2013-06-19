@@ -1,7 +1,7 @@
 TECHMcSbAip2013::Application.routes.draw do
-  get "admin/products"
+  get 'admin/products'
 
-  get "admin/index"
+  get 'admin/index'
 
   root :to => 'home#index'
   resources :products
