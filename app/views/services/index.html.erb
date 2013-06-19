@@ -3,7 +3,7 @@
 
   <% @generalServices.each do |service| %>
       <li class="product">
-        <a href="<% link_to service_path(service) %>">
+        <a href="<%= service_path(service) %>">
           <%= image_tag "services/#{service.image_url}", :style => "width: 150px; height: 150px; class: attachment-shop_catalog" %>
           <h3><%= service.name %></h3>
         </a>
@@ -16,9 +16,9 @@
 
   <% @specificServices.each do |service| %>
       <li class="product">
-        <a href="<% link_to service_path(service) %>">
+        <a href="<%= service_path(service) %>">
           <%= image_tag "services/#{service.image_url}", :style => "width: 150px; height: 150px; class: attachment-shop_catalog" %>
-          <h3><% service.name %></h3>
+          <h3><%= service.name %></h3>
         </a>
       </li>
   <% end %>

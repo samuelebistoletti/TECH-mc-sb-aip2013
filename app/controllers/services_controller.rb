@@ -7,7 +7,6 @@ class ServicesController < ApplicationController
     @generalServices = Service.find_all_by_service_type(0)
     @specificServices = Service.find_all_by_service_type(1)
 
-
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @services }

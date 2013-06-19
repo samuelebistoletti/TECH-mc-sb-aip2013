@@ -16,14 +16,11 @@
 </p>
 
 <p>
-  <b>Image url:</b>
-  <%= @service.image_url %>
-</p>
+<div class="images">
 
-<p>
-  <b>Type:</b>
-  <%= @service.type %>
-</p>
+  <%= image_tag "services/" + @service.image_url, :style => 'width: 300px;', :class => 'attachment-shop_single wp-post-image' %>
+  <div class="thumbnails"></div>
+</div>
 
 
 <%= link_to 'Edit', edit_service_path(@service) %> |
