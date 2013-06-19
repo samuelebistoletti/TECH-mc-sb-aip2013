@@ -16,6 +16,8 @@ class ProductsController < ApplicationController
   # GET /products/1.json
   def show
     @product = Product.find(params[:id])
+    @title = @product.name
+    @breadcrumb = '<a href=""><span class="current_crumb">Prodotti </span></a><a href="">' + @product.category + '</a><a href="">' + @product.name + '</a>'
 
     respond_to do |format|
       format.html # show.html.erb
