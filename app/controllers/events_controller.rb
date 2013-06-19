@@ -2,6 +2,8 @@ class EventsController < ApplicationController
   # GET /events
   # GET /events.json
   def index
+    @title = 'I nostri eventi'
+    @breadcrumb = '<span class="current_crumb">Eventi </span>'
     @events = Event.all
 
     respond_to do |format|

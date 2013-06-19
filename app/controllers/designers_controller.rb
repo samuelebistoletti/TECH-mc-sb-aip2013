@@ -2,6 +2,8 @@ class DesignersController < ApplicationController
   # GET /designers
   # GET /designers.json
   def index
+    @title = 'I nostri designers'
+    @breadcrumb = '<span class="current_crumb">Designers </span>'
     @designers = Designer.all
 
     respond_to do |format|

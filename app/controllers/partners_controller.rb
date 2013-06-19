@@ -2,6 +2,8 @@ class PartnersController < ApplicationController
   # GET /partners
   # GET /partners.json
   def index
+    @title = 'I nostri partners'
+    @breadcrumb = '<span class="current_crumb">Partners </span>'
     @partners = Partner.all
 
     respond_to do |format|

@@ -2,6 +2,8 @@ class ProductsController < ApplicationController
   # GET /products
   # GET /products.json
   def index
+    @title = 'Categorie di prodotti'
+    @breadcrumb = '<span class="current_crumb">Prodotti </span>'
     @products = Product.all
 
     respond_to do |format|

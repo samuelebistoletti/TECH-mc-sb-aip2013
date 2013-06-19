@@ -2,6 +2,8 @@ class ServicesController < ApplicationController
   # GET /services
   # GET /services.json
   def index
+    @title = 'I nostri servizi'
+    @breadcrumb = '<span class="current_crumb">Servizi </span>'
     @services = Service.all
 
     respond_to do |format|

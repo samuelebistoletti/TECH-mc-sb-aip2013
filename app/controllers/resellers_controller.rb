@@ -2,6 +2,8 @@ class ResellersController < ApplicationController
   # GET /resellers
   # GET /resellers.json
   def index
+    @title = 'I nostri rivenditori'
+    @breadcrumb = '<span class="current_crumb">Rivenditori </span>'
     @resellers = Reseller.all
 
     respond_to do |format|
