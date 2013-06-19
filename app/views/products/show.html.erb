@@ -1,21 +1,62 @@
 <p id="notice"><%= notice %></p>
 
-<%= image_tag "products/" + @product.image_url, :style => "float: right; width: 200px;" %>
+<div class="main-holder">
+  <div id="content">
 
-<p>
-  <b>Title:</b>
-  <%= @product.name %>
-</p>
+    <div class="post-3215 product type-product status-publish hentry">
 
-<p>
-  <b>Description:</b>
-  <%= @product.description %>
-</p>
+      <div class="images">
 
-<p>
-  <b>Image:</b>
-  <%= @product.image_url %>
-</p>
+        <a itemprop="image" href="" class="zoom" rel="thumbnails" title="laptop-2"><%= image_tag "products/" + @product.image_url, :style => 'width: 300px;', :class => 'attachment-shop_single wp-post-image' %></a>
+        <div class="thumbnails"></div>
+      </div>
 
-<%= link_to 'Edit', edit_product_path(@product) %> |
-<%= link_to 'Back', products_path %>
+      <div class="summary">
+
+        <h1 itemprop="name" class="product_title entry-title"><%= @product.name %></h1>
+
+      <div itemprop="description">
+        <p><%= @product.description %></p>
+      </div>
+
+
+        <div class="product_meta">
+
+
+          <span class="posted_in">Categoria: <a href=""><%= @product.category %></a></span>
+
+        </div>
+
+      </div><!-- .summary -->
+
+      <div class="woocommerce_tabs">
+        <ul class="tabs">
+          <li class="description_tab active"><a href="#tab-description">Specifiche tecniche</a></li>
+        </ul>
+        <div class="panel entry-content" id="tab-description" style="display: block;">
+
+          <p><%= @product.specifications %></p>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+  <div id="sidebar" class="right_sidebar"><div class="sidebar-widget widget_shopping_cart"><h3>Shopping Cart</h3><!--mfunc woocommerce_mini_cart() --><ul class="cart_list product_list_widget ">
+
+
+    <li class="empty">No products in the cart.</li>
+
+
+  </ul><!-- end product list -->
+
+    <!--/mfunc--></div><div class="sidebar-widget widget_product_categories"><h3>Product Categories</h3><ul class="product-categories"><li class="cat-item cat-item-43"><a href="http://themes.truethemes.net/Karma/product-category/tablets">Tablets</a></li>
+    <li class="cat-item cat-item-42"><a href="http://themes.truethemes.net/Karma/product-category/speakers">Speakers</a></li>
+    <li class="cat-item cat-item-41 current-cat"><a href="http://themes.truethemes.net/Karma/product-category/computers">Computers</a></li>
+    <li class="cat-item cat-item-40"><a href="http://themes.truethemes.net/Karma/product-category/audio">Audio</a></li>
+  </ul></div></div><!-- END .right_sidebar-->
+
+</div>
