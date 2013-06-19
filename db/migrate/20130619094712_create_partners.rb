@@ -3,8 +3,8 @@ class CreatePartners < ActiveRecord::Migration
     create_table :partners do |t|
       t.string :name
       t.string :description
-      t.string :image_url
       t.string :external_link
+      t.string :image_url
 
       t.timestamps
     end

@@ -3,11 +3,11 @@
 one:
   name: MyString
   description: MyString
-  image_url: MyString
   external_link: MyString
+  image_url: MyString
 
 two:
   name: MyString
   description: MyString
-  image_url: MyString
   external_link: MyString
+  image_url: MyString

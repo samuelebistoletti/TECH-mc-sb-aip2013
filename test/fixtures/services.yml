@@ -4,10 +4,12 @@ one:
   name: MyString
   description: MyString
   procedure: MyString
+  image_url: MyString
   type: 1
 
 two:
   name: MyString
   description: MyString
   procedure: MyString
+  image_url: MyString
   type: 1

@@ -1,4 +1,19 @@
 TECHMcSbAip2013::Application.routes.draw do
+  resources :partners
+
+
+  resources :services
+
+
+  resources :resellers
+
+
+  resources :events
+
+
+  resources :designers
+
+
   get 'admin/products'
 
   get 'admin/index'
