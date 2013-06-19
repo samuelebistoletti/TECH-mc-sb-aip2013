@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  name: MyString
+  description: MyString
+  date: 2013-06-19 11:33:53
+
+two:
+  name: MyString
+  description: MyString
+  date: 2013-06-19 11:33:53
