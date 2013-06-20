@@ -6,7 +6,7 @@
     <div class="modern_img_frame modern_four_col_large">
 
       <div class="modern_preload_four_col_large preload">
-        <a href="" class="attachment-fadeIn" data-gal="prettyPhoto[gal]"><%= image_tag "products/" + product.image_url, :style => 'width: 190px; height: 111px;' %></a></div><!-- END preload -->
+        <a href="<%= product_path(product.id) %>" class="attachment-fadeIn"><%= image_tag "products/" + product.image_url, :style => 'width: 190px; height: 111px;' %></a></div><!-- END preload -->
     </div><!-- END modern_frame -->
 
 

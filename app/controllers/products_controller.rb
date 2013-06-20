@@ -17,7 +17,8 @@ class ProductsController < ApplicationController
   def show
     @product = Product.find(params[:id])
     @title = @product.name
-    @breadcrumb = '<a href="">Prodotti</a><a href="">' + @product.category + '</a><a href=""><span class="current_crumb">' + @product.name + '</span></a>'
+    @category = @product.category
+    @breadcrumb = '<a href="' + categories_path + '">Prodotti</a><a href="' + category_path(@category.id) + '">' + @category.name + '</a><span class="current_crumb">' + @product.name + '</span>'
 
     respond_to do |format|
       format.html # show.html.erb

@@ -57,12 +57,12 @@ Service.create([{name: 'Trasporto',
                ])
 
 Category.delete_all
-Category.create([{name: 'Mobili giorno'},
-                {name: 'Mobili bagno'},
-                {name: 'Divani e poltrone'},
-                {name: 'Cucine'},
-                {name: 'Tavoli'},
-                {name: 'Sedie'},
-                {name: 'Letti'},
-                {name: 'Armadi'}
+Category.create([{name: 'Mobili giorno', image_url: 'giorno.jpg'},
+                {name: 'Mobili bagno',image_url: 'bagno.jpg'},
+                {name: 'Divani e poltrone', image_url: 'divano.jpg'},
+                {name: 'Cucine', image_url: 'cucina.jpg'},
+                {name: 'Tavoli', image_url: 'tavolo.jpg'},
+                {name: 'Sedie', image_url: 'sedia.jpg'},
+                {name: 'Letti', image_url: 'letto.jpg'},
+                {name: 'Armadi', image_url: 'armadio.jpg'}
                ])
