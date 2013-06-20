@@ -1,4 +1,7 @@
 TECHMcSbAip2013::Application.routes.draw do
+  resources :contacts
+
+
   get "about_us/tradition"
 
   get "about_us/company"

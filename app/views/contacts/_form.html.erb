@@ -1,0 +1,35 @@
+<%= form_for @contact, :html => {:class => "contact-form commentsblock"} do |f| %>
+  <% if @contact.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@contact.errors.count, "error") %> prohibited this contact from being saved:</h2>
+
+      <ul>
+      <% @contact.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <label for="name" class="name">Name <span>(required)</span></label>
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <label for="surname" class="surname">Surname <span>(required)</span></label>
+    <%= f.text_field :surname %>
+  </div>
+  <div class="field">
+    <label for="email" class="email">Email <span>(required)</span></label>
+    <%= f.text_field :email %>
+  </div>
+  <div class="field">
+    <label for="message" class="message">Message <span>(required)</span></label>
+    <%= f.text_area :message %>
+  </div>
+  <div class="actions">
+    <p class='contact-submit'>
+        <%= f.submit 'Invia', :class => 'ka-form-submit' %>
+    </p>
+  </div>
+<% end %>
