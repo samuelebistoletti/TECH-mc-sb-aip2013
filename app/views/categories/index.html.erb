@@ -1,9 +1,9 @@
 <div id="content" class="content_full_width portfolio_layout">
 
-  <% @i = 0
+  <% i = 0
      @categories.each do |category| %>
-      <% @i = @i+1
-         if(@i%4!=0) %>
+      <% i = i+1
+         if(i%4!=0) %>
       <div class="one_fourth">
       <% else %>
       <div class="one_fourth_last">
@@ -11,7 +11,8 @@
         <div class="modern_img_frame modern_four_col_large">
 
           <div class="modern_preload_four_col_large preload">
-            <a href="<%= category_path(category.id) %>" class="attachment-fadeIn"><%= image_tag "products/" + category.image_url, :style => 'width: 190px; height: 111px;' %></a></div><!-- END preload -->
+            <a href="<%= category_path(category) %>" class="attachment-fadeIn"><%= image_tag "products/" + category.image_url, :style => 'width: 190px; height: 111px;' %></a>
+          </div><!-- END preload -->
         </div><!-- END modern_frame -->
 
 

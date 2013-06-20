@@ -1,27 +1,41 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <b>Name:</b>
-  <%= @service.name %>
-</p>
+<div class="main-holder">
+  <div id="content">
 
-<p>
-  <b>Description:</b>
-  <%= @service.description %>
-</p>
+    <div class="post-3215 product type-product status-publish hentry">
 
-<p>
-  <b>Procedure:</b>
-  <%= @service.procedure %>
-</p>
+      <div class="images">
 
-<p>
-<div class="images">
+        <%= image_tag "services/" + @service.image_url, :style => 'width: 300px;', :class => 'attachment-shop_single wp-post-image' %>
+        <div class="thumbnails"></div>
+      </div>
 
-  <%= image_tag "services/" + @service.image_url, :style => 'width: 300px;', :class => 'attachment-shop_single wp-post-image' %>
-  <div class="thumbnails"></div>
+      <div class="summary">
+
+        <h1 itemprop="name" class="product_title entry-title"><%= @service.name %></h1>
+
+        <div itemprop="description">
+          <p><%= @service.description %></p>
+        </div>
+
+      </div><!-- .summary -->
+
+      <div class="woocommerce_tabs">
+        <ul class="tabs" style="margin:0;">
+          <li class="description_tab active"><a href="#tab-description">Modalità</a></li>
+        </ul>
+        <div class="panel entry-content" id="tab-description" style="display: block;">
+
+          <p><%= raw(@service.procedure) %></p>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
 </div>
 
-
-<%= link_to 'Edit', edit_service_path(@service) %> |
 <%= link_to 'Back', services_path %>

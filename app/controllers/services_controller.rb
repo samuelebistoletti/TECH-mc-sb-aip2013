@@ -3,7 +3,7 @@ class ServicesController < ApplicationController
   # GET /services.json
   def index
     @title = 'I nostri servizi'
-    @breadcrumb = '<span class="current_crumb">Servizi </span>'
+    @breadcrumb = '<span class="current_crumb">Servizi</span>'
     @generalServices = Service.find_all_by_service_type(0)
     @specificServices = Service.find_all_by_service_type(1)
 
@@ -16,6 +16,9 @@ class ServicesController < ApplicationController
   # GET /services/1
   # GET /services/1.json
   def show
+    @service = Service.find(params[:id]);
+    @title = @service.name
+    @breadcrumb = '<a href=' + services_path + '>Servizi</a><span class="current_crumb">' + @service.name + '</span>'
     @service = Service.find(params[:id])
 
     respond_to do |format|

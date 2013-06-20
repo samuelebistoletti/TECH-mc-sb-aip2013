@@ -32,8 +32,8 @@ Service.create([{name: 'Trasporto',
                  service_type: 0},
 
                 {name: 'Riparazione',
-                 description: '',
-                 procedure: '',
+                 description: 'Per la riparazione di mobili e armadi di casa tua, con gli artigiani esperti di Home Furniture & Co., puoi ottenere velocemente una risposta sul tipo di intervento che si può fare e che conviene fare nel tuo caso e, per l\'esecuzione della riparazione, puoi contare sulla professionalità e sull\'esperienza di artigiani che da anni lavorano su mobili e armadi. Quindi velocità nella risposta alla tua prima chiamata, rapidità nell\'intervento cercando di fare in modo che sia unico o comunque concentrato in pochi giorni e qualità del lavoro di riparazione, sono le caratteristiche che vogliamo contraddistinguano il nostro lavoro.',
+                 procedure: 'Il servizio è disponibile previo contatto telefonico al numero riportato nella sezione contatti, oppure compilando apposito form. Sarete ricontattati e vi saranno fornite tutte le informazioni necessarie in base alla tipologia di prodotto da riparare.',
                  image_url: 'riparazione.jpg',
                  service_type: 0},
 
@@ -44,8 +44,8 @@ Service.create([{name: 'Trasporto',
                  service_type: 0},
 
                 {name: 'Montaggio e Installazione',
-                 description: '',
-                 procedure: '',
+                 description: 'L\'opzione prevede il montaggio e l\'installazione del prodotto acquistato, tutto il lavoro di manodopera sarà svolto dai nostri tecnici specializzati. Nel caso sia previsto dal prodotto acquistato, il servizio include anche l\'allacciamento all\'impianto elettrico, idrico o gas. Molti dei nostri prodotti possono essere acquistati con l\'opzione di montaggio e installazione, per avere un elenco completo dei servizi che possono essere applicati ad un determinato prodotto consultare il nostro catalogo on-line.',
+                 procedure: 'L\'opzione prevede il pagamento di un importo pari al 5% del valore totale della merce acquistata e può essere richiesta all\'atto della vendita.',
                  image_url: 'montaggio.jpg',
                  service_type: 1},
 
