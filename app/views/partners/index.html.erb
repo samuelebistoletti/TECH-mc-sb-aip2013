@@ -2,12 +2,8 @@
 
   <% i = 0
      @partners.each do |partner| %>
-      <% i = i+1
-         if(i%4!=0) %>
-          <div class="one_fourth">
-      <% else %>
-          <div class="one_fourth_last">
-      <% end %>
+      <% i = i+1 %>
+      <div class="one_fourth<% if(i%4==0) %>_last<% end %>">
       <div class="modern_img_frame modern_four_col_large">
 
         <div class="modern_preload_four_col_large">

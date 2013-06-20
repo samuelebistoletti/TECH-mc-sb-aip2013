@@ -2,12 +2,8 @@
 
   <% i = 0
      @events.each do |event| %>
-      <% i = i+1
-         if(i%3!=0) %>
-          <div class="one_third">
-      <% else %>
-          <div class="one_third_last">
-      <% end %>
+      <% i = i+1 %>
+      <div class="one_third<% if(i%3==0) %>_last<% end %>">
         <div class="modern_img_frame modern_portrait_thumb">
 
           <div class="modern_preload_portrait_thumb">
