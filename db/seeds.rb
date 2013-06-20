@@ -124,3 +124,15 @@ Event.create([{name: 'Salone Internazionale del Mobile',
                  location: '',
                  extra_notes: ''},
                ])
+
+Designer.delete_all
+Designer.reset_primary_key
+Designer.create([{name: 'Ichiro Iwasaki',
+                  description: 'Bla bla bla descrizione',
+                  image_url: 'ichiro.jpg'
+                 },
+                 {name: 'Dordoni',
+                  description: 'Bla bla bla descrizione',
+                  image_url: 'dordoni.jpg'
+                 }
+                ])

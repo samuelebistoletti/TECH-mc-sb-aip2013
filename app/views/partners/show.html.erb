@@ -20,6 +20,8 @@
   <%= @partner.image_url %>
 </p>
 
-
-<%= link_to 'Edit', edit_partner_path(@partner) %> |
-<%= link_to 'Back', partners_path %>
+<div class="center">
+  <% if(@previous) %><a href="<%= partner_path(@previous) %>" class="ka_button small_button small_tealgrey"><span>Partner precedente</span></a><% end %>
+  <a href="<%= partners_path %>" class="ka_button small_button small_tealgrey"><span>Vai all'elenco dei partners</span></a>
+  <% if(@next) %><a href="<%= partner_path(@next) %>" class="ka_button small_button small_tealgrey"><span>Partner successivo</span></a><% end %>
+</div>

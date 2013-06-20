@@ -31,6 +31,11 @@
 
   </div>
 </div>
-<br class="clear">
 
-<%= link_to 'Back', events_path %>
+<div class="clear"></div>
+
+<div class="center">
+  <% if(@previous) %><a href="<%= event_path(@previous) %>" class="ka_button small_button small_tealgrey"><span>Evento precedente</span></a><% end %>
+  <a href="<%= events_path %>" class="ka_button small_button small_tealgrey"><span>Vai all'elenco degli eventi</span></a>
+  <% if(@next) %><a href="<%= event_path(@next) %>" class="ka_button small_button small_tealgrey"><span>Evento successivo</span></a><% end %>
+</div>

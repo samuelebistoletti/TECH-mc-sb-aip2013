@@ -6,6 +6,7 @@ class ServicesController < ApplicationController
     @breadcrumb = '<span class="current_crumb">Servizi</span>'
     @generalServices = Service.find_all_by_service_type(0)
     @specificServices = Service.find_all_by_service_type(1)
+    @first = Service.first()
 
     respond_to do |format|
       format.html # index.html.erb
@@ -19,6 +20,8 @@ class ServicesController < ApplicationController
     @service = Service.find(params[:id])
     @title = @service.name
     @breadcrumb = '<a href=' + services_path + '>Servizi</a><span class="current_crumb">' + @service.name + '</span>'
+    @next = Service.first(:conditions => ['id > ?', params[:id]])
+    @previous = Service.last(:conditions => ['id < ?', params[:id]])
 
     respond_to do |format|
       format.html # show.html.erb

@@ -5,6 +5,7 @@ class DesignersController < ApplicationController
     @title = 'I nostri designers'
     @breadcrumb = '<span class="current_crumb">Designers </span>'
     @designers = Designer.all
+    @first = Designer.first()
 
     respond_to do |format|
       format.html # index.html.erb
@@ -16,7 +17,10 @@ class DesignersController < ApplicationController
   # GET /designers/1.json
   def show
     @designer = Designer.find(params[:id])
-
+    @title = @designer.name
+    @breadcrumb = '<a href="' + designers_path + '">Designers</a><span class="current_crumb">' + @designer.name + '</span>'
+    @next = Designer.first(:conditions => ['id > ?', params[:id]])
+    @previous = Designer.last(:conditions => ['id < ?', params[:id]])
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @designer }

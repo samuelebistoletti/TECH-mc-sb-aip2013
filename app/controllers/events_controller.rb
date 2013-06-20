@@ -5,6 +5,7 @@ class EventsController < ApplicationController
     @title = 'I nostri eventi'
     @breadcrumb = '<span class="current_crumb">Eventi</span>'
     @events = Event.all
+    @first = Event.first()
 
     respond_to do |format|
       format.html # index.html.erb
@@ -18,6 +19,8 @@ class EventsController < ApplicationController
     @event = Event.find(params[:id])
     @title = @event.name
     @breadcrumb = '<a href=' + events_path + '>Eventi</a><span class="current_crumb">' + @event.name + '</span>'
+    @next = Event.first(:conditions => ['id > ?', params[:id]])
+    @previous = Event.last(:conditions => ['id < ?', params[:id]])
 
     respond_to do |format|
       format.html # show.html.erb

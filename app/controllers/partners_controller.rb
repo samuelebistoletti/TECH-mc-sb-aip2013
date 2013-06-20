@@ -5,6 +5,7 @@ class PartnersController < ApplicationController
     @title = 'I nostri partners'
     @breadcrumb = '<span class="current_crumb">Partners </span>'
     @partners = Partner.all
+    @first = Partner.first()
 
     respond_to do |format|
       format.html # index.html.erb
@@ -16,6 +17,8 @@ class PartnersController < ApplicationController
   # GET /partners/1.json
   def show
     @partner = Partner.find(params[:id])
+    @next = Partner.first(:conditions => ['id > ?', params[:id]])
+    @previous = Partner.last(:conditions => ['id < ?', params[:id]])
 
     respond_to do |format|
       format.html # show.html.erb

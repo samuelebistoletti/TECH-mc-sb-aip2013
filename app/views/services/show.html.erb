@@ -1,7 +1,4 @@
-<p id="notice"><%= notice %></p>
-
-<div class="main-holder">
-  <div id="content">
+<div id="content">
 
     <div class="post-3215 product type-product status-publish hentry">
 
@@ -36,6 +33,11 @@
     </div>
 
   </div>
-</div>
 
-<%= link_to 'Back', services_path %>
+<div class="clear"></div>
+
+<div class="center">
+  <% if(@previous) %><a href="<%= service_path(@previous) %>" class="ka_button small_button small_tealgrey"><span>Servizio precedente</span></a><% end %>
+  <a href="<%= services_path %>" class="ka_button small_button small_tealgrey"><span>Vai all'elenco dei servizi</span></a>
+  <% if(@next) %><a href="<%= service_path(@next) %>" class="ka_button small_button small_tealgrey"><span>Servizio successivo</span></a><% end %>
+</div>

@@ -1,19 +1,30 @@
-<p id="notice"><%= notice %></p>
+<div id="content" class="content_full_width portfolio_layout">
 
-<% @events.each do |event| %>
-    <div class="post-3215 product type-product status-publish hentry">
-      <div class="images">
-        <a itemprop="image" href="<%= event_path(event) %>"><%= image_tag "events/" + event.image_url, :style => 'width: 180px;' %></a>
-      </div>
+  <% i = 0
+     @events.each do |event| %>
+      <% i = i+1
+         if(i%3!=0) %>
+          <div class="one_third">
+      <% else %>
+          <div class="one_third_last">
+      <% end %>
+        <div class="modern_img_frame modern_portrait_thumb">
 
-      <div class="summary">
-        <a href="<%= event_path(event) %>"><h1><%= event.name %></h1></a>
+          <div class="modern_preload_portrait_thumb">
+            <a href="<%= event_path(event) %>" class="attachment-fadeIn"><%= image_tag "events/" + event.image_url, :style => 'width: 275px; height: 335px;' %></a></div><!-- END preload -->
+        </div><!-- END modern_frame -->
 
-        <div itemprop="description">
-          <p><%= event.description %></p>
-        </div>
 
-      </div>
-    </div>
-    <br class="clear">
-<% end %>
+        <div class="portfolio_content">
+          <h3><%= event.name %></h3>
+        </div><!-- end portfolio_content -->
+
+      </div><!-- end one_fourth -->
+
+  <% end %>
+
+  <div class="clear"></div>
+  <div class="center">
+    <a href="<%= event_path(@first) %>" class="ka_button small_button small_tealgrey"><span>Scopri i nostri eventi</span></a>
+  </div>
+</div>

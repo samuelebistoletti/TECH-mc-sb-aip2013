@@ -1,15 +1,26 @@
-<p id="notice"><%= notice %></p>
+<div class="one_third_last">
+  <div class="modern_img_frame modern_portrait_thumb">
+    <div class="modern_preload_portrait_thumb preload">
+      <a href="assets/designers/<%= @designer.image_url %>" class="attachment-fadeIn" data-gal="prettyPhoto[gal]" title="" style="display: inline;"><img src="assets/_global/img-zoom-portrait-small.png" style="position: absolute; opacity: 0;"><img src="assets/designers/<%= @designer.image_url %>" width="275" height="355"></a></div><!-- END preload -->
+  </div><!-- END modern_frame -->
+</div>
 
 <p>
-  <b>Name:</b>
+
   <%= @designer.name %>
 </p>
-
 <p>
-  <b>Description:</b>
   <%= @designer.description %>
 </p>
 
+<div class="center">
+  <a href="#" class="ka_button small_button small_tealgrey"><span>Vai ai progetti di <%= @designer.name %></span></a>
+</div>
 
-<%= link_to 'Edit', edit_designer_path(@designer) %> |
-<%= link_to 'Back', designers_path %>
+<div class="clear"></div>
+
+<div class="center">
+  <% if(@previous) %><a href="<%= designer_path(@previous) %>" class="ka_button small_button small_tealgrey"><span>Designer precedente</span></a><% end %>
+  <a href="<%= designers_path %>" class="ka_button small_button small_tealgrey"><span>Vai all'elenco dei designers</span></a>
+  <% if(@next) %><a href="<%= designer_path(@next) %>" class="ka_button small_button small_tealgrey"><span>Designer successivo</span></a><% end %>
+</div>
