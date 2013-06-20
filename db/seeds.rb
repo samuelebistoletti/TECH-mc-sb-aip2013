@@ -100,3 +100,27 @@ Partner.create([{name: 'Unifor',
                  image_url: 'saporiti.jpg'},
 
                ])
+
+Event.delete_all
+Event.reset_primary_key
+Event.create([{name: 'Salone Internazionale del Mobile',
+                 description: 'L\'appuntamento con il prossimo Salone Internazionale del Mobile &egrave; per il 9 aprile 2014 presso la Zona Fiere di Rho. I Saloni 2013 Salone Internazionale del Mobile, Euroluce, SaloneUfficio, Salone Internazionale del Complemento d\'Arredo, SaloneSatellite',
+                 date: '09-04-2014',
+                 image_url: 'salone_mobile.jpg',
+                 location: 'Fiera Milano, Rho Ingressi: Porta Sud, Porta Est, Porta Ovest, Cargo 5 (solo SaloneSatellite)',
+                 extra_notes: 'Gli studenti possono visitare la fiera durante tutto il periodo di svolgimento. La tessera studenti valida 1 ingresso da Euro 18,00 pu&ograve; essere acquistata in fiera. Tessere per il pubblico, in vendita solo sabato e domenica presso la fiera.'},
+
+                {name: 'Sorarreda 2013',
+                 description: 'Veniteci a trovare alla Sorarreda 2013.',
+                 date: '20-04-2013',
+                 image_url: 'sorarreda.jpg',
+                 location: 'Via Barca S. Domenico, 1 - 03039 Sora (FR)',
+                 extra_notes: 'La Fiera di Sora si appresta a confermare il suo ruolo primario tra le rassegne fieristiche del centro sud. Noi guardiamo con fiducia al prossimo avvenire investendo sempre piu nella crisi che attanaglia il nostro paese da molto tempo. Vi partecipano importanti aziende provenienti da tutta Italia consapevoli di trovare a Sora sia uno strumento di penetrazione, soprattutto nelle zone interne del mezzogiorno, diversamente non raggiungibili, sia una valida opportunita commerciale e promozionale di prodotti che vogliono inserirsi in un mercato globale sempre piu competitivo'},
+
+                {name: 'Fiera della Casa 2013',
+                 description: 'Veniteci a trovare alla Fiera della Casa 2013 il 23 giugno 2013.',
+                 date: '23-06-2013',
+                 image_url: 'fiera-casa.jpg',
+                 location: '',
+                 extra_notes: ''},
+               ])

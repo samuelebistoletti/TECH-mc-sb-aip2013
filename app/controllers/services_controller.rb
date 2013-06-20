@@ -16,10 +16,9 @@ class ServicesController < ApplicationController
   # GET /services/1
   # GET /services/1.json
   def show
-    @service = Service.find(params[:id]);
+    @service = Service.find(params[:id])
     @title = @service.name
     @breadcrumb = '<a href=' + services_path + '>Servizi</a><span class="current_crumb">' + @service.name + '</span>'
-    @service = Service.find(params[:id])
 
     respond_to do |format|
       format.html # show.html.erb

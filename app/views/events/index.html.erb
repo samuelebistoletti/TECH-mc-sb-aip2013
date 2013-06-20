@@ -1,27 +1,19 @@
-<h1>Listing events</h1>
-
-<table>
-  <tr>
-    <th>Name</th>
-    <th>Description</th>
-    <th>Date</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
+<p id="notice"><%= notice %></p>
 
 <% @events.each do |event| %>
-  <tr>
-    <td><%= event.name %></td>
-    <td><%= event.description %></td>
-    <td><%= event.date %></td>
-    <td><%= link_to 'Show', event %></td>
-    <td><%= link_to 'Edit', edit_event_path(event) %></td>
-    <td><%= link_to 'Destroy', event, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-  </tr>
+    <div class="post-3215 product type-product status-publish hentry">
+      <div class="images">
+        <a itemprop="image" href="<%= event_path(event) %>"><%= image_tag "events/" + event.image_url, :style => 'width: 180px;' %></a>
+      </div>
+
+      <div class="summary">
+        <a href="<%= event_path(event) %>"><h1><%= event.name %></h1></a>
+
+        <div itemprop="description">
+          <p><%= event.description %></p>
+        </div>
+
+      </div>
+    </div>
+    <br class="clear">
 <% end %>
-</table>
-
-<br />
-
-<%= link_to 'New Event', new_event_path %>

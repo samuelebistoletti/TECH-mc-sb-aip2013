@@ -3,7 +3,7 @@ class EventsController < ApplicationController
   # GET /events.json
   def index
     @title = 'I nostri eventi'
-    @breadcrumb = '<span class="current_crumb">Eventi </span>'
+    @breadcrumb = '<span class="current_crumb">Eventi</span>'
     @events = Event.all
 
     respond_to do |format|
@@ -16,6 +16,8 @@ class EventsController < ApplicationController
   # GET /events/1.json
   def show
     @event = Event.find(params[:id])
+    @title = @event.name
+    @breadcrumb = '<a href=' + events_path + '>Eventi</a><span class="current_crumb">' + @event.name + '</span>'
 
     respond_to do |format|
       format.html # show.html.erb

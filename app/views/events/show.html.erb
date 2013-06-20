@@ -1,20 +1,46 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <b>Name:</b>
-  <%= @event.name %>
-</p>
+<div class="main-holder">
+  <div id="content">
+    <div class="post-3215 product type-product status-publish hentry">
+      <div class="images">
+        <%= image_tag "events/" + @event.image_url, :style => 'width: 300px;', :class => 'attachment-shop_single wp-post-image' %>
+        <div class="thumbnails"></div>
+      </div>
 
-<p>
-  <b>Description:</b>
-  <%= @event.description %>
-</p>
+      <div class="summary">
+        <h1 itemprop="name" class="product_title entry-title"><%= @event.name %></h1>
 
-<p>
-  <b>Date:</b>
-  <%= @event.date %>
-</p>
+        <div itemprop="description">
+          <p><%= @event.description %></p>
+        </div>
 
 
-<%= link_to 'Edit', edit_event_path(@event) %> |
+        <div class="product_meta">
+          <span class="posted_in">Data: <%= @event.date %></span><br/>
+          <span class="posted_in">Luogo: <%= @event.location %></span>
+
+        </div>
+
+      </div><!-- .summary -->
+
+      <div class="woocommerce_tabs">
+        <ul class="tabs" style="margin:0;">
+          <li class="description_tab active"><a href="#tab-description">Altre Informazioni</a></li>
+        </ul>
+        <div class="panel entry-content" id="tab-description" style="display: block;">
+
+          <p><%= raw(@event.extra_notes) %></p>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+
+</div>
+
 <%= link_to 'Back', events_path %>
