@@ -1,4 +1,4 @@
-<div id="content" class="content_full_width portfolio_layout">
+<div class="content_full_width portfolio_layout">
 
 <h2>I seguenti servizi sono disponibili per tutte le categorie di mobili.</h2>
 <% i = 0
@@ -24,7 +24,7 @@
     </div><!-- end one_fourth -->
 <% end %>
 
-</div>
+
 <br class="clear">
 
 <h2>I seguenti servizi sono disponibili per alcune categorie di mobili.</h2>
@@ -38,7 +38,7 @@
     <% end %>
 
     <div class="modern_img_frame modern_four_col_large">
-      <div class="modern_preload_four_col_large preload">
+      <div class="modern_preload_four_col_large">
         <a href="<%= service_path(service) %>" class="attachment-fadeIn"><%= image_tag "services/" + service.image_url, :style => 'width: 190px; height: 111px;' %></a>
       </div><!-- END preload -->
     </div><!-- END modern_frame -->
@@ -54,4 +54,5 @@
 </div>
 <br class="clear">
 
+</div>
 </div>

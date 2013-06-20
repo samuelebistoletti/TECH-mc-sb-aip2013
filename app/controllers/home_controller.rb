@@ -3,7 +3,7 @@ class HomeController < ApplicationController
   def index
     @title = 'Home'
     @breadcrumb = '<span class="current_crumb">Home </span>'
-    @products = Product.all
+    @products = Product.limit(10)
 
     respond_to do |format|
       format.html # index.html.erb

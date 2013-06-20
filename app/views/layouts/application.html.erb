@@ -72,7 +72,7 @@
       <div class="rays">
         <div class="header-area">
 
-          <a href="" class="logo"><%= image_tag 'logo.jpg', :style => "width: 200px;" %></a>
+          <a href="<%= home_path %>" class="logo"><%= image_tag 'logo.jpg', :class => 'rounded', :style => 'width: 180px;' %></a>
 
           <nav>
             <ul id="menu-main-nav">
@@ -103,7 +103,7 @@
 
 
           <h1><%= raw(@title) %></h1>
-
+          <!--
           <form method="get" action="http://themes.truethemes.net/Karma/" class="search-form">
             <fieldset>
 		<span class="text">
@@ -111,7 +111,8 @@
             <input type="submit" value="search" class="searchsubmit" />
 		</span>
             </fieldset>
-          </form><p class="breadcrumb"><%= raw(@breadcrumb) %></p>
+          </form>-->
+          <p class="breadcrumb"><%= raw(@breadcrumb) %></p>
 
         </div><!-- end frame -->
       </div><!-- end holder -->

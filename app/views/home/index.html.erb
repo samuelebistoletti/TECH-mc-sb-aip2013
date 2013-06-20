@@ -1,80 +1,25 @@
-<% @products.each do |product| %>
-    <li><%= product.name %></li>
-<% end %>
-
 <div class="home-bnr-jquery">
   <ul style="background-image: none; position: relative;">
-    <li class="jqslider" style="display: none; position: absolute; top: 0px; left: 0px; z-index: 4; opacity: 0; width: 940px; height: 283px;">
-
-
-      <div class="home-banner-main">
-        <h2>Responsive WordPress Theme</h2>    <p>Karma features an amazingly powerful administration panel. The extensive array of options combined with a familiar WordPress user interface make this the most usable options panel you’ve ever experienced. It also comes completely white label, so your clients will think you’re an absolute rockstar!</p>
-      </div><!-- end home-banner-main -->
-
-
-
-      <div class="home-banner-sub">
-        <div class="home-banner-sub-content">
-          <a href="http://themes.truethemes.net/Karma/features/administration-panel">	<img src="http://themes.truethemes.net/Karma/wp-content/themes/Karma/truethemes_framework/extended/timthumb/timthumb.php?src=http://s3.truethemes.net/theme-xml-content/wp-karma/powerful-premium-wordpress-theme1.jpg&amp;h=256&amp;w=404" width="404" height="256" alt="Responsive WordPress Theme">
-          </a>    <div class="home-banner-bottom">&nbsp;</div>
-        </div><!-- end home-banner-sub-content -->
-      </div><!-- end home-banner-sub -->
-
-    </li>
+    <% @products.each do |product| %>
 
     <li class="jqslider" style="display: none; position: absolute; top: 0px; left: 0px; z-index: 4; opacity: 0; width: 940px; height: 283px;">
 
-
       <div class="home-banner-main">
-        <h2>Amazing 3D Effects</h2>    <p>Karma is the only theme on the market to feature the all new CU3ER v1. With an endless array of 3D effects and a powerful administration panel, adding stunning 3D sliders to your website has never been so easy.</p>
+        <h2><%= product.name %></h2>    <p><%= product.description %></p>
       </div><!-- end home-banner-main -->
 
 
 
       <div class="home-banner-sub">
         <div class="home-banner-sub-content">
-          <a href="http://themes.truethemes.net/Karma/features/3d-effects">	<img src="http://themes.truethemes.net/Karma/wp-content/themes/Karma/truethemes_framework/extended/timthumb/timthumb.php?src=http://s3.truethemes.net/theme-xml-content/wp-karma/powerful-premium-wordpress-theme3.jpg&amp;h=256&amp;w=404" width="404" height="256" alt="Amazing 3D Effects">
+          <a href="<%= product_path(product) %>">	<%= image_tag 'products/' + product.image_url, :style => 'width: 404px; height: 256px;' %>
           </a>    <div class="home-banner-bottom">&nbsp;</div>
         </div><!-- end home-banner-sub-content -->
       </div><!-- end home-banner-sub -->
 
     </li>
 
-    <li class="jqslider" style="display: none; position: absolute; top: 0px; left: 0px; z-index: 4; opacity: 0; width: 940px; height: 283px;">
-
-
-      <div class="home-banner-main">
-        <h2>Powerful Shortcodes</h2>    <p>Karma comes packed with over 75 shortcodes. Create Multi-column layouts, Insert stylish buttons and Employ powerful interface tabs, all from within a simple point-and-click shortcode manager built directly into the WordPress visual editor.</p>
-      </div><!-- end home-banner-main -->
-
-
-
-      <div class="home-banner-sub">
-        <div class="home-banner-sub-content">
-          <a href="http://themes.truethemes.net/Karma/features/powerful-shortcodes">	<img src="http://themes.truethemes.net/Karma/wp-content/themes/Karma/truethemes_framework/extended/timthumb/timthumb.php?src=http://s3.truethemes.net/theme-xml-content/wp-karma/powerful-premium-wordpress-theme2.jpg&amp;h=256&amp;w=404" width="404" height="256" alt="Powerful Shortcodes">
-          </a>    <div class="home-banner-bottom">&nbsp;</div>
-        </div><!-- end home-banner-sub-content -->
-      </div><!-- end home-banner-sub -->
-
-    </li>
-
-    <li class="jqslider" style="display: block; position: absolute; top: 0px; left: 0px; z-index: 5; opacity: 1; width: 940px; height: 283px;">
-
-
-      <div class="home-banner-main">
-        <h2>Elegant Page Layouts</h2>    <p>Vertical Navigation? Horizontal Navigation? Left or Right Sidebar? This theme’s got you covered. Karma comes packed with an amazing array of 20 elegant page layouts, all with the ability to easily create an unlimited amount of sidebars.</p>
-      </div><!-- end home-banner-main -->
-
-
-
-      <div class="home-banner-sub">
-        <div class="home-banner-sub-content">
-          <a href="http://themes.truethemes.net/Karma/features/elegant-page-layouts">	<img src="http://themes.truethemes.net/Karma/wp-content/themes/Karma/truethemes_framework/extended/timthumb/timthumb.php?src=http://s3.truethemes.net/theme-xml-content/wp-karma/powerful-premium-wordpress-theme4.jpg&amp;h=256&amp;w=404" width="404" height="256" alt="Elegant Page Layouts">
-          </a>    <div class="home-banner-bottom">&nbsp;</div>
-        </div><!-- end home-banner-sub-content -->
-      </div><!-- end home-banner-sub -->
-
-    </li>
+    <% end %>
 
   </ul>
 </div>
@@ -90,7 +35,7 @@
         jQuery('.jqslider').css('display','block');
         jQuery('.home-bnr-jquery ul').after('<div class="jquery-pager">&nbsp;</div>').cycle({
             fx: 'fade',
-            timeout: '1000',
+            timeout: '3000',
             height: 'auto',
             pause: '',
             pager: '.jquery-pager',

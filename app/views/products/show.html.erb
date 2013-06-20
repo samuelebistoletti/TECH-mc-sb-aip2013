@@ -45,18 +45,16 @@
 
   </div>
 
-  <div id="sidebar" class="right_sidebar"><div class="sidebar-widget widget_shopping_cart"><h3>Shopping Cart</h3><!--mfunc woocommerce_mini_cart() --><ul class="cart_list product_list_widget ">
+  <div id="sidebar" class="right_sidebar">
+    <div class="sidebar-widget">
+      <% @images.each do |image| %>
+          <div class="modern_img_frame modern_four_col_large">
 
-
-    <li class="empty">No products in the cart.</li>
-
-
-  </ul><!-- end product list -->
-
-    <!--/mfunc--></div><div class="sidebar-widget widget_product_categories"><h3>Product Categories</h3><ul class="product-categories"><li class="cat-item cat-item-43"><a href="http://themes.truethemes.net/Karma/product-category/tablets">Tablets</a></li>
-    <li class="cat-item cat-item-42"><a href="http://themes.truethemes.net/Karma/product-category/speakers">Speakers</a></li>
-    <li class="cat-item cat-item-41 current-cat"><a href="http://themes.truethemes.net/Karma/product-category/computers">Computers</a></li>
-    <li class="cat-item cat-item-40"><a href="http://themes.truethemes.net/Karma/product-category/audio">Audio</a></li>
-  </ul></div></div><!-- END .right_sidebar-->
+            <div class="modern_preload_four_col_large preload">
+              <a href="assets/products/<%= image.image_url %>" class="attachment-fadeIn" data-gal="prettyPhoto[gal]" style="display: inline;"><img src="http://themes.truethemes.net/Karma/wp-content/themes/Karma/images/_global/img-zoom-4.png" style="position: absolute; opacity: 0;" alt="Flash Video"><%= image_tag 'products/' + image.image_url %></a></div><!-- END preload -->
+          </div>
+      <% end %>
+    </div>
+  </div>
 
 </div>
