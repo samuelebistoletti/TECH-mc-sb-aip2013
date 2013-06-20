@@ -12,7 +12,7 @@ Product.create([{name: 'Graduate',
                  image_url: 'armadio.jpg',
                  specifications: 'Piano di sostegno: alluminio anodizzato con bordo in multistrati<br/>Ripiani: alluminio anodizzato con bordo in multistrati<br/>Tiranti: acciaio inox</br>Portata massima delle librerie.<br/>Libreria L 2000 Kg 240<br/>Libreria L 3000 Kg 360<br/>Portata max. singolo ripiano Kg 25',
                  designer: '1',
-                 category: '1'
+                 category_id: '1'
                 },
 
                 {name: 'Landscape',
@@ -20,7 +20,7 @@ Product.create([{name: 'Graduate',
                  image_url: 'divano.jpg',
                  specifications: 'Interno struttura<br/>Telaio composto da legno massello di Abete e pannelli di particelle di legno, con cinghie elastiche.<br/><br/>Imbottitura struttura<br/>Poliuretano espanso ad alta portanza a densita variabile.<br/>Fodera in vellutino accoppiato.',
                  designer: '1',
-                 category: '3'
+                 category_id: '3'
                 }
                ])
 
