@@ -120,7 +120,7 @@ Event.create([{name: 'Salone Internazionale del Mobile',
                 {name: 'Fiera della Casa 2013',
                  description: 'Veniteci a trovare alla Fiera della Casa 2013 il 23 giugno 2013.',
                  date: '23-06-2013',
-                 image_url: 'fiera-casa.jpg',
+                 image_url: 'fiera_casa.jpg',
                  location: '',
                  extra_notes: ''},
                ])
