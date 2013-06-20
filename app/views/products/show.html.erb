@@ -1,7 +1,5 @@
-<p id="notice"><%= notice %></p>
 
-<div class="main-holder">
-  <div id="content">
+ <div id="content">
 
     <div class="post-3215 product type-product status-publish hentry">
 
@@ -32,13 +30,14 @@
       <div class="woocommerce_tabs">
         <ul class="tabs" style="margin:0;">
           <li class="description_tab active"><a href="#tab-description">Specifiche tecniche</a></li>
+          <li class="services_tab"><a href="#tab-services">Servizi disponibili</a></li>
         </ul>
         <div class="panel entry-content" id="tab-description" style="display: block;">
-
           <p><%= raw(@product.specifications) %></p>
-
         </div>
-
+        <div class="panel entry-content" id="tab-services" style="display: none;">
+          <p><%= raw(@product.specifications) %></p>
+        </div>
       </div>
 
     </div>
@@ -47,14 +46,16 @@
 
   <div id="sidebar" class="right_sidebar">
     <div class="sidebar-widget">
-      <% @images.each do |image| %>
+      <% if(@images.size==0) %>
+      <p>Spiacenti, per questo prodotto non sono disponibili altre immagini.</p>
+      <%   else
+         @images.each do |image| %>
           <div class="modern_img_frame modern_four_col_large">
 
             <div class="modern_preload_four_col_large preload">
-              <a href="assets/products/<%= image.image_url %>" class="attachment-fadeIn" data-gal="prettyPhoto[gal]" style="display: inline;"><img src="http://themes.truethemes.net/Karma/wp-content/themes/Karma/images/_global/img-zoom-4.png" style="position: absolute; opacity: 0;" alt="Flash Video"><%= image_tag 'products/' + image.image_url %></a></div><!-- END preload -->
+              <a href="assets/products/<%= image.image_url %>" class="attachment-fadeIn" data-gal="prettyPhoto[gal]" style="display: inline;"><img src="assets/_global/img-zoom-4.png" style="position: absolute; opacity: 0;"><%= image_tag 'products/' + image.image_url, :style => 'width: 190px; height: 111px;' %></a></div><!-- END preload -->
           </div>
-      <% end %>
+      <% end
+      end %>
     </div>
   </div>
-
-</div>
