@@ -1,20 +1,15 @@
-<div class="one_third">
-  <div class="modern_img_frame modern_portrait_thumb">
+<%= image_tag "resellers/" + @reseller.image_url, :class => 'bigicon one_third rounded' %>
 
-    <div class="modern_preload_portrait_thumb">
-      <a href="/assets/resellers/<%= @reseller.image_url %>" class="attachment-fadeIn" data-gal="prettyPhoto[gal]" style="display: inline;"><img src="/assets/events/<%= @reseller.image_url %>" style="width: 275px; height: 335px;"></a>
-    </div>
-  </div>
-
-</div>
-
-<div class="two_thirds_last">
+<div class="left two_thirds_last">
   <h1><%= @reseller.name %></h1><br>
   <p>Regione: <%= @reseller.region %></p>
-  <p>Provincia: <%= @reseller.province %></p><br>
-  <p>Indirizzo: <%= @reseller.address %></p><br>
+  <p>Provincia: <%= @reseller.province %></p>
+  <p>Indirizzo: <%= @reseller.address %></p>
   <p>Telefono: <%= @reseller.telephone %></p>
   <p>Email: <%= @reseller.email %></p>
 </div>
 
 <br class="clear">
+
+<a href="<%= "/resellers/?query=#{@query}" %>" class="ka_button small_button small_tealgrey"><span>Torna Ai Risultati Della Ricerca</span></a>
+<a href="<%= resellers_search_path %>" class="ka_button small_button small_tealgrey"><span>Nuova Ricerca</span></a>

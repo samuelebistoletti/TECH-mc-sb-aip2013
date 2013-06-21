@@ -21,7 +21,7 @@
 
 <% @reseller.each do |reseller| %>
   <tr>
-    <td><a href="<%= reseller_path(reseller) %>"><%= reseller.name %></a></td>
+    <td><a href="<%= reseller_path(reseller) + "?query=#{@query}" %>"><%= reseller.name %></a></td>
     <td><%= reseller.region %></td>
     <td><%= reseller.province %></td>
     <td><%= reseller.address %></td>
