@@ -11,23 +11,14 @@
 
 <% else %>
 
-<table>
-  <tr>
-    <th>Nome Rivenditore</th>
-    <th>Regione</th>
-    <th>Provincia</th>
-    <th>Indirizzo</th>
-  </tr>
-
 <% @reseller.each do |reseller| %>
-  <tr>
-    <td><a href="<%= reseller_path(reseller) + "?query=#{@query}" %>"><%= reseller.name %></a></td>
-    <td><%= reseller.region %></td>
-    <td><%= reseller.province %></td>
-    <td><%= reseller.address %></td>
-  </tr>
+  <ul class="list">
+    <li><a href="<%= reseller_path(reseller) + "?query=#{@query}" %>"><%= reseller.name %></a></li>
+    <li><%= reseller.region %></li>
+    <li><%= reseller.province %></li>
+    <li><%= reseller.address %></li>
+  </ul>
 <% end %>
-</table>
 
 <br>
 
