@@ -3,6 +3,8 @@ class ContactsController < ApplicationController
   # GET /contacts.json
   def index
     @contacts = Contact.all
+    @title = 'Contatti'
+    @breadcrumb = '<span class="current_crumb">Contatti</span>'
 
     respond_to do |format|
       format.html # index.html.erb
