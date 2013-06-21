@@ -35,8 +35,8 @@ Image.create([{product_id: '1', image_url: 'graduate1.jpg'},
 Service.delete_all
 Service.reset_primary_key
 Service.create([{name: 'Trasporto',
-                 description: '',
-                 procedure: '',
+                 description: 'Consegnamo dentro casa tua, nel locale di destinazione, entro il giorno successivo all’acquisto in molti Comuni limitrofi. Il servizio &egrave; attivo in tutti i comuni d\'italia.',
+                 procedure: 'Il servizio &egrave; disponibile previo contatto telefonico al numero riportato nella sezione contatti, oppure compilando apposito form.',
                  image_url: 'trasporto.jpg',
                  service_type: 0},
 
@@ -47,8 +47,8 @@ Service.create([{name: 'Trasporto',
                  service_type: 0},
 
                 {name: 'Ritiro e Smaltimento Usato',
-                 description: '',
-                 procedure: '',
+                 description: 'Noi siamo la risposta alle vostre esigenze. I nostri operai sono abili nello smontare velocemente i mobili e  nello smaltirli. Ma attenzione, non veniamo per raccogliere rifiuti e portarli alla discarica, né siamo specializzati o interessati ad occuparci di eventuali traslochi. La nostra specialit&agrave; &egrave; il ritiro dei mobili vecchi smaltire: veniamo a casa vostra, smontiamo se ce ne &egrave; bisogno e ce ne andiamo. Un intervento conveniente per chi non sa come comportarsi ed intende preservare la sua incolumit&agrave; e quella del suo appartamento.',
+                 procedure: 'Il servizio &egrave; disponibile previo contatto telefonico al numero riportato nella sezione contatti, oppure compilando apposito form.',
                  image_url: 'ritiro.jpg',
                  service_type: 0},
 
@@ -59,8 +59,8 @@ Service.create([{name: 'Trasporto',
                  service_type: 1},
 
                 {name: 'Personalizzazione Mobili su Misura',
-                 description: '',
-                 procedure: '',
+                 description: 'L’obiettivo ultimo di Home Furniture & Co. &egrave; quello di porsi come referente unico nei confronti del cliente per la realizzazione di una idea creativa, dalla fase di progettazione alla consegna e messa in opera del prodotto finito. In tal senso, Home Furniture & Co. offre una totale personalizzazione del prodotto, grazie alla flessibilit&agrave; della propria struttura produttiva e alla elevata esperienza del personale dipendente.L’azienda, inoltre, &egrave; orgogliosa di collaborare con i migliori artigiani e specialisti per garantire alla clientela la lavorazione di una ampia gamma di materiali, dai p&ugrave; tradizionali, come vetro e pelle, ai pi&ugrave; innovativi, come acciaio e leghe speciali, in modo da poter rispondere a qualsiasi esigenza.',
+                 procedure: 'Il servizio &egrave; disponibile previo contatto telefonico al numero riportato nella sezione contatti, oppure compilando apposito form.',
                  image_url: 'personalizzazione.jpg',
                  service_type: 1}
                ])
@@ -128,11 +128,11 @@ Event.create([{name: 'Salone Internazionale del Mobile',
 Designer.delete_all
 Designer.reset_primary_key
 Designer.create([{name: 'Ichiro Iwasaki',
-                  description: 'Bla bla bla descrizione',
+                  description: 'Product Designer, &egrave; nato a Tokyo nel 1965. Ha lavorato per il Sony Design Center, per poi trasferirsi in Italia. Al ritorno in Giappone, nel 1995 ha fondato Iwasaki Design Studio. Ha collaborato fin da subito con diversi clienti giapponesi e internazionali, per progetti di varia scala e tipologia. Ha ricevuto numerosi premi nazionali e internazionali, tra cui: German Design Award, IF Design Award, RedDot Design Award e il giapponese G-Mark Special Award. &Egrave; anche docente alla Tokyo University of the Arts e alla Tama Art University.',
                   image_url: 'ichiro.jpg'
                  },
-                 {name: 'Dordoni',
-                  description: 'Bla bla bla descrizione',
+                 {name: 'Dordoni Rodolfo',
+                  description: 'Rodolfo Dordoni &egrave; cortese ed elegante, come i suoi progetti, che vanno dalla direzione artistica all\'industrial design, dalle ristrutturazioni all\'allestimento di mostre e showroom.Dopo la laurea in Architettura al Politecnico di Milano nel 1979, Dordoni inizia a lavorare nel mondo del design. Si specializza nelle strategie d\'immagine, dal prodotto sino alla comunicazione. &Egrave; stato responsabile della direzione artistica di aziende come Artemide, per la collezione vetro, Cappellini, FontanaArte (per la collezione arredo), Foscarini, Minotti e Roda. Accanto alla sua passione per le strategie di comunicazione, Dordoni non ha mai smesso di disegnare mobili e oggetti d\'arredamento per grandi aziende italiane e straniere.',
                   image_url: 'dordoni.jpg'
                  }
                 ])
