@@ -16,6 +16,62 @@ Product.create([{name: 'Graduate',
                  category_id: 1
                 },
 
+                {name: 'Hemnes',
+                 description: 'Oggi le TV sono molto pi&ugrave; divertenti rispetto al passato. Giochi, film online e navigazione internet sono solo alcune delle possibilit&agrave; che offrono. A volte, per&ograve;, cavi, decoder, DVD e telecomandi sembrano impossessarsi di tutto il soggiorno. Ecco perch&egrave; i nostri mobili TV sono progettati per eliminare il caos e organizzare ogni cosa. Fanno spazio a tutto, hanno un pratico sistema per tenere in ordine i cavi e sono dotati di ante a vetro che non bloccano il segnale del telecomando. Non devi fare altro che rilassarti e goderti la tua TV, sia quando &egrave; accesa che quando &egrave; spenta!',
+                 image_url: 'hemnes.jpg',
+                 specifications: 'Piano di sostegno: alluminio anodizzato con bordo in multistrati<br/>Ripiani: alluminio anodizzato con bordo in multistrati<br/>Tiranti: acciaio inox',
+                 designer_id: 0,
+                 category_id: 1
+                },
+
+                {name: 'Godmorgon',
+                 description: 'Pensile a specchio, lucido grigio.',
+                 image_url: 'godmorgon.jpg',
+                 specifications: 'Maniglia e cerniere incluse. Sono inclusi 1 ripiano fisso e 5 regolabili, tre dei quali in vetro. Pareti di materiali diversi richiedono tipi diversi di accessori di fissaggio. Usa accessori di fissaggio (venduti a parte) adatti alle pareti della tua casa.',
+                 designer_id: 0,
+                 category_id: 2
+                },
+
+                {name: 'Bjorken',
+                 description: 'Specchio sia all\'esterno che all\'interno. I ripiani regolabili sono molto resistenti al calore e ai colpi e hanno un\'elevata capacit&agrave; di carico poich&egrave; sono in vetro temprato.',
+                 image_url: 'bjorken.jpg',
+                 specifications: 'Cornice dell\'anta: Betulla massiccia, Vernice acrilica, trasparente. Pannello dell\'anta: Vetro. Ripiano: Vetro tempratoPannello di fondo: Fibra di legno, Lacca acrilica',
+                 designer_id: 0,
+                 category_id: 2
+                },
+
+                {name: 'Lillangen',
+                 description: 'Mobile a specchio con 2 ante, bianco.',
+                 image_url: 'bagno.jpg',
+                 specifications: 'Anta: Truciolare, Plastica ABS, Lamina Specchio: Vetro Parti principali: Truciolare, Lamina, Plastica ABS Pannello: Fibra di legno, Lamina Lista: Acciaio, Rivestimento a polvere, pigmentato Ripiano: Vetro temprato',
+                 designer_id: 0,
+                 category_id: 2
+                },
+
+                {name: 'Klobo',
+                 description: 'Divano a 2 posti, Lussebo naturale',
+                 image_url: 'klobo.jpg',
+                 specifications: 'Composizione totale: 100% cotone Struttura: Truciolare, Acciaio, Fibra di legno Piede: Plastica propilenica Molle a zig-zag: Acciaio Tela di protezione: Tessuto non tessuto di polipropilene',
+                 designer_id: 0,
+                 category_id: 3
+                },
+
+                {name: 'Faktum',
+                 description: 'Mobile/ripiano/2 ante, Nexus impiallacciatura di betulla',
+                 image_url: 'faktum.jpg',
+                 specifications: 'Pareti di materiali diversi richiedono tipi diversi di accessori di fissaggio. Usa accessori di fissaggio (venduti a parte) adatti alle pareti della tua casa. La cerniera &egrave; regolabile in altezza, in profondit&agrave; e lateralmente. Le gambe vengono vendute a parte. Da completare con maniglie o pomelli. Coordinabile con l\'ammortizzatore per le cerniere INTEGRAL, per garantire una chiusura lenta e silenziosa dell\'anta.',
+                 designer_id: 0,
+                 category_id: 4
+                },
+
+                {name: 'Perfekt',
+                 description: 'Mobile alto con ante scorrevoli, Nexus impiallacciatura di betulla',
+                 image_url: 'perfekt.jpg',
+                 specifications: 'Pareti di materiali diversi richiedono tipi diversi di accessori di fissaggio. Usa accessori di fissaggio (venduti a parte) adatti alle pareti della tua casa.Le gambe vengono vendute a parte.',
+                 designer_id: 0,
+                 category_id: 4
+                },
+
                 {name: 'Landscape',
                  description: 'Serie di imbottiti fissi e componibili caratterizzati dalla seduta sporgente rispetto alla struttura. Questo aspetto si evidenzia maggiormente nelle composizioni, quando elemento termin',
                  image_url: 'divano.jpg',
@@ -23,6 +79,8 @@ Product.create([{name: 'Graduate',
                  designer_id: 1,
                  category_id: 3
                 }
+
+
                ])
 
 Image.delete_all
@@ -35,7 +93,7 @@ Image.create([{product_id: '1', image_url: 'graduate1.jpg'},
 Service.delete_all
 Service.reset_primary_key
 Service.create([{name: 'Trasporto',
-                 description: 'Consegnamo dentro casa tua, nel locale di destinazione, entro il giorno successivo all’acquisto in molti Comuni limitrofi. Il servizio &egrave; attivo in tutti i comuni d\'italia.',
+                 description: 'Consegnamo dentro casa tua, nel locale di destinazione, entro il giorno successivo all\'acquisto in molti Comuni limitrofi. Il servizio &egrave; attivo in tutti i comuni d\'italia.',
                  procedure: 'Il servizio &egrave; disponibile previo contatto telefonico al numero riportato nella sezione contatti, oppure compilando apposito form.',
                  image_url: 'trasporto.jpg',
                  service_type: 0},
@@ -47,7 +105,7 @@ Service.create([{name: 'Trasporto',
                  service_type: 0},
 
                 {name: 'Ritiro e Smaltimento Usato',
-                 description: 'Noi siamo la risposta alle vostre esigenze. I nostri operai sono abili nello smontare velocemente i mobili e  nello smaltirli. Ma attenzione, non veniamo per raccogliere rifiuti e portarli alla discarica, né siamo specializzati o interessati ad occuparci di eventuali traslochi. La nostra specialit&agrave; &egrave; il ritiro dei mobili vecchi smaltire: veniamo a casa vostra, smontiamo se ce ne &egrave; bisogno e ce ne andiamo. Un intervento conveniente per chi non sa come comportarsi ed intende preservare la sua incolumit&agrave; e quella del suo appartamento.',
+                 description: 'Noi siamo la risposta alle vostre esigenze. I nostri operai sono abili nello smontare velocemente i mobili e  nello smaltirli. Ma attenzione, non veniamo per raccogliere rifiuti e portarli alla discarica, n&egrave; siamo specializzati o interessati ad occuparci di eventuali traslochi. La nostra specialit&agrave; &egrave; il ritiro dei mobili vecchi smaltire: veniamo a casa vostra, smontiamo se ce ne &egrave; bisogno e ce ne andiamo. Un intervento conveniente per chi non sa come comportarsi ed intende preservare la sua incolumit&agrave; e quella del suo appartamento.',
                  procedure: 'Il servizio &egrave; disponibile previo contatto telefonico al numero riportato nella sezione contatti, oppure compilando apposito form.',
                  image_url: 'ritiro.jpg',
                  service_type: 0},
@@ -59,7 +117,7 @@ Service.create([{name: 'Trasporto',
                  service_type: 1},
 
                 {name: 'Personalizzazione Mobili su Misura',
-                 description: 'L’obiettivo ultimo di Home Furniture & Co. &egrave; quello di porsi come referente unico nei confronti del cliente per la realizzazione di una idea creativa, dalla fase di progettazione alla consegna e messa in opera del prodotto finito. In tal senso, Home Furniture & Co. offre una totale personalizzazione del prodotto, grazie alla flessibilit&agrave; della propria struttura produttiva e alla elevata esperienza del personale dipendente.L’azienda, inoltre, &egrave; orgogliosa di collaborare con i migliori artigiani e specialisti per garantire alla clientela la lavorazione di una ampia gamma di materiali, dai p&ugrave; tradizionali, come vetro e pelle, ai pi&ugrave; innovativi, come acciaio e leghe speciali, in modo da poter rispondere a qualsiasi esigenza.',
+                 description: 'L\'obiettivo ultimo di Home Furniture & Co. &egrave; quello di porsi come referente unico nei confronti del cliente per la realizzazione di una idea creativa, dalla fase di progettazione alla consegna e messa in opera del prodotto finito. In tal senso, Home Furniture & Co. offre una totale personalizzazione del prodotto, grazie alla flessibilit&agrave; della propria struttura produttiva e alla elevata esperienza del personale dipendente.L\'azienda, inoltre, &egrave; orgogliosa di collaborare con i migliori artigiani e specialisti per garantire alla clientela la lavorazione di una ampia gamma di materiali, dai p&ugrave; tradizionali, come vetro e pelle, ai pi&ugrave; innovativi, come acciaio e leghe speciali, in modo da poter rispondere a qualsiasi esigenza.',
                  procedure: 'Il servizio &egrave; disponibile previo contatto telefonico al numero riportato nella sezione contatti, oppure compilando apposito form.',
                  image_url: 'personalizzazione.jpg',
                  service_type: 1}
@@ -80,17 +138,17 @@ Category.create([{name: 'Mobili giorno', image_url: 'giorno.jpg'},
 Partner.delete_all
 Partner.reset_primary_key
 Partner.create([{name: 'Unifor',
-                 description: '',
+                 description: 'Industria e laboratorio. Ricerca, innovazione e grande flessibilit&agrave; produttiva. Luogo del progetto e della produzione, dove, processi di lavorazione avanzati, sperimentazione e costante controllo dei livelli qualitativi, convivono con il sapere artigianale e la capacit&agrave; di adattamento alle esigenze del committente.Prodotti di serie e lavori su disegno. Grandi quantitativi e forniture personalizzate. Servizi integrati di progettazione, assistenza, montaggio, realizzazione integrale. Costi competitivi e posizionamento stabile nel mercato.Presenza prevalente a livello internazionale e specializzazione nell\'ambito dei grandi interventi.',
                  external_link: 'http://www.unifor.it/',
                  image_url: 'unifor.jpg'},
 
                 {name: 'Dada',
-                 description: '',
+                 description: 'Dada, azienda appartenente al Gruppo Molteni dal 1979, &egrave; un\'azienda italiana di mobili da cucina di alta gamma. Tra i designer che hanno collaborato con l\'azienda: Michele De Lucchi, Norman Foster, Ferruccio Laviani, Dante Bonuccelli, Studio Cerri & Associati, Luca Meda. Dada ha ricevuto segnalazioni e premi internazionali nel corso degli anni, in particolare la Segnalazione Premio Compasso d\'Oro 1987 per il pensile Futura e Segnalazione Premio Compasso d\'Oro 2004 per la cucina Nomis.',
                  external_link: 'http://www.dadaweb.it/',
                  image_url: 'dada.jpg'},
 
                 {name: 'Molteni & C.',
-                 description: '',
+                 description: 'Molteni&C &egrave; un\'azienda di avanzata tecnologia e antica tradizione. Dagli anni 70 ha sviluppato la ricerca nel settore dei mobili componibili, elaborando soluzioni adatte a tutti gli ambienti della casa. I suoi sistemi, come 505, Gliss5th e Pass, sono progetti di grande successo e in costante evoluzione. Dagli anni \'80 Molteni&C ha proposto una collezione di mobili singoli capaci d\'articolare con i sistemi una casa elegante e funzionale. Dalle tipologie legate alla memoria collettiva dell\'abitare, con Aldo Rossi, si &egrave; giunti negli anni 90 ai mobili disegnati da Jean Nouvel, dove l\'essenzialit&agrave; si fonde con un contenuto tecnologico avanzato. Nel 2004 &egrave; stata creata una specifica "Divisione Imbottiti" che opera sulla base di una forte spinta all\'innovazione di prodotto, affiancata da un controllo di tutte le attivit&agrave; produttive e da un\'attenta ricerca nel settore dei materiali e rivestimenti. Gli arredi Molteni incorporano la sapienza di una lunga tradizione artigianale insieme a un\'innovativa qualit&agrave; tecnologica, utile ma non ostentata. A proposito di Molteni si parla di qualit&agrave; nascosta, la qualit&agrave; tecnica, funzionale, dei materiali, presente ma spesso invisibile nei suoi mobili.',
                  external_link: 'http://molteni.it/',
                  image_url: 'molteni.jpg'},
 
@@ -98,7 +156,6 @@ Partner.create([{name: 'Unifor',
                  description: 'Saporiti Italia is one of the leading Italian interior design and furniture companies.<br>Since 1950, the Saporiti Italia Group setsup furnishing collections for home, office and public spaces.<br>The Saporiti products have always been distinguished by avant-garde design, advanced technology and the exclusivity of their matrrials and details.<br/>These products, designed by some of the most important architects of the world,have been exhibited in the most prestigious design and art museums.',
                  external_link: 'http://www.saporiti.com/',
                  image_url: 'saporiti.jpg'},
-
                ])
 
 Event.delete_all
