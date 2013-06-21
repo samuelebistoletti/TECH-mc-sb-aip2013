@@ -20,7 +20,8 @@ class ProductsController < ApplicationController
     @title = @product.name
     @category = Category.find(@product.category_id)
     @breadcrumb = '<a href="' + categories_path + '">Prodotti</a><a href="' + category_path(@category.id) + '">' + @category.name + '</a><span class="current_crumb">' + @product.name + '</span>'
-
+    @services = Service.find_all_by_service_type(0) + @product.services
+    @designer = @product.designer
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @product }

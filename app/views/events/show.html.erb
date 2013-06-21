@@ -1,36 +1,33 @@
-<p id="notice"><%= notice %></p>
+<div class="one_third">
+  <div class="modern_img_frame modern_portrait_thumb">
 
-<div id="content">
-  <div class="post-3215 product type-product status-publish hentry">
-    <div class="images">
-      <%= image_tag "events/" + @event.image_url, :style => 'width: 300px;', :class => 'attachment-shop_single wp-post-image' %>
-      <div class="thumbnails"></div>
+    <div class="modern_preload_portrait_thumb">
+      <a href="/assets/events/<%= @event.image_url %>" class="attachment-fadeIn" data-gal="prettyPhoto[gal]" style="display: inline;"><img src="/assets/events/<%= @event.image_url %>" style="width: 275px; height: 335px;"></a>
     </div>
-
-    <div class="summary">
-      <h1 itemprop="name" class="product_title entry-title"><%= @event.name %></h1>
-
-      <div itemprop="description">
-        <p><%= @event.description %></p>
-      </div>
-
-      <div class="product_meta">
-        <span class="posted_in">Data: <%= @event.date %></span><br/>
-        <span class="posted_in">Luogo: <%= @event.location %></span>
-      </div>
-    </div><!-- .summary -->
-
-    <div class="woocommerce_tabs">
-      <ul class="tabs" style="margin:0;">
-        <li class="description_tab active"><a href="#tab-description">Altre Informazioni</a></li>
-      </ul>
-      <div class="panel entry-content" id="tab-description" style="display: block;">
-        <p><%= raw(@event.extra_notes) %></p>
-      </div>
-    </div>
-
   </div>
+
 </div>
+
+<div class="two_thirds_last">
+  <h1><%= @event.name %></h1>
+  <p><%= @event.description %></p>
+  <ul class="list">
+    <li><span class="bold">Data:</span> <%= @event.date %></li>
+    <li><span class="bold">Luogo:</span> <%= @event.location %></li>
+  </ul>
+
+  <div class="tabs-area ui-tabs ui-widget ui-widget-content ui-corner-all"><ul class="center tabset ui-tabs-nav ui-helper-reset ui-helper-clearfix ui-widget-header ui-corner-all"><li class="ui-state-default ui-corner-top ui-tabs-selected ui-state-active"><a href="#tab-" class="tab"><span>Ulteriori informazioni</span></a></li></ul>
+    <div id="tab-" class="tab-box ui-tabs-panel ui-widget-content ui-corner-bottom" style="">
+      <p><%= raw(@event.extra_notes) %></p>
+      <br class="clear">
+    </div>
+  </div>
+
+</div>
+
+<br class="clear">
+
+
 
 <div class="clear"></div>
 

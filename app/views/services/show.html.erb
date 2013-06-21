@@ -1,40 +1,20 @@
-<div id="content">
+<%= image_tag "services/" + @service.image_url, :class => 'bigicon one_third rounded' %>
 
-    <div class="post-3215 product type-product status-publish hentry">
-
-      <div class="images">
-
-        <%= image_tag "services/" + @service.image_url, :style => 'width: 300px;', :class => 'attachment-shop_single wp-post-image' %>
-        <div class="thumbnails"></div>
-      </div>
-
-      <div class="summary">
-
-        <h1 itemprop="name" class="product_title entry-title"><%= @service.name %></h1>
-
-        <div itemprop="description">
-          <p><%= @service.description %></p>
-        </div>
-
-      </div><!-- .summary -->
-
-      <div class="woocommerce_tabs">
-        <ul class="tabs" style="margin:0;">
-          <li class="description_tab active"><a href="#tab-description">Modalità</a></li>
-        </ul>
-        <div class="panel entry-content" id="tab-description" style="display: block;">
-
-          <p><%= raw(@service.procedure) %></p>
-
-        </div>
-
-      </div>
-
-    </div>
-
-  </div>
+<div class="left two_thirds_last">
+  <h1><%= @service.name %></h1>
+  <p><%= raw(@service.description) %></p>
+</div>
 
 <div class="clear"></div>
+
+<div class="tabs-area ui-tabs ui-widget ui-widget-content ui-corner-all"><ul class="center tabset ui-tabs-nav ui-helper-reset ui-helper-clearfix ui-widget-header ui-corner-all"><li class="ui-state-default ui-corner-top ui-tabs-selected ui-state-active"><a href="#tab-" class="tab"><span>Modalità di fruizione del servizio</span></a></li></ul>
+  <div id="tab-" class="tab-box ui-tabs-panel ui-widget-content ui-corner-bottom" style="">
+    <p><%= raw(@service.procedure) %></p>
+    <br class="clear">
+  </div>
+</div>
+
+<br class="clear">
 
 <div class="center">
   <% if(@previous) %><a href="<%= service_path(@previous) %>" class="ka_button small_button small_tealgrey"><span>Servizio precedente</span></a><% end %>

@@ -241,9 +241,9 @@ box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.4);
 /* 2. Content Area
 /*----------------------------*/
 #content {
-width:600px;
+width:670px;
 float:left;
-margin-left:20px;
+margin-left:0px;
 }
 
 .content_left_sidebar {
@@ -557,7 +557,7 @@ padding:2px 0 16px;
 #sidebar {
 background:url(_global/bg-sidebar.gif) 0 0 repeat-y;
 float:right;
-width:250px;
+width:230px;
 padding:0 0 0 25px;
 }
 
