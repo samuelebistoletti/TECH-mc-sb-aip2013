@@ -1,4 +1,21 @@
 TECHMcSbAip2013::Application.routes.draw do
+
+  resources :designers do
+    resources :products
+  end
+
+  resources :categories do
+    resources :products
+  end
+
+  resources :partners do
+    resources :products
+  end
+
+  resources :resellers do
+    resources :products
+  end
+
   get "contacts/confirm"
 
   resources :contacts
@@ -22,9 +39,6 @@ TECHMcSbAip2013::Application.routes.draw do
   resources :events
 
 
-  resources :designers
-
-
   get 'admin/products'
 
   get 'admin/index'
@@ -32,10 +46,16 @@ TECHMcSbAip2013::Application.routes.draw do
   root :to => 'home#index'
   resources :products
   match 'categories/:id' => 'categories#show'
+  match 'categories/:category_id/:id' => 'products#show_by_category'
   match 'products/:id' => 'products#show'
+
+
   match 'designers/:id' => 'designers#show'
+  match 'designers/:id/products' => 'designers#products'
+
   resources :home
   resources :categories
+  resources :designers
   match 'admin' => 'admin#index', :via => :get, :as => :admin
   match 'products' => 'products#index', :via => :get, :as => :products
   match 'home' => 'home#index', :via => :get, :as => :home

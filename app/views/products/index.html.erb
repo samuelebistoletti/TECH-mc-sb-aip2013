@@ -1,14 +1,32 @@
-<% @products.each do |product| %>
-  <tr>
-    <td><%= product.name %></td>
-    <td><%= product.description %></td>
-    <td><%= link_to 'Show', product %></td>
-    <td><%= link_to 'Edit', edit_product_path(product) %></td>
-    <td><%= link_to 'Destroy', product, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-  </tr>
-<% end %>
-</table>
+<% if(@products.size==0) %>
+    <h3>Spiacenti, nessun prodotto corrisponde ai parametri desiderati.</h3>
+<% else
+     @products.each do |product| %>
 
-<br />
+        <div class="one_fourth">
+          <div class="modern_img_frame modern_four_col_large">
 
-<%= link_to 'New Product', new_product_path %>
+            <div class="modern_preload_four_col_large">
+              <a href="<%= product_path(product.id) %>" class="attachment-fadeIn"><%= image_tag "products/" + product.image_url, :style => 'width: 190px; height: 111px;' %></a></div><!-- END preload -->
+          </div><!-- END modern_frame -->
+
+
+          <div class="portfolio_content">
+            <h3><%= product.name %></h3>
+          </div><!-- end portfolio_content -->
+
+        </div><!-- end one_fourth -->
+
+    <%    end
+          end %>
+
+<br class="clear">
+
+<div class="center">
+  <% if(@back) %>
+      <a href="<%= @back %>" class="ka_button small_button small_tealgrey"><span>Torna indietro</span></a>
+  <% end %>
+  <% if(@gd_link && @gd_text) %>
+      <a href="<%= @gd_link %>" class="ka_button small_button small_tealgrey"><span><%= @gd_text %></span></a>
+  <% end %>
+</div>

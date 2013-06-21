@@ -27,6 +27,17 @@ class DesignersController < ApplicationController
     end
   end
 
+  def products
+    @designer = Designer.find(params[:id])
+    @title = 'Prodotti progettati da ' + @designer.name
+    @products = Product.find_all_by_designer_id(params[:id])
+    @back = designer_path(@designer)
+    @link = designer_path(@designer) + '/products/'
+    render :template => 'shared/products'
+  end
+
+
+
   # GET /designers/new
   # GET /designers/new.json
   def new

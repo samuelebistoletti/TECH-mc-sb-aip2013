@@ -2,14 +2,23 @@ class ProductsController < ApplicationController
   # GET /products
   # GET /products.json
   def index
-    @title = 'Categorie di prodotti'
-    @breadcrumb = '<span class="current_crumb">Prodotti </span>'
-    @products = Product.find_all_by_category_id(params[:id])
-
-    respond_to do |format|
-      format.html # index.html.erb
-      format.json { render json: @products }
+    if(params[:designer_id])
+      @designer = Designer.find(params[:designer_id])
+      @title = 'Prodotti progettati da ' + @designer.name
+      @breadcrumb = '<a>Designers</a><a>' + @designer.name + '</a><span class="current_crumb">Prodotti </span>'
+      @products = Product.find_all_by_designer_id(params[:designer_id])
+    elsif(params[:partner_id])
+      @partner = Partner.find(params[:partner_id])
+      @title = 'Prodotti di ' + @partner.name
+      @breadcrumb = '<a>Partners</a><a>' + @partner.name + '</a><span class="current_crumb">Prodotti </span>'
+      @products = Product.find_all_by_designer_id(params[:partner_id])
+    elsif(params[:reseller_id])
+      @reseller = Reseller.find(params[:reseller_id])
+      @title = 'Prodotti venduti da ' + @reseller.name
+      @breadcrumb = '<a>Rivenditori</a><a>' + @reseller.name + '</a><span class="current_crumb">Prodotti </span>'
+      @products = Product.find_all_by_designer_id(params[:reseller_id])
     end
+
   end
 
   # GET /products/1
@@ -22,10 +31,6 @@ class ProductsController < ApplicationController
     @breadcrumb = '<a href="' + categories_path + '">Prodotti</a><a href="' + category_path(@category.id) + '">' + @category.name + '</a><span class="current_crumb">' + @product.name + '</span>'
     @services = Service.find_all_by_service_type(0) + @product.services
     @designer = @product.designer
-    respond_to do |format|
-      format.html # show.html.erb
-      format.json { render json: @product }
-    end
   end
 
   # GET /products/new
