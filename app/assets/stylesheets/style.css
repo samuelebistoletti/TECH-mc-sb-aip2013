@@ -2071,8 +2071,7 @@ form, fieldset {margin:0;padding:0;border-style:none;}
 
 .contact-form label.checkbox, .contact-form label.radio {font-weight:normal;margin-bottom:8px;}
 
-#ka-submit, .ka-form-submit, .contact-form .ka-form-submit{border:0;margin:0;padding:10px 15px !important;background:#040404 url(_global/global-sprite-gradients.png) 0 -46px repeat-x;cursor:pointer;letter-spacing:1px;text-transform: uppercase;color: #DDD;outline:none;border: 1px solid #000;display: block;}
-
+#ka-submit, .ka-form-submit, .contact-form .ka-form-submit{border:0;margin:0;padding:10px 15px !important;background-image: url(_global/bg-buttons-sprite-tealgrey.png);cursor:pointer;letter-spacing:1px;text-transform: uppercase;color: #DDD;}
 
 #footer .footer-holder .contact-form textarea {height:60px !important;padding:6px !important;width:200px !important;}
 #footer .footer-holder .contact-form input {padding:6px !important;width:100px !important;}
@@ -2508,21 +2507,12 @@ td#today{font-weight:bold;}
 /*-----------------------------------------------------------------*/
 /* 13. Progressive CSS Enhancements
 /*-----------------------------------------------------------------*/
-.message_green, .message_red, .message_blue, .message_yellow, #ka-submit, .opener, #ka-submit, .ka-form-submit, #mc_signup #mc_signup_submit, .callout_button, .testimonials, .colored_box{
+.message_green, .message_red, .message_blue, .message_yellow, .opener, #mc_signup #mc_signup_submit, .callout_button, .testimonials, .colored_box{
 -moz-border-radius: 5px;
 -webkit-border-radius: 5px;
 border-radius: 5px;
 }
-#ka-submit, .ka-form-submit {
--moz-box-shadow: 1px 1px 3px #666;
--webkit-box-shadow: 1px 1px 3px #666;
-box-shadow: 1px 1px 3px #666;
-}
-#footer #ka-submit, #footer .ka-form-submit {
--moz-box-shadow: 1px 1px 3px #111;
--webkit-box-shadow: 1px 1px 3px #111;
-box-shadow: 1px 1px 3px #111;
-}
+
 #mc_signup #mc_signup_submit, .callout_button {
 -moz-box-shadow: 1px 1px 3px #222;
 -webkit-box-shadow: 1px 1px 3px #222;
