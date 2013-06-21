@@ -1,4 +1,4 @@
-<% if @resellers.size == 0 %>
+<% if @reseller.size == 0 %>
     <div id="error_explanation">
       <div class="message_karma_tealgrey colored_box">
         <p style="font-size:13px;">
@@ -13,26 +13,18 @@
 
 <table>
   <tr>
-    <th>Name</th>
-    <th>Region</th>
-    <th>Province</th>
-    <th>Address</th>
-    <th>Email</th>
-    <th>Telephone</th>
-    <th></th>
-    <th></th>
-    <th></th>
+    <th>Nome Rivenditore</th>
+    <th>Regione</th>
+    <th>Provincia</th>
+    <th>Indirizzo</th>
   </tr>
 
-<% @resellers.each do |reseller| %>
+<% @reseller.each do |reseller| %>
   <tr>
-    <td><%= reseller.name %></td>
+    <td><a href="<%= reseller_path(reseller) %>"><%= reseller.name %></a></td>
     <td><%= reseller.region %></td>
     <td><%= reseller.province %></td>
     <td><%= reseller.address %></td>
-    <td><%= reseller.email %></td>
-    <td><%= reseller.telephone %></td>
-    <td><%= link_to 'Show', reseller %></td>
   </tr>
 <% end %>
 </table>

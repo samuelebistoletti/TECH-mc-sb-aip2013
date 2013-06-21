@@ -1,35 +1,20 @@
-<p id="notice"><%= notice %></p>
+<div class="one_third">
+  <div class="modern_img_frame modern_portrait_thumb">
 
-<p>
-  <b>Name:</b>
-  <%= @reseller.name %>
-</p>
+    <div class="modern_preload_portrait_thumb">
+      <a href="/assets/resellers/<%= @reseller.image_url %>" class="attachment-fadeIn" data-gal="prettyPhoto[gal]" style="display: inline;"><img src="/assets/events/<%= @reseller.image_url %>" style="width: 275px; height: 335px;"></a>
+    </div>
+  </div>
 
-<p>
-  <b>Region:</b>
-  <%= @reseller.region %>
-</p>
+</div>
 
-<p>
-  <b>Province:</b>
-  <%= @reseller.province %>
-</p>
+<div class="two_thirds_last">
+  <h1><%= @reseller.name %></h1><br>
+  <p>Regione: <%= @reseller.region %></p>
+  <p>Provincia: <%= @reseller.province %></p><br>
+  <p>Indirizzo: <%= @reseller.address %></p><br>
+  <p>Telefono: <%= @reseller.telephone %></p>
+  <p>Email: <%= @reseller.email %></p>
+</div>
 
-<p>
-  <b>Address:</b>
-  <%= @reseller.address %>
-</p>
-
-<p>
-  <b>Email:</b>
-  <%= @reseller.email %>
-</p>
-
-<p>
-  <b>Telephone:</b>
-  <%= @reseller.telephone %>
-</p>
-
-
-<%= link_to 'Edit', edit_reseller_path(@reseller) %> |
-<%= link_to 'Back', resellers_path %>
+<br class="clear">

@@ -2,29 +2,29 @@ class ResellersController < ApplicationController
   def search
     @title = 'Ricerca Rivenditori'
     @breadcrumb = '<span class="current_crumb">Ricerca Rivenditori</span>'
-    @resellers = Reseller.all
+    @reseller = Reseller.all
 
     respond_to do |format|
       format.html # search.html.erb
-      format.json { render json: @resellers}
+      format.json { render json: @reseller}
     end
   end
 
   # GET /resellers
   # GET /resellers.json
   def index
-    @resellers = Reseller.where("region LIKE ? OR province LIKE ?", "%#{params[:query]}%", "%#{params[:query]}%")
+    @reseller = Reseller.where("region LIKE ? OR province LIKE ?", "%#{params[:query]}%", "%#{params[:query]}%")
     @breadcrumb = '<a href="' + resellers_search_path + '">Cerca Rivenditore</a><span class="current_crumb">Rivenditori </span>'
 
     respond_to do |format|
-      if @resellers.size > 0
-        @title = "Sono stati trovati #{@resellers.size} rivenditori"
+      if @reseller.size > 0
+        @title = "Sono stati trovati #{@reseller.size} rivenditori"
         format.html # index.html.erb
-        format.json { render json: @resellers }
+        format.json { render json: @reseller }
       else
         @title = "Nessun rivenditore trovato"
         format.html # index.html.erb
-        format.json { render json: @resellers }
+        format.json { render json: @reseller }
       end
     end
   end
@@ -33,6 +33,8 @@ class ResellersController < ApplicationController
   # GET /resellers/1.json
   def show
     @reseller = Reseller.find(params[:id])
+    @breadcrumb = '<a href="' + resellers_search_path + '">Cerca Rivenditore</a><span class="current_crumb">Rivenditori </span>'
+
 
     respond_to do |format|
       format.html # show.html.erb
