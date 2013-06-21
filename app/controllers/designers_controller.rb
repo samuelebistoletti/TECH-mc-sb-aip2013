@@ -36,12 +36,11 @@ class DesignersController < ApplicationController
     render :template => 'shared/products'
   end
 
-
-
   # GET /designers/new
   # GET /designers/new.json
   def new
     @designer = Designer.new
+    @title = "Nuovo Designer"
 
     respond_to do |format|
       format.html # new.html.erb
@@ -52,6 +51,7 @@ class DesignersController < ApplicationController
   # GET /designers/1/edit
   def edit
     @designer = Designer.find(params[:id])
+    @title = "Modifica Designer"
   end
 
   # POST /designers
@@ -61,7 +61,7 @@ class DesignersController < ApplicationController
 
     respond_to do |format|
       if @designer.save
-        format.html { redirect_to @designer, notice: 'Designer was successfully created.' }
+        format.html { redirect_to admin_designers_path, notice: 'Designer inserito con successo.' }
         format.json { render json: @designer, status: :created, location: @designer }
       else
         format.html { render action: "new" }
@@ -77,7 +77,7 @@ class DesignersController < ApplicationController
 
     respond_to do |format|
       if @designer.update_attributes(params[:designer])
-        format.html { redirect_to @designer, notice: 'Designer was successfully updated.' }
+        format.html { redirect_to admin_designers_path, notice: 'Designer modificato con successo.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }
@@ -93,7 +93,7 @@ class DesignersController < ApplicationController
     @designer.destroy
 
     respond_to do |format|
-      format.html { redirect_to designers_url }
+      format.html { redirect_to admin_designers_path }
       format.json { head :no_content }
     end
   end

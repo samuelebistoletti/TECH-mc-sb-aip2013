@@ -1,2 +1,33 @@
-<h1>Admin#designers</h1>
-<p>Find me in app/views/admin/designers.html.erb</p>
+<a href="<%= admin_path %>" class="ka_button small_button small_tealgrey"><span>Vai Al Menu Principale</span></a>
+<a href="<%= new_designer_path %>" class="ka_button small_button small_tealgrey"><span>Aggiungi Un Nuovo Designer</span></a>
+
+<br><br>
+
+<div class="message_karma_tealgrey colored_box">
+  <p style="font-size:13px;">
+    <%= notice %>
+  </p>
+</div>
+<br class="clear">
+
+<table>
+  <tr>
+    <th>Nome</th>
+    <th>Descrizione</th>
+    <th>URL Immagine</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+  <% @designers.each do |designer| %>
+      <tr>
+        <td><%= designer.name %></td>
+        <td><%= designer.description %></td>
+        <td><%= designer.image_url %></td>
+        <td><%= link_to 'Mostra', designer %></td>
+        <td><%= link_to 'Modifica', edit_designer_path(designer) %></td>
+        <td><%= link_to 'Cancella', designer, method: :delete, data: { confirm: 'Sei sicuro di voler cancellare questo designer?' } %></td>
+      </tr>
+  <% end %>
+</table>

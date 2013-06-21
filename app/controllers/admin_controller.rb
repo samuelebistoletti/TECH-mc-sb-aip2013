@@ -14,6 +14,13 @@ class AdminController < ApplicationController
   end
 
   def designers
+    @title = "Gestione Designers"
+    @designers = Designer.all
+
+    respond_to do |format|
+      format.html # designers.html.erb
+      format.json { render json: @products }
+    end
   end
 
   def events
@@ -29,5 +36,12 @@ class AdminController < ApplicationController
   end
 
   def contacts
+    @title = "Gestione Contatti"
+    @contacts = Contact.all
+
+    respond_to do |format|
+      format.html # contacts.html.erb
+      format.json { render json: @products }
+    end
   end
 end

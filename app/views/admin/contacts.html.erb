@@ -1,2 +1,21 @@
-<h1>Admin#contacts</h1>
-<p>Find me in app/views/admin/contacts.html.erb</p>
+<a href="<%= admin_path %>" class="ka_button small_button small_tealgrey"><span>Vai Al Menu Principale</span></a>
+
+<table>
+  <tr>
+    <th>Nome</th>
+    <th>Cognome</th>
+    <th>Email</th>
+    <th>Messaggio</th>
+    <th></th>
+  </tr>
+
+  <% @contacts.each do |contact| %>
+      <tr>
+        <td><%= contact.name %></td>
+        <td><%= contact.surname %></td>
+        <td><%= contact.email %></td>
+        <td><%= contact.message %></td>
+        <td><%= link_to 'Cancella', contact, method: :delete, data: { confirm: 'Sei sicuro di voler cancellare questo messaggio?' } %></td>
+      </tr>
+  <% end %>
+</table>
