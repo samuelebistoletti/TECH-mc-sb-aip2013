@@ -15,18 +15,26 @@
     <label for="name" class="name">Name <span>(required)</span></label>
     <%= f.text_field :name %>
   </div>
+  <br class="clear">
+
   <div class="field">
     <label for="surname" class="surname">Surname <span>(required)</span></label>
     <%= f.text_field :surname %>
   </div>
+  <br class="clear">
+
   <div class="field">
     <label for="email" class="email">Email <span>(required)</span></label>
     <%= f.text_field :email %>
   </div>
+  <br class="clear">
+
   <div class="field">
     <label for="message" class="message">Message <span>(required)</span></label>
     <%= f.text_area :message %>
   </div>
+  <br class="clear">
+
   <div class="actions">
     <p class='contact-submit'>
         <%= f.submit 'Invia', :class => 'ka-form-submit' %>
