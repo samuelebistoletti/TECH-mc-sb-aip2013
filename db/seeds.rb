@@ -154,7 +154,7 @@ Reseller.create([{name: 'Centro Arredamento Tosi',
                   address: 'Via Piave 18, Meda 20036',
                   email: 'info@bertos.it',
                   telephone: '+39 02 3564236',
-                  image_url: ''
+                  image_url: 'berto.jpg'
                  },
 
                  {name: 'Domus Arredi',
@@ -163,7 +163,7 @@ Reseller.create([{name: 'Centro Arredamento Tosi',
                   address: 'Via Pascoli 39, 20035 Lissone',
                   email: 'info@domusarredi.it',
                   telephone: '+39 02 2132435',
-                  image_url: ''
+                  image_url: 'domus.jpg'
                  },
 
                  {name: 'Elite Architettura Interni',
@@ -172,6 +172,6 @@ Reseller.create([{name: 'Centro Arredamento Tosi',
                   address: 'Via Piave 23, 20036 Meda',
                   email: 'info@eliteinterni.it',
                   telephone: '+39 02 3561136',
-                  image_url: ''
+                  image_url: 'interni.jpg'
                  }
                 ])
