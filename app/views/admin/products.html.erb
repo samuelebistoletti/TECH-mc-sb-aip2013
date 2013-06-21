@@ -1,7 +1,29 @@
-<ul>
-  <li><%= link_to 'Add New Product', new_product_path %></li>
-  <li><%= link_to 'Edit Existing Product', new_product_path %></li>
-  <li><%= link_to 'Delete Existing Product', new_product_path %></li>
+<a href="<%= admin_path %>" class="ka_button small_button small_tealgrey"><span>Vai Al Menu Principale</span></a>
+<a href="<%= new_product_path %>" class="ka_button small_button small_tealgrey"><span>Aggiungi Un Nuovo Prodotto</span></a>
 
-  <br/><%= link_to 'Back To Restricted Area', admin_path %>
-</ul>
+<br><br>
+
+<table>
+  <tr>
+    <th>Nome</th>
+    <th>Descrizione</th>
+    <th>Specifiche Tecniche</th>
+    <th>Immagine</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+  <% @products.each do |product| %>
+      <tr>
+        <td><%= product.name %></td>
+        <td><%= product.description %></td>
+        <td><%= product.specifications %></td>
+        <td><%= product.image_url %></td>
+        <td><%= link_to 'Mostra', product %></td>
+        <td><%= link_to 'Modifica', edit_product_path(product) %></td>
+        <td><%= link_to 'Cancella', product, method: :delete, data: { confirm: 'Sei sicuro di voler procedere' } %></td>
+      </tr>
+  <% end %>
+</table>
+

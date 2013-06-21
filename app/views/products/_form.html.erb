@@ -12,26 +12,26 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :name %><br />
+    <%= f.label "Nome" %><br />
     <%= f.text_field :name %>
   </div>
   <div class="field">
-    <%= f.label :description %><br />
-    <%= f.text_field :description %>
+    <%= f.label "Descrizione" %><br />
+    <%= f.text_area(:description, :size => "40x15") %>
   </div>
   <div class="field">
     <%= f.label :category %><br />
     <%= f.text_field :category %>
   </div>
   <div class="field">
-    <%= f.label :specifications %><br />
-    <%= f.text_field :specifications %>
+    <%= f.label "Specifiche Tecniche" %><br />
+    <%= f.text_area(:specifications, :size => "40x10") %>
   </div>
   <div class="field">
-    <%= f.label :image_url %><br />
+    <%= f.label "URL Immagine" %><br />
     <%= f.text_field :image_url %>
   </div>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit("Salva") %>
   </div>
 <% end %>

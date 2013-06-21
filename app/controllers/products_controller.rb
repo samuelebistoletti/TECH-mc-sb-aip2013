@@ -36,6 +36,7 @@ class ProductsController < ApplicationController
   # GET /products/new
   # GET /products/new.json
   def new
+    @title = "Nuovo Prodotto"
     @product = Product.new
 
     respond_to do |format|
@@ -68,6 +69,7 @@ class ProductsController < ApplicationController
   # PUT /products/1
   # PUT /products/1.json
   def update
+    @title = "Modifica Prodotto"
     @product = Product.find(params[:id])
 
     respond_to do |format|
@@ -84,6 +86,7 @@ class ProductsController < ApplicationController
   # DELETE /products/1
   # DELETE /products/1.json
   def destroy
+    @title = "Cancella Prodotto"
     @product = Product.find(params[:id])
     @product.destroy
 

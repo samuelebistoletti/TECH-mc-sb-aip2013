@@ -1,4 +1,16 @@
 TECHMcSbAip2013::Application.routes.draw do
+  get "admin/designers"
+
+  get "admin/events"
+
+  get "admin/partners"
+
+  get "admin/resellers"
+
+  get "admin/services"
+
+  get "admin/contacts"
+
   get "contacts/confirm"
 
   get "resellers/search"
