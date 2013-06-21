@@ -1,4 +1,15 @@
-<h1>Listing resellers</h1>
+<% if @resellers.size == 0 %>
+    <div id="error_explanation">
+      <div class="message_karma_tealgrey colored_box">
+        <p style="font-size:13px;">
+          Attenzione, non è stato trovato alcun rivenditore con i parametri di ricerca forniti.<br><br>
+          Per effettuare una nuova ricerca clicca <a href="<%= resellers_search_path %>">qui</a>.
+        </p>
+      </div>
+      <br class="clear">
+    </div>
+
+<% else %>
 
 <table>
   <tr>
@@ -22,12 +33,12 @@
     <td><%= reseller.email %></td>
     <td><%= reseller.telephone %></td>
     <td><%= link_to 'Show', reseller %></td>
-    <td><%= link_to 'Edit', edit_reseller_path(reseller) %></td>
-    <td><%= link_to 'Destroy', reseller, method: :delete, data: { confirm: 'Are you sure?' } %></td>
   </tr>
 <% end %>
 </table>
 
-<br />
+<br>
 
-<%= link_to 'New Reseller', new_reseller_path %>
+<a href="<%= resellers_search_path %>" class="ka_button small_button small_tealgrey"><span>Nuova Ricerca</span></a>
+
+<% end %>

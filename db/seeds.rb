@@ -136,3 +136,42 @@ Designer.create([{name: 'Ichiro Iwasaki',
                   image_url: 'dordoni.jpg'
                  }
                 ])
+
+Reseller.delete_all
+Reseller.reset_primary_key
+Reseller.create([{name: 'Centro Arredamento Tosi',
+                  region: 'Lombardia',
+                  province: 'Varese',
+                  address: 'Via G. Fanti 6',
+                  email: 'info@arredamentitosi.com',
+                  telephone: '+39 0331 635110',
+                  image_url: 'tosi.jpg'
+                 },
+
+                 {name: 'Berto Salotti',
+                  region: 'Lombardia',
+                  province: 'Monza',
+                  address: 'Via Piave 18, Meda 20036',
+                  email: 'info@bertos.it',
+                  telephone: '+39 02 3564236',
+                  image_url: ''
+                 },
+
+                 {name: 'Domus Arredi',
+                  region: 'Lombardia',
+                  province: 'Monza',
+                  address: 'Via Pascoli 39, 20035 Lissone',
+                  email: 'info@domusarredi.it',
+                  telephone: '+39 02 2132435',
+                  image_url: ''
+                 },
+
+                 {name: 'Elite Architettura Interni',
+                  region: 'Lombardia',
+                  province: 'Monza',
+                  address: 'Via Piave 23, 20036 Meda',
+                  email: 'info@eliteinterni.it',
+                  telephone: '+39 02 3561136',
+                  image_url: ''
+                 }
+                ])

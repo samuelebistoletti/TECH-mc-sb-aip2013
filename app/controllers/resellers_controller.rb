@@ -1,14 +1,31 @@
 class ResellersController < ApplicationController
-  # GET /resellers
-  # GET /resellers.json
-  def index
-    @title = 'I nostri rivenditori'
-    @breadcrumb = '<span class="current_crumb">Rivenditori </span>'
+  def search
+    @title = 'Ricerca Rivenditori'
+    @breadcrumb = '<span class="current_crumb">Ricerca Rivenditori</span>'
     @resellers = Reseller.all
 
     respond_to do |format|
-      format.html # index.html.erb
-      format.json { render json: @resellers }
+      format.html # search.html.erb
+      format.json { render json: @resellers}
+    end
+  end
+
+  # GET /resellers
+  # GET /resellers.json
+  def index
+    @resellers = Reseller.where("region LIKE ? OR province LIKE ?", "%#{params[:query]}%", "%#{params[:query]}%")
+    @breadcrumb = '<a href="' + resellers_search_path + '">Cerca Rivenditore</a><span class="current_crumb">Rivenditori </span>'
+
+    respond_to do |format|
+      if @resellers.size > 0
+        @title = "Sono stati trovati #{@resellers.size} rivenditori"
+        format.html # index.html.erb
+        format.json { render json: @resellers }
+      else
+        @title = "Nessun rivenditore trovato"
+        format.html # index.html.erb
+        format.json { render json: @resellers }
+      end
     end
   end
 

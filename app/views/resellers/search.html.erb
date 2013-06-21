@@ -1,0 +1,11 @@
+<div id="content">
+  <div class="two_thirds">
+    <p>Ricerca un rivenditore per provincia o regione, inserisci nel box sottostante la regione di tuo interesse oppure la provincia.</p>
+    <div id="contact-form-16">
+      <%= form_tag("/resellers", :method => "get") do %>
+          <%= text_field_tag(:query) %>
+          <%= submit_tag "Cerca", :class => 'ka-form-submit' %>
+      <% end %>
+    </div>
+  </div>
+</div>
