@@ -48,7 +48,7 @@ class ContactsController < ApplicationController
 
     respond_to do |format|
       if @contact.save
-        format.html { redirect_to :controller => 'contacts', :action => 'confirm', :id => @contact }
+        format.html { redirect_to :controller => "contacts", :action => "confirm", :id => @contact }
         format.json { render json: @contact }
       else
         format.html { render action: "new" }
