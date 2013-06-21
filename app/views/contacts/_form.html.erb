@@ -1,13 +1,15 @@
 <%= form_for @contact, :html => {:class => "contact-form commentsblock"} do |f| %>
   <% if @contact.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@contact.errors.count, "error") %> prohibited this contact from being saved:</h2>
-
-      <ul>
-      <% @contact.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
+      <div class="message_karma_tealgrey colored_box">
+        <p style="font-size:13px;">
+          Attenzione, non ci hai lasciato tutti i dati necessari, compila tutti i campi e poi inoltra nuovamente la richiesta.<br><br>
+          <% @contact.errors.full_messages.each do |msg| %>
+            <%= msg %><br>
+          <% end %>
+        </p>
+      </div>
+      <br class="clear">
     </div>
   <% end %>
 

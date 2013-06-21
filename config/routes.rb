@@ -1,4 +1,6 @@
 TECHMcSbAip2013::Application.routes.draw do
+  get "contacts/confirm"
+
   resources :contacts
 
 

@@ -1,0 +1,12 @@
+<div class="message_karma_tealgrey colored_box">
+  <p style="font-size:13px;">
+    Il messaggio è stato inviato con successo, di seguito puoi trovare i dati riassuntivi della tua richiesta.<br><br>
+    Nome: <%= @contact.name %><br>
+    Cognome: <%= @contact.surname %><br>
+    Email: <%= @contact.email %><br>
+    Messaggio: <%= @contact.message %><br>
+  </p>
+</div>
+<br class="clear">
+
+<%= link_to 'Back', new_contact_path %>
