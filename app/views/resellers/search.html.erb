@@ -3,7 +3,7 @@
 
 
   <%= form_tag("/resellers", :method => "get", :class => "contact-form commentsblock") do %>
-      <%= text_field_tag(:query) %>
+      <input type="text" name="query" placeholder="Regione o Provincia">
       <br class="clear">
       <%= submit_tag "Cerca", :class => 'ka-form-submit' %>
   <% end %>
