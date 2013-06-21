@@ -1,46 +1,47 @@
 
  <div id="content">
 
-    <div class="post-3215 product type-product status-publish hentry">
+       <div class="modern_img_frame modern_two_col_large left">
+         <div class="modern_preload_two_col_large preload">
+           <a href="assets/products/<%= @product.image_url %>" class="attachment-fadeIn" data-gal="prettyPhoto[gal]" style="display: inline;"><img src="assets/_global/img-zoom-2.png" style="position: absolute; opacity: 0;"><%= image_tag 'products/' + @product.image_url, :style => 'width: 437px; height: 234px;' %></a></div><!-- END preload -->
+       </div>
 
-      <div class="images">
+      <div class="left">
 
-        <a itemprop="image" href="" class="zoom" rel="thumbnails" title="laptop-2"><%= image_tag "products/" + @product.image_url, :style => 'width: 300px;', :class => 'attachment-shop_single wp-post-image' %></a>
-        <div class="thumbnails"></div>
-      </div>
-
-      <div class="summary">
-
-        <h1 itemprop="name" class="product_title entry-title"><%= @product.name %></h1>
-
-      <div itemprop="description">
-        <p><%= @product.description %></p>
-      </div>
+        <h1><%= @product.name %></h1>
 
 
-        <div class="product_meta">
+        <div>
 
-
-          <span class="posted_in">Categoria: <a href=""><%= @category.name %></a></span>
-
+          <ul class="list">
+            <li>Categoria: <a href="<%= category_path(@category) %>"><%= @category.name %></a></li>
+            <% if(@designer) %>
+                <li>Designer: <a href="<%= designer_path(@designer) %>"><%= @designer.name %></a></li>
+            <% end %>
+          </ul>
         </div>
 
-      </div><!-- .summary -->
+        <div class="center">
+          <a href="<%= resellers_path %>" class="ka_button small_button small_tealgrey"><span>Rivenditori</span></a>
+        </div>
 
-      <div class="woocommerce_tabs">
-        <ul class="tabs" style="margin:0;">
-          <li class="description_tab active"><a href="#tab-description">Specifiche tecniche</a></li>
-          <li class="services_tab"><a href="#tab-services">Servizi disponibili</a></li>
-        </ul>
-        <div class="panel entry-content" id="tab-description" style="display: block;">
-          <p><%= raw(@product.specifications) %></p>
-        </div>
-        <div class="panel entry-content" id="tab-services" style="display: none;">
-          <p><%= raw(@product.specifications) %></p>
-        </div>
       </div>
 
-    </div>
+
+
+   <div class="clear"></div>
+   <p><%= @product.description %></p>
+
+   <div class="tabs-area ui-tabs ui-widget ui-widget-content ui-corner-all"><ul class="tabset ui-tabs-nav ui-helper-reset ui-helper-clearfix ui-widget-header ui-corner-all"><li class="ui-state-default ui-corner-top ui-tabs-selected ui-state-active"><a href="#tab-" class="tab"><span>Specifiche tecniche</span></a></li><li class="ui-state-default ui-corner-top"><a href="#tab-1" class="tab"><span>Servizi disponibili</span></a></li></ul>
+     <div id="tab-" class="tab-box ui-tabs-panel ui-widget-content ui-corner-bottom" style="">
+       <p><%= raw(@product.specifications) %></p>
+     <br class="clear"></div>
+     <div id="tab-1" class="tab-box ui-tabs-panel ui-widget-content ui-corner-bottom ui-tabs-hide" style="">
+       <% @services.each do |service| %>
+        <a href="<%= service_path(service) %>" title="<%= service.name %>"><%= image_tag 'services/' + service.image_url, :class => 'rounded avatar' %></a>
+       <% end %>
+     <br class="clear"></div>
+   </div>
 
   </div>
 
