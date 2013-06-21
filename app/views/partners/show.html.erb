@@ -1,24 +1,25 @@
-<p id="notice"><%= notice %></p>
+<div class="one_third">
+  <div class="modern_img_frame modern_three_col_large">
 
-<p>
-  <b>Name:</b>
-  <%= @partner.name %>
-</p>
+    <div class="modern_preload_three_col_large">
+      <a href="/assets/partners/<%= @partner.image_url %>" class="attachment-fadeIn" data-gal="prettyPhoto[gal]" style="display: inline;"><img src="/assets/partners/<%= @partner.image_url %>" style="width: 275px; height: 145px;"></a>
+    </div>
+  </div>
 
-<p>
-  <b>Description:</b>
-  <%= @partner.description %>
-</p>
+</div>
 
-<p>
-  <b>External link:</b>
-  <%= @partner.external_link %>
-</p>
+<div class="two_thirds_last">
+  <h1><%= @partner.name %></h1>
+  <p><%= @partner.description %></p>
 
-<p>
-  <b>Image url:</b>
-  <%= @partner.image_url %>
-</p>
+  <div class="center">
+    <a href="<%= partners_path %>" class="ka_button small_button small_tealgrey"><span>Vai ai suoi prodotti</span></a>
+    <a target="_blank" href="<%= @partner.external_link %>" class="ka_button small_button small_tealgrey"><span>Vai al sito di <%= @partner.name %></span></a>
+  </div>
+
+</div>
+
+<br class="clear">
 
 <div class="center">
   <% if(@previous) %><a href="<%= partner_path(@previous) %>" class="ka_button small_button small_tealgrey"><span>Partner precedente</span></a><% end %>
