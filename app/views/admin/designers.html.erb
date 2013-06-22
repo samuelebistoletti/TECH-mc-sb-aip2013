@@ -8,13 +8,12 @@
     <%= notice %>
   </p>
 </div>
-<br class="clear">
 
 <table>
   <tr>
     <th>Nome</th>
     <th>Descrizione</th>
-    <th>URL Immagine</th>
+    <th>Immagine</th>
     <th></th>
     <th></th>
     <th></th>
@@ -24,7 +23,7 @@
       <tr>
         <td><%= designer.name %></td>
         <td><%= designer.description %></td>
-        <td><%= designer.image_url %></td>
+        <td><%= image_tag("designers/#{designer.image_url}", :width => "120") %></td>
         <td><%= link_to 'Mostra', designer %></td>
         <td><%= link_to 'Modifica', edit_designer_path(designer) %></td>
         <td><%= link_to 'Cancella', designer, method: :delete, data: { confirm: 'Sei sicuro di voler cancellare questo designer?' } %></td>

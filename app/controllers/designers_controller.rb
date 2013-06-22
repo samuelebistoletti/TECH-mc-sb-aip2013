@@ -57,8 +57,13 @@ class DesignersController < ApplicationController
   # POST /designers
   # POST /designers.json
   def create
-    @designer = Designer.new(params[:designer])
+    image_io = params[:designer][:image_url]
+    File.open(Rails.root.join('app','assets','images','designers', image_io.original_filename), 'wb') do |file|
+      file.write(image_io.read)
+    end
+    params[:designer][:image_url] = image_io.original_filename
 
+    @designer = Designer.new(params[:designer])
     respond_to do |format|
       if @designer.save
         format.html { redirect_to admin_designers_path, notice: 'Designer inserito con successo.' }
