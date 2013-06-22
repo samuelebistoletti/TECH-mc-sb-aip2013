@@ -1,2 +1,41 @@
-<h1>Admin#resellers</h1>
-<p>Find me in app/views/admin/resellers.html.erb</p>
+<div class="center">
+  <a href="<%= admin_path %>" class="ka_button small_button small_tealgrey"><span>Vai Al Menu Principale</span></a>
+  <a href="<%= new_reseller_path %>" class="ka_button small_button small_tealgrey"><span>Aggiungi Un Nuovo Rivenditore</span></a></div>
+
+<br><br>
+
+<div class="message_karma_tealgrey colored_box">
+  <p style="font-size:13px;">
+    <%= notice %>
+  </p>
+</div>
+
+<table>
+  <tr>
+    <th>Nome</th>
+    <th>Regione</th>
+    <th>Provincia</th>
+    <th>Indirizzo</th>
+    <th>Telefono</th>
+    <th>Email</th>
+    <th>Immagine</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+  <% @resellers.each do |reseller| %>
+      <tr>
+        <td><%= raw(reseller.name) %></td>
+        <td><%= raw(reseller.region) %></td>
+        <td><%= raw(reseller.province) %></td>
+        <td><%= raw(reseller.address) %></td>
+        <td><%= raw(reseller.telephone) %></td>
+        <td><%= raw(reseller.email) %></td>
+        <td><%= image_tag('resellers/' + reseller.image_url, :class => 'rounded') %></td>
+        <td><%= link_to image_tag("_global/show.png", :class => 'ico'), reseller %></td>
+        <td><%= link_to image_tag("_global/edit.png", :class => 'ico'), edit_reseller_path(reseller) %></td>
+        <td><%= link_to image_tag("_global/delete.png", :class => 'ico'), reseller, method: :delete, data: { confirm: 'Sei sicuro di voler cancellare questo rivenditore?' } %></td>
+      </tr>
+  <% end %>
+</table>

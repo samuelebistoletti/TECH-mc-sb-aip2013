@@ -33,6 +33,7 @@ class ServicesController < ApplicationController
   # GET /services/new.json
   def new
     @service = Service.new
+    @title = "Nuovo Servizio"
 
     respond_to do |format|
       format.html # new.html.erb
@@ -43,17 +44,23 @@ class ServicesController < ApplicationController
   # GET /services/1/edit
   def edit
     @service = Service.find(params[:id])
+    @title = "Modifica Servizio"
   end
 
   # POST /services
   # POST /services.json
   def create
-    @service = Service.new(params[:service])
+    image_io = params[:service][:image_url]
+    File.open(Rails.root.join('app','assets','images','services', image_io.original_filename), 'wb') do |file|
+      file.write(image_io.read)
+    end
+    params[:service][:image_url] = image_io.original_filename
 
+    @service = Service.new(params[:service])
     respond_to do |format|
       if @service.save
-        format.html { redirect_to @service, notice: 'Service was successfully created.' }
-        format.json { render json: @service, status: :created, location: @service }
+        format.html { redirect_to admin_services_path, notice: 'Servizio creato con successo.' }
+        format.json { render json: @service, status: :created, location: @service}
       else
         format.html { render action: "new" }
         format.json { render json: @service.errors, status: :unprocessable_entity }
@@ -68,7 +75,7 @@ class ServicesController < ApplicationController
 
     respond_to do |format|
       if @service.update_attributes(params[:service])
-        format.html { redirect_to @service, notice: 'Service was successfully updated.' }
+        format.html { redirect_to admin_services_path, notice: 'Servizio cancellato con successo.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }
@@ -84,7 +91,7 @@ class ServicesController < ApplicationController
     @service.destroy
 
     respond_to do |format|
-      format.html { redirect_to services_url }
+      format.html { redirect_to admin_services_path }
       format.json { head :no_content }
     end
   end

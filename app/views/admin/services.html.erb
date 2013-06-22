@@ -1,2 +1,42 @@
-<h1>Admin#services</h1>
-<p>Find me in app/views/admin/services.html.erb</p>
+<div class="center">
+  <a href="<%= admin_path %>" class="ka_button small_button small_tealgrey"><span>Vai Al Menu Principale</span></a>
+  <a href="<%= new_service_path %>" class="ka_button small_button small_tealgrey"><span>Aggiungi Un Nuovo Servizio</span></a></div>
+
+<br><br>
+
+<div class="message_karma_tealgrey colored_box">
+  <p style="font-size:13px;">
+    <%= notice %>
+  </p>
+</div>
+
+<table>
+  <tr>
+    <th>Nome</th>
+    <th>Descrizione</th>
+    <th>Modalità Richiesta</th>
+    <th>Tipo Servizio</th>
+    <th>Immagine</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+  <% @services.each do |service| %>
+      <tr>
+        <td><%= raw(service.name) %></td>
+        <td><%= raw(service.description) %></td>
+        <td><%= raw(service.procedure) %></td>
+        <% if service.service_type==0 %>
+            <td>Servizio applicabile a tutti i prodotti</td>
+        <% else if service.service_type==1 %>
+            <td>Servizio applicabile solo a prodotti selezionati</td>
+        <% end %>
+        <% end %>
+        <td><%= image_tag('services/' + service.image_url, :class => 'rounded') %></td>
+        <td><%= link_to image_tag("_global/show.png", :class => 'ico'), service %></td>
+        <td><%= link_to image_tag("_global/edit.png", :class => 'ico'), edit_service_path(service) %></td>
+        <td><%= link_to image_tag("_global/delete.png", :class => 'ico'), service, method: :delete, data: { confirm: 'Sei sicuro di voler cancellare questo servizio?' } %></td>
+      </tr>
+  <% end %>
+</table>

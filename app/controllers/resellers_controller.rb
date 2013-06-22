@@ -48,6 +48,7 @@ class ResellersController < ApplicationController
   # GET /resellers/new.json
   def new
     @reseller = Reseller.new
+    @title = "Nuovo Rivenditore"
 
     respond_to do |format|
       format.html # new.html.erb
@@ -58,17 +59,23 @@ class ResellersController < ApplicationController
   # GET /resellers/1/edit
   def edit
     @reseller = Reseller.find(params[:id])
+    @title = "Modifica Rivenditore"
   end
 
   # POST /resellers
   # POST /resellers.json
   def create
-    @reseller = Reseller.new(params[:reseller])
+    image_io = params[:reseller][:image_url]
+    File.open(Rails.root.join('app','assets','images','resellers', image_io.original_filename), 'wb') do |file|
+      file.write(image_io.read)
+    end
+    params[:reseller][:image_url] = image_io.original_filename
 
+    @reseller = Reseller.new(params[:reseller])
     respond_to do |format|
       if @reseller.save
-        format.html { redirect_to @reseller, notice: 'Reseller was successfully created.' }
-        format.json { render json: @reseller, status: :created, location: @reseller }
+        format.html { redirect_to admin_resellers_path, notice: 'Rivenditore creato con successo.' }
+        format.json { render json: @reseller, status: :created, location: @reseller}
       else
         format.html { render action: "new" }
         format.json { render json: @reseller.errors, status: :unprocessable_entity }
@@ -83,7 +90,7 @@ class ResellersController < ApplicationController
 
     respond_to do |format|
       if @reseller.update_attributes(params[:reseller])
-        format.html { redirect_to @reseller, notice: 'Reseller was successfully updated.' }
+        format.html { redirect_to admin_resellers_path, notice: 'Rivenditore modificato con successo.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }
@@ -99,7 +106,7 @@ class ResellersController < ApplicationController
     @reseller.destroy
 
     respond_to do |format|
-      format.html { redirect_to resellers_url }
+      format.html { redirect_to admin_resellers_path }
       format.json { head :no_content }
     end
   end

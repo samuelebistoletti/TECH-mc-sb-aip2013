@@ -1,37 +1,46 @@
-<%= form_for(@service) do |f| %>
-  <% if @service.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@service.errors.count, "error") %> prohibited this service from being saved:</h2>
+<%= form_for @service, :html => {:class => "contact-form commentsblock", :name => 'myform'} do |f| %>
+    <% if @service.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(@service.errors.count, "error") %> prohibited this designer from being saved:</h2>
 
-      <ul>
-      <% @service.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
+          <ul>
+            <% @service.errors.full_messages.each do |msg| %>
+                <li><%= msg %></li>
+            <% end %>
+          </ul>
+        </div>
+    <% end %>
+
+    <div class="field">
+      <%= f.label "Nome" %>
+      <%= f.text_field :name %>
     </div>
-  <% end %>
 
-  <div class="field">
-    <%= f.label :name %><br />
-    <%= f.text_field :name %>
-  </div>
-  <div class="field">
-    <%= f.label :description %><br />
-    <%= f.text_field :description %>
-  </div>
-  <div class="field">
-    <%= f.label :procedure %><br />
-    <%= f.text_field :procedure %>
-  </div>
-  <div class="field">
-    <%= f.label :image_url %><br />
-    <%= f.text_field :image_url %>
-  </div>
-  <div class="field">
-    <%= f.label :type %><br />
-    <%= f.number_field :type %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+    <div class="field">
+      <%= f.label "Descrizione" %>
+      <%= f.text_area(:description, :size => "40x15") %>
+    </div>
+
+    <div class="field">
+      <%= f.label "Modalità di Richiesta" %>
+      <%= f.text_area(:procedure, :size => "40x15") %>
+    </div>
+
+    <div class="field">
+      <%= f.label "Disponibilità Servizio" %>
+      <select name="service[service_type]">
+        <option value="0" selected="selected">Servizio applicabile a tutti i prodotti</option>
+        <option value="1">Servizio applicabile solo a prodotti selezionati</option>
+      </select>
+    </div>
+
+    <div class="field">
+      <%= f.label "Immagine" %>
+      <%= f.file_field :image_url %>
+    </div>
+
+    <div class="actions"><br>
+      <a href="<%= admin_services_path %>" class="ka_button small_button small_tealgrey"><span>Annulla</span></a>
+      <a href="javascript: document.myform.submit()" class="ka_button small_button small_tealgrey"><span>Salva</span></a>
+    </div>
 <% end %>

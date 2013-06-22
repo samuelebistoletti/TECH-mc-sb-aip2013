@@ -1,41 +1,53 @@
-<%= form_for(@reseller) do |f| %>
-  <% if @reseller.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@reseller.errors.count, "error") %> prohibited this reseller from being saved:</h2>
+<%= form_for @reseller, :html => {:class => "contact-form commentsblock", :name => 'myform'} do |f| %>
+    <% if @reseller.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(@reseller.errors.count, "error") %> prohibited this designer from being saved:</h2>
 
-      <ul>
-      <% @reseller.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
+          <ul>
+            <% @reseller.errors.full_messages.each do |msg| %>
+                <li><%= msg %></li>
+            <% end %>
+          </ul>
+        </div>
+    <% end %>
+
+    <div class="field">
+      <%= f.label "Nome" %>
+      <%= f.text_field :name %>
     </div>
-  <% end %>
 
-  <div class="field">
-    <%= f.label :name %><br />
-    <%= f.text_field :name %>
-  </div>
-  <div class="field">
-    <%= f.label :region %><br />
-    <%= f.text_field :region %>
-  </div>
-  <div class="field">
-    <%= f.label :province %><br />
-    <%= f.text_field :province %>
-  </div>
-  <div class="field">
-    <%= f.label :address %><br />
-    <%= f.text_field :address %>
-  </div>
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.text_field :email %>
-  </div>
-  <div class="field">
-    <%= f.label :telephone %><br />
-    <%= f.text_field :telephone %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+    <div class="field">
+      <%= f.label "Regione" %>
+      <%= f.text_field :region %>
+    </div>
+
+    <div class="field">
+      <%= f.label "Provincia" %>
+      <%= f.text_field :province %>
+    </div>
+
+    <div class="field">
+      <%= f.label "Indirizzo" %>
+      <%= f.text_field :address %>
+    </div>
+
+    <div class="field">
+      <%= f.label "Email" %>
+      <%= f.text_field :email %>
+    </div>
+
+    <div class="field">
+      <%= f.label "Telefono" %>
+      <%= f.text_field :telephone %>
+    </div>
+
+    <div class="field">
+      <%= f.label "Immagine" %>
+      <%= f.file_field :image_url %>
+    </div>
+
+    <div class="actions"><br>
+      <a href="<%= admin_resellers_path %>" class="ka_button small_button small_tealgrey"><span>Annulla</span></a>
+      <a href="javascript: document.myform.submit()" class="ka_button small_button small_tealgrey"><span>Salva</span></a>
+    </div>
 <% end %>
