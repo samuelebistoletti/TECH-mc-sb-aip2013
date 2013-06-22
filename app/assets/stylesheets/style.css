@@ -329,7 +329,7 @@ position:relative;
 #footer {
 width:100%;
 position:relative;
-padding-top:40px;
+padding-top:0px;
 }
 
 #footer .footer-area {
@@ -356,7 +356,7 @@ float:left;
 
 #footer_bottom {
 width:100%;
-min-height:89px;
+min-height:59px;
 height:auto;
 }
 
@@ -373,6 +373,7 @@ margin-top:-18px;
 float:right;
 width:520px;
 text-align:right;
+font-size: 14px;
 }
 
 .info {
@@ -381,7 +382,7 @@ font-size:11px;
 overflow:hidden;
 position:relative;
 margin:0 auto;
-padding:34px 0 0 8px;
+padding:14px 0 0 8px;
 }
 
 #footer .footer_post {
@@ -988,9 +989,10 @@ position:absolute;
 	float: left;
 }
 .top-block .toolbar-right {
-	margin: 0;
+	margin: 3px 0 3px 0;
 	padding: 0;
 	float: right;
+    font-size: 14px;
 }
 .top-block .toolbar-left ul,
 .top-block .toolbar-right ul,
