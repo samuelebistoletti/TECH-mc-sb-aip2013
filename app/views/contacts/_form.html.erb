@@ -1,4 +1,4 @@
-<%= form_for @contact, :html => {:class => "contact-form commentsblock"} do |f| %>
+<%= form_for @contact, :html => {:class => 'contact-form commentsblock', :name => 'myform'} do |f| %>
   <% if @contact.errors.any? %>
     <div id="error_explanation">
       <div class="message_karma_tealgrey colored_box">
@@ -39,7 +39,7 @@
 
   <div class="actions">
     <p class='contact-submit'>
-        <%= f.submit 'Invia', :class => 'ka-form-submit' %>
+      <a href="javascript: document.myform.submit()" class="ka_button small_button small_tealgrey"><span>Invia</span></a>
     </p>
   </div>
 <% end %>

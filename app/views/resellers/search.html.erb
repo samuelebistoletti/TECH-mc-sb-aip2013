@@ -1,10 +1,10 @@
 <div style="text-align: center;">
-  <h2>Ricerca un rivenditore per provincia o regione.<br><br>Inserisci nel box sottostante la regione o la provincia<br>di tuo interesse e clicca sul tasto "Cerca"<br><br></h2><h3>(Ad esempio se vuoi cercare tutti i negozi in Lombardia digita "Lombardia")</h3>
+  <h3>Ricerca un rivenditore per provincia o regione.<br><br>Inserisci nel box sottostante la regione o la provincia<br>di tuo interesse e clicca sul tasto "Cerca"<br><br></h3>(Ad esempio se vuoi cercare tutti i negozi in Lombardia digita "Lombardia")
 
 
-  <%= form_tag("/resellers", :method => "get", :class => "contact-form commentsblock") do %>
+  <%= form_tag("/resellers", :method => "get", :class => "contact-form commentsblock", :name => 'myform') do %>
       <input type="text" name="query" placeholder="Regione o Provincia">
       <br class="clear">
-      <%= submit_tag "Cerca", :class => 'ka-form-submit' %>
+      <a href="javascript: document.myform.submit()" class="ka_button small_button small_tealgrey"><span>Salva</span></a>
   <% end %>
 </div>
