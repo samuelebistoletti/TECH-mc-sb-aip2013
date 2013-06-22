@@ -51,6 +51,8 @@ class ProductsController < ApplicationController
   def edit
     @product = Product.find(params[:id])
     @title = "Modifica Prodotto"
+    @designers = Designer.all
+    @categories = Category.all
   end
 
   # POST /products

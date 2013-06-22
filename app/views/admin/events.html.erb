@@ -1,5 +1,7 @@
-<a href="<%= admin_path %>" class="ka_button small_button small_tealgrey"><span>Vai Al Menu Principale</span></a>
-<a href="<%= new_event_path %>" class="ka_button small_button small_tealgrey"><span>Aggiungi Un Nuovo Evento</span></a>
+<div class="center">
+    <a href="<%= admin_path %>" class="ka_button small_button small_tealgrey"><span>Vai Al Menu Principale</span></a>
+    <a href="<%= new_event_path %>" class="ka_button small_button small_tealgrey"><span>Aggiungi Un Nuovo Evento</span></a>
+</div>
 
 <br><br>
 
@@ -13,9 +15,6 @@
   <tr>
     <th>Nome</th>
     <th>Descrizione</th>
-    <th>Data</th>
-    <th>Luogo</th>
-    <th>Informazioni Agg.</th>
     <th>Immagine</th>
     <th></th>
     <th></th>
@@ -24,15 +23,12 @@
 
   <% @events.each do |event| %>
       <tr>
-        <td><%= event.name %></td>
-        <td><%= event.description %></td>
-        <td><%= event.date %></td>
-        <td><%= event.location %></td>
-        <td><%= event.extra_notes %></td>
-        <td><%= image_tag("events/#{event.image_url}", :width => "120") %></td>
-        <td><%= link_to 'Mostra', event %></td>
-        <td><%= link_to 'Modifica', edit_event_path(event) %></td>
-        <td><%= link_to 'Cancella', event, method: :delete, data: { confirm: 'Sei sicuro di voler cancellare questo evento?' } %></td>
+        <td><%= raw(event.name) %></td>
+        <td><%= raw(event.description) %></td>
+        <td><%= image_tag("events/#{event.image_url}", :class => 'rounded') %></td>
+        <td><%= link_to image_tag('_global/show.png', :class => 'ico'), event %></td>
+        <td><%= link_to image_tag('_global/edit.png', :class => 'ico'), edit_event_path(event) %></td>
+        <td><%= link_to image_tag('_global/delete.png', :class => 'ico'), event, method: :delete, data: { confirm: 'Sei sicuro di voler cancellare questo evento?' } %></td>
       </tr>
   <% end %>
 </table>

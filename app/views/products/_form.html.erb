@@ -1,4 +1,4 @@
-<%= form_for @product, :html => {:class => "contact-form commentsblock"} do |f| %>
+<%= form_for @product, :html => {:class => "contact-form commentsblock", :name => 'myform'} do |f| %>
     <% if @product.errors.any? %>
         <div id="error_explanation">
           <h2><%= pluralize(@product.errors.count, "error") %> prohibited this designer from being saved:</h2>
@@ -28,7 +28,7 @@
 
   <div class="field">
     <%= f.label "Designer" %>
-    <%= collection_select :product, :designer_id, @designers, :id, :name %>
+    <%= collection_select :product, :designer_id, @designers, :id, :name, {:include_blank => 'Non specificare'} %>
   </div>
 
   <div class="field">
@@ -42,6 +42,7 @@
   </div>
 
   <div class="actions"><br>
-    <%= f.submit "Salva", :class => 'ka-form-submit' %>
+    <a href="<%= admin_products_path %>" class="ka_button small_button small_tealgrey"><span>Indietro</span></a>
+    <a href="javascript: document.myform.submit()" class="ka_button small_button small_tealgrey"><span>Salva</span></a>
   </div>
 <% end %>
