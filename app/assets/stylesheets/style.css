@@ -97,7 +97,7 @@ html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abb
 border:0;
 outline:0;
 font-size:100%;
-vertical-align:baseline;
+vertical-align:middle;
 background:transparent;
 margin:0;
 padding:0;
@@ -2215,7 +2215,7 @@ img a, a img {cursor:pointer;}
 .content_full_width .hr_shadow {width: 980px;background: url(_global/global-sprite-dividers.png) 0 0 no-repeat !important;}
 .content_sidebar .hr_shadow {width: 510px;background: url(_global/global-sprite-dividers.png) 0 -40px no-repeat !important;}
 table{font-size:1.2em;}
-table td, table th{padding:6px;}
+table td, table th{padding:20px;}
 #footer .contact-form label {color: #FFF;}
 
 

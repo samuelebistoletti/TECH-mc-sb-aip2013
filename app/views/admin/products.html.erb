@@ -23,13 +23,13 @@
 
   <% @products.each do |product| %>
       <tr>
-        <td><%= product.name %></td>
-        <td><%= product.description %></td>
-        <td><%= product.specifications %></td>
-        <td><%= product.image_url %></td>
-        <td><%= link_to 'Mostra', product %></td>
-        <td><%= link_to 'Modifica', edit_product_path(product) %></td>
-        <td><%= link_to 'Cancella', product, method: :delete, data: { confirm: 'Sei sicuro di voler cancellare questo prodotto?' } %></td>
+        <td><%= raw(product.name) %></td>
+        <td><%= raw(product.description) %></td>
+        <td><%= raw(product.specifications) %></td>
+        <td><%= image_tag('products/' + product.image_url, :class => 'rounded') %></td>
+        <td><%= link_to image_tag("_global/show.png", :class => 'ico'), product %></td>
+        <td><%= link_to image_tag("_global/edit.png", :class => 'ico'), edit_product_path(product) %></td>
+        <td><%= link_to image_tag("_global/delete.png", :class => 'ico'), product, method: :delete, data: { confirm: 'Sei sicuro di voler cancellare questo prodotto?' } %></td>
       </tr>
   <% end %>
 </table>

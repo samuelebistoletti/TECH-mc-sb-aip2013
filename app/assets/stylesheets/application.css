@@ -20,4 +20,6 @@
 .left{float:left; margin-right: 20px;}
 .bigicon{width:256px;height:256px;}
 .three-quarters{width: 630px;}
-.bold{font-weight: bold}
+.bold{font-weight: bold;}
+.ico{width: 32px;}
+table td {min-width: 64;}
