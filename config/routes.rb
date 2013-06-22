@@ -1,4 +1,23 @@
 TECHMcSbAip2013::Application.routes.draw do
+
+  get "resellers/search"
+
+  resources :partners do
+    resources :products
+  end
+
+  resources :resellers do
+    resources :products
+  end
+
+  resources :designers do
+    resources :products
+  end
+
+  resources :categories do
+    resources :products
+  end
+
   get "admin/designers"
 
   get "admin/events"
@@ -13,7 +32,7 @@ TECHMcSbAip2013::Application.routes.draw do
 
   get "contacts/confirm"
 
-  get "resellers/search"
+
 
   resources :contacts
 

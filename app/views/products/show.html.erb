@@ -18,6 +18,9 @@
             <% if(@designer) %>
                 <li>Designer: <a href="<%= designer_path(@designer) %>"><%= @designer.name %></a></li>
             <% end %>
+            <% if(@partner) %>
+                <li>Prodotto da: <a href="<%= partner_path(@partner) %>"><%= @partner.name %></a></li>
+            <% end %>
           </ul>
         </div>
 
@@ -60,3 +63,17 @@
       end %>
     </div>
   </div>
+
+ <br class="clear"><br>
+
+ <div class="center">
+ <% if(@previous_link) %>
+       <a href="<%= @previous_link %>" class="ka_button small_button small_tealgrey"><span>Prodotto precedente</span></a>
+ <% end %>
+ <% if(@up_link && @up_text) %>
+     <a href="<%= @up_link %>" class="ka_button small_button small_tealgrey"><span><%= @up_text %></span></a>
+ <% end %>
+<% if(@next_link) %>
+   <a href="<%= @next_link %>" class="ka_button small_button small_tealgrey"><span>Prodotto successivo</span></a>
+<% end %>
+ </div>

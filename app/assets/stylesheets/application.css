@@ -18,8 +18,11 @@
 .rounded{border-top-left-radius: 10px; border-top-right-radius: 10px; border-bottom-left-radius: 10px; border-bottom-right-radius: 10px;}
 .avatar{width:128px;height:128px;margin:10px;}
 .left{float:left; margin-right: 20px;}
+.right{float:right; margin-left: 20px;}
 .bigicon{width:256px;height:256px;}
 .three-quarters{width: 630px;}
 .bold{font-weight: bold;}
 .ico{width: 32px;}
-table td {min-width: 64;}
+table td {min-width: 32px;}
+.thumb{width:128px; vertical-align: middle; margin: 5px;}
+.leftpad{padding-left: 10px;}

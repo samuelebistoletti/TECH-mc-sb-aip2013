@@ -14,7 +14,6 @@
   <tr>
     <th>Nome</th>
     <th>Descrizione</th>
-    <th>Link Esterno</th>
     <th>Immagine</th>
     <th></th>
     <th></th>
@@ -25,7 +24,6 @@
       <tr>
         <td><%= raw(partner.name) %></td>
         <td><%= raw(partner.description) %></td>
-        <td><%= link_to raw(partner.external_link), partner.external_link, target: "_blank" %></td>
         <td><%= image_tag("partners/#{partner.image_url}", :class => 'rounded') %></td>
         <td><%= link_to image_tag("_global/show.png", :class => 'ico'), partner %></td>
         <td><%= link_to image_tag("_global/edit.png", :class => 'ico'), edit_partner_path(partner) %></td>

@@ -17,6 +17,8 @@ class PartnersController < ApplicationController
   # GET /partners/1.json
   def show
     @partner = Partner.find(params[:id])
+    @title = @partner.name
+    @breadcrumb = '<a href="' + partners_path + '">Partners</a><span class="current_crumb">' + @partner.name + '</span>'
     @next = Partner.first(:conditions => ['id > ?', params[:id]])
     @previous = Partner.last(:conditions => ['id < ?', params[:id]])
 
@@ -47,11 +49,15 @@ class PartnersController < ApplicationController
   # POST /partners
   # POST /partners.json
   def create
-    image_io = params[:partner][:image_url]
-    File.open(Rails.root.join('app','assets','images','partners', image_io.original_filename), 'wb') do |file|
-      file.write(image_io.read)
+    if(params[:partner][:image_url])
+      image_io = params[:partner][:image_url]
+      File.open(Rails.root.join('app','assets','images','partners', image_io.original_filename), 'wb') do |file|
+        file.write(image_io.read)
+      end
+      params[:partner][:image_url] = image_io.original_filename
+    else
+      params[:partner][:image_url] = 'missing.png'
     end
-    params[:partner][:image_url] = image_io.original_filename
 
     @partner = Partner.new(params[:partner])
     respond_to do |format|

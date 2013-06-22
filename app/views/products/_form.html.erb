@@ -32,6 +32,11 @@
   </div>
 
   <div class="field">
+    <%= f.label "Produttore" %>
+    <%= collection_select :product, :partner_id, @partners, :id, :name, {:include_blank => 'Home Furniture & Co.'} %>
+  </div>
+
+  <div class="field">
     <%= f.label "Specifiche Tecniche" %>
     <%= f.text_area(:specifications, :size => "40x10") %>
   </div>

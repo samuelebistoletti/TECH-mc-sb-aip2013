@@ -27,15 +27,6 @@ class DesignersController < ApplicationController
     end
   end
 
-  def products
-    @designer = Designer.find(params[:id])
-    @title = 'Prodotti progettati da ' + @designer.name
-    @products = Product.find_all_by_designer_id(params[:id])
-    @back = designer_path(@designer)
-    @link = designer_path(@designer) + '/products/'
-    render :template => 'shared/products'
-  end
-
   # GET /designers/new
   # GET /designers/new.json
   def new
@@ -57,11 +48,15 @@ class DesignersController < ApplicationController
   # POST /designers
   # POST /designers.json
   def create
-    image_io = params[:designer][:image_url]
-    File.open(Rails.root.join('app','assets','images','designers', image_io.original_filename), 'wb') do |file|
-      file.write(image_io.read)
+    if(params[:designer][:image_url])
+      image_io = params[:designer][:image_url]
+      File.open(Rails.root.join('app','assets','images','designers', image_io.original_filename), 'wb') do |file|
+        file.write(image_io.read)
+      end
+      params[:designer][:image_url] = image_io.original_filename
+    else
+      params[:designer][:image_url] = 'missing.png';
     end
-    params[:designer][:image_url] = image_io.original_filename
 
     @designer = Designer.new(params[:designer])
     respond_to do |format|

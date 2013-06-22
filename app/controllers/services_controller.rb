@@ -50,11 +50,15 @@ class ServicesController < ApplicationController
   # POST /services
   # POST /services.json
   def create
-    image_io = params[:service][:image_url]
-    File.open(Rails.root.join('app','assets','images','services', image_io.original_filename), 'wb') do |file|
-      file.write(image_io.read)
+    if(params[:service][:image_url])
+      image_io = params[:service][:image_url]
+      File.open(Rails.root.join('app','assets','images','services', image_io.original_filename), 'wb') do |file|
+        file.write(image_io.read)
+      end
+      params[:service][:image_url] = image_io.original_filename
+    else
+      params[:service][:image_url] = 'missing.png'
     end
-    params[:service][:image_url] = image_io.original_filename
 
     @service = Service.new(params[:service])
     respond_to do |format|

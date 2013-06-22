@@ -13,7 +13,8 @@ Product.create([{name: 'Graduate',
                  image_url: 'armadio.jpg',
                  specifications: 'Piano di sostegno: alluminio anodizzato con bordo in multistrati<br/>Ripiani: alluminio anodizzato con bordo in multistrati<br/>Tiranti: acciaio inox</br>Portata massima delle librerie.<br/>Libreria L 2000 Kg 240<br/>Libreria L 3000 Kg 360<br/>Portata max. singolo ripiano Kg 25',
                  designer_id: 1,
-                 category_id: 1
+                 category_id: 1,
+                 partner_id: 0
                 },
 
                 {name: 'Hemnes',
@@ -21,7 +22,8 @@ Product.create([{name: 'Graduate',
                  image_url: 'hemnes.jpg',
                  specifications: 'Piano di sostegno: alluminio anodizzato con bordo in multistrati<br/>Ripiani: alluminio anodizzato con bordo in multistrati<br/>Tiranti: acciaio inox',
                  designer_id: 0,
-                 category_id: 1
+                 category_id: 1,
+                 partner_id: 1
                 },
 
                 {name: 'Godmorgon',
@@ -29,15 +31,17 @@ Product.create([{name: 'Graduate',
                  image_url: 'godmorgon.jpg',
                  specifications: 'Maniglia e cerniere incluse. Sono inclusi 1 ripiano fisso e 5 regolabili, tre dei quali in vetro. Pareti di materiali diversi richiedono tipi diversi di accessori di fissaggio. Usa accessori di fissaggio (venduti a parte) adatti alle pareti della tua casa.',
                  designer_id: 0,
-                 category_id: 2
+                 category_id: 2,
+                 partner_id: 2
                 },
 
                 {name: 'Bjorken',
                  description: 'Specchio sia all\'esterno che all\'interno. I ripiani regolabili sono molto resistenti al calore e ai colpi e hanno un\'elevata capacit&agrave; di carico poich&egrave; sono in vetro temprato.',
                  image_url: 'bjorken.jpg',
                  specifications: 'Cornice dell\'anta: Betulla massiccia, Vernice acrilica, trasparente. Pannello dell\'anta: Vetro. Ripiano: Vetro tempratoPannello di fondo: Fibra di legno, Lacca acrilica',
-                 designer_id: 0,
-                 category_id: 2
+                 designer_id: 2,
+                 category_id: 2,
+                 partner_id: 0
                 },
 
                 {name: 'Lillangen',
@@ -45,23 +49,26 @@ Product.create([{name: 'Graduate',
                  image_url: 'bagno.jpg',
                  specifications: 'Anta: Truciolare, Plastica ABS, Lamina Specchio: Vetro Parti principali: Truciolare, Lamina, Plastica ABS Pannello: Fibra di legno, Lamina Lista: Acciaio, Rivestimento a polvere, pigmentato Ripiano: Vetro temprato',
                  designer_id: 0,
-                 category_id: 2
+                 category_id: 2,
+                 partner_id: 3
                 },
 
                 {name: 'Klobo',
                  description: 'Divano a 2 posti, Lussebo naturale',
                  image_url: 'klobo.jpg',
                  specifications: 'Composizione totale: 100% cotone Struttura: Truciolare, Acciaio, Fibra di legno Piede: Plastica propilenica Molle a zig-zag: Acciaio Tela di protezione: Tessuto non tessuto di polipropilene',
-                 designer_id: 0,
-                 category_id: 3
+                 designer_id: 2,
+                 category_id: 3,
+                 partner_id: 0
                 },
 
                 {name: 'Faktum',
                  description: 'Mobile/ripiano/2 ante, Nexus impiallacciatura di betulla',
                  image_url: 'faktum.jpg',
                  specifications: 'Pareti di materiali diversi richiedono tipi diversi di accessori di fissaggio. Usa accessori di fissaggio (venduti a parte) adatti alle pareti della tua casa. La cerniera &egrave; regolabile in altezza, in profondit&agrave; e lateralmente. Le gambe vengono vendute a parte. Da completare con maniglie o pomelli. Coordinabile con l\'ammortizzatore per le cerniere INTEGRAL, per garantire una chiusura lenta e silenziosa dell\'anta.',
-                 designer_id: 0,
-                 category_id: 4
+                 designer_id: 1,
+                 category_id: 4,
+                 partner_id: 0
                 },
 
                 {name: 'Perfekt',
@@ -69,15 +76,17 @@ Product.create([{name: 'Graduate',
                  image_url: 'perfekt.jpg',
                  specifications: 'Pareti di materiali diversi richiedono tipi diversi di accessori di fissaggio. Usa accessori di fissaggio (venduti a parte) adatti alle pareti della tua casa.Le gambe vengono vendute a parte.',
                  designer_id: 0,
-                 category_id: 4
+                 category_id: 4,
+                 partner_id: 4
                 },
 
                 {name: 'Landscape',
                  description: 'Serie di imbottiti fissi e componibili caratterizzati dalla seduta sporgente rispetto alla struttura. Questo aspetto si evidenzia maggiormente nelle composizioni, quando elemento termin',
                  image_url: 'divano.jpg',
                  specifications: 'Interno struttura<br/>Telaio composto da legno massello di Abete e pannelli di particelle di legno, con cinghie elastiche.<br/><br/>Imbottitura struttura<br/>Poliuretano espanso ad alta portanza a densita variabile.<br/>Fodera in vellutino accoppiato.',
-                 designer_id: 1,
-                 category_id: 3
+                 designer_id: 0,
+                 category_id: 3,
+                 partner_id: 2
                 }
 
 
@@ -160,7 +169,8 @@ Partner.create([{name: 'Unifor',
 
 Event.delete_all
 Event.reset_primary_key
-Event.create([{name: 'Salone Internazionale del Mobile',
+events = Event.create([
+                {name: 'Salone Internazionale del Mobile',
                  description: 'L\'appuntamento con il prossimo Salone Internazionale del Mobile &egrave; per il 9 aprile 2014 presso la Zona Fiere di Rho. I Saloni 2013 Salone Internazionale del Mobile, Euroluce, SaloneUfficio, Salone Internazionale del Complemento d\'Arredo, SaloneSatellite',
                  date: '09-04-2014',
                  image_url: 'salone_mobile.jpg',
@@ -196,7 +206,8 @@ Designer.create([{name: 'Ichiro Iwasaki',
 
 Reseller.delete_all
 Reseller.reset_primary_key
-Reseller.create([{name: 'Centro Arredamento Tosi',
+resellers = Reseller.create([
+                 {name: 'Centro Arredamento Tosi',
                   region: 'Lombardia',
                   province: 'Varese',
                   address: 'Via G. Fanti 6',
@@ -232,3 +243,20 @@ Reseller.create([{name: 'Centro Arredamento Tosi',
                   image_url: 'interni.jpg'
                  }
                 ])
+
+Contact.delete_all
+Contact.reset_primary_key
+Contact.create([{name: 'Paolo',
+                surname: 'Rossi',
+                email: 'paolo.rossi@gmail.com',
+                message: 'Buonasera, sarei interessato all\'acquisto di un vostro prodotto ("Indigo", categoria "Mobili giorno") che tuttavia &egrave; stato da pochi giorni rimosso dal catalogo. E\' per caso possibile sapere se vi sono delle rimanenze di magazzino o se il prodotto &egrave; ancora disponibile presso qualche rivenditore?'}
+               ])
+
+events[0].partners << Partner.first(2)
+events[1].partners << Partner.last(3)
+events[2].partners << Partner.first(1)
+
+resellers[0].products << Product.order('RANDOM()').first(5)
+resellers[1].products << Product.order('RANDOM()').first(5)
+resellers[2].products << Product.order('RANDOM()').first(5)
+resellers[3].products << Product.order('RANDOM()').first(5)

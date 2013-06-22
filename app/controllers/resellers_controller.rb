@@ -1,7 +1,7 @@
 class ResellersController < ApplicationController
   def search
     @title = 'Ricerca Rivenditori'
-    @breadcrumb = '<span class="current_crumb">Cerca Rivenditore</span>'
+    @breadcrumb = '<span class="current_crumb">Cerca rivenditori</span>'
     @reseller = Reseller.all
 
     respond_to do |format|
@@ -14,18 +14,20 @@ class ResellersController < ApplicationController
   # GET /resellers.json
   def index
     @query = params[:query]
-    @reseller = Reseller.where("region LIKE ? OR province LIKE ?", "%#{params[:query]}%", "%#{params[:query]}%")
-    @breadcrumb = "<a href=\"#{resellers_search_path}\">Cerca Rivenditore</a><span class=\"current_crumb\">Risultati Ricerca</span>"
+    @resellers = Reseller.where("region LIKE ? OR province LIKE ?", "%#{params[:query]}%", "%#{params[:query]}%")
+    @first = Reseller.first
+    @breadcrumb = "<a href=\"#{resellers_search_path}\">Cerca rivenditori</a><span class=\"current_crumb\">Risultati della ricerca</span>"
+    @title = 'Risultati della ricerca'
 
     respond_to do |format|
-      if @reseller.size > 0
-        @title = "Sono stati trovati #{@reseller.size} rivenditori"
+      if @resellers.size > 0
+        @title = "Sono stati trovati #{@resellers.size} rivenditori"
         format.html # index.html.erb
-        format.json { render json: @reseller }
+        format.json { render json: @resellers }
       else
         @title = "Nessun rivenditore trovato"
         format.html # index.html.erb
-        format.json { render json: @reseller }
+        format.json { render json: @resellers }
       end
     end
   end
@@ -35,8 +37,12 @@ class ResellersController < ApplicationController
   def show
     @query = params[:query]
     @reseller = Reseller.find(params[:id])
+    @resellers = Reseller.where("region LIKE ? OR province LIKE ?", "%#{params[:query]}%", "%#{params[:query]}%")
+    @next = @resellers.first(:conditions => ['id > ?', params[:id]])
+    @previous = @resellers.last(:conditions => ['id < ?', params[:id]])
+    @partners = Partner.where(:id => @reseller.products.select(:partner_id))
     @title = @reseller.name
-    @breadcrumb = "<a href=\"#{resellers_search_path}\">Cerca Rivenditore</a><a href=\"/resellers/?query=#{@query}\">Risultati Ricerca</a><span class=\"current_crumb\">#{@title}</span>"
+    @breadcrumb = "<a href=\"#{resellers_search_path}\">Cerca rivenditori</a><a href=\"/resellers/?query=#{@query}\">Risultati della ricerca</a><span class=\"current_crumb\">#{@title}</span>"
 
     respond_to do |format|
       format.html # show.html.erb
@@ -65,11 +71,15 @@ class ResellersController < ApplicationController
   # POST /resellers
   # POST /resellers.json
   def create
-    image_io = params[:reseller][:image_url]
-    File.open(Rails.root.join('app','assets','images','resellers', image_io.original_filename), 'wb') do |file|
-      file.write(image_io.read)
+    if(params[:reseller][:image_url])
+      image_io = params[:reseller][:image_url]
+      File.open(Rails.root.join('app','assets','images','resellers', image_io.original_filename), 'wb') do |file|
+        file.write(image_io.read)
+      end
+      params[:reseller][:image_url] = image_io.original_filename
+    else
+      params[:reseller][:image_url] = 'missing.png'
     end
-    params[:reseller][:image_url] = image_io.original_filename
 
     @reseller = Reseller.new(params[:reseller])
     respond_to do |format|

@@ -1,4 +1,6 @@
-<a href="<%= admin_path %>" class="ka_button small_button small_tealgrey"><span>Vai Al Menu Principale</span></a>
+<div class="center">
+    <a href="<%= admin_path %>" class="ka_button small_button small_tealgrey"><span>Vai Al Menu Principale</span></a>
+</div>
 
 <table>
   <tr>
@@ -11,10 +13,10 @@
 
   <% @contacts.each do |contact| %>
       <tr>
-        <td><%= contact.name %></td>
-        <td><%= contact.surname %></td>
-        <td><%= contact.email %></td>
-        <td><%= contact.message %></td>
+        <td><%= raw(contact.name) %></td>
+        <td><%= raw(contact.surname) %></td>
+        <td><%= raw(contact.email) %></td>
+        <td><%= raw(contact.message) %></td>
         <td><%= link_to image_tag("_global/delete.png", :class => 'ico'), contact, method: :delete, data: { confirm: 'Sei sicuro di voler cancellare questo messaggio?' } %></td>
       </tr>
   <% end %>

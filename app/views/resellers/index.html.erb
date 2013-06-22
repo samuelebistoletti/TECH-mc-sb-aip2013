@@ -1,4 +1,4 @@
-<% if @reseller.size == 0 %>
+<% if @resellers.size == 0 %>
     <div id="error_explanation">
       <div class="message_karma_tealgrey colored_box">
         <p style="font-size:13px;">
@@ -11,7 +11,7 @@
 
 <% else %>
 
-<% @reseller.each do |reseller| %>
+<% @resellers.each do |reseller| %>
   <ul class="list">
     <li><a href="<%= reseller_path(reseller) + "?query=#{@query}" %>"><%= reseller.name %></a>
     <br><%= reseller.region %>
@@ -23,5 +23,6 @@
 <br>
 
 <a href="<%= resellers_search_path %>" class="ka_button small_button small_tealgrey"><span>Nuova Ricerca</span></a>
+<a href="<%= reseller_path(@first) + "?query=#{@query}" %>" class="ka_button small_button small_tealgrey"><span>Esplora i rivenditori</span></a>
 
 <% end %>

@@ -21,6 +21,7 @@ class EventsController < ApplicationController
     @breadcrumb = '<a href=' + events_path + '>Eventi</a><span class="current_crumb">' + @event.name + '</span>'
     @next = Event.first(:conditions => ['id > ?', params[:id]])
     @previous = Event.last(:conditions => ['id < ?', params[:id]])
+    @partners = @event.partners
 
     respond_to do |format|
       format.html # show.html.erb
@@ -49,11 +50,15 @@ class EventsController < ApplicationController
   # POST /events
   # POST /events.json
   def create
-    image_io = params[:event][:image_url]
-    File.open(Rails.root.join('app','assets','images','events', image_io.original_filename), 'wb') do |file|
-      file.write(image_io.read)
+    if(params[:event][:image_url])
+      image_io = params[:event][:image_url]
+      File.open(Rails.root.join('app','assets','images','events', image_io.original_filename), 'wb') do |file|
+        file.write(image_io.read)
+      end
+      params[:event][:image_url] = image_io.original_filename
+    else
+      params[:event][:image_url] = 'missing.png'
     end
-    params[:event][:image_url] = image_io.original_filename
 
     @event = Event.new(params[:event])
     respond_to do |format|

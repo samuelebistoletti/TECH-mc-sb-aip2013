@@ -1,8 +1,9 @@
 <div id="content" class="content_full_width portfolio_layout">
 
-  <% @designers.each do |designer| %>
-
-      <div class="one_fourth">
+  <% i = 0
+     @designers.each do |designer| %>
+      <% i = i+1 %>
+      <div class="one_fourth<% if(i%4==0) %>_last<% end %>">
         <div class="modern_img_frame modern_four_col_large">
 
           <div class="modern_preload_four_col_large">

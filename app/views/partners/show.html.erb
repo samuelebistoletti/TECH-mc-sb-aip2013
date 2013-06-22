@@ -13,7 +13,7 @@
   <p><%= @partner.description %></p>
 
   <div class="center">
-    <a href="<%= partners_path %>" class="ka_button small_button small_tealgrey"><span>Vai ai suoi prodotti</span></a>
+    <a href="<%= partner_products_path(@partner) %>" class="ka_button small_button small_tealgrey"><span>Vai ai suoi prodotti</span></a>
     <a target="_blank" href="<%= @partner.external_link %>" class="ka_button small_button small_tealgrey"><span>Vai al sito di <%= @partner.name %></span></a>
   </div>
 

@@ -1,6 +1,19 @@
-<%= image_tag "resellers/" + @reseller.image_url, :class => 'bigicon one_third rounded' %>
+<div class="one_third">
+    <%= image_tag "resellers/" + @reseller.image_url, :class => 'bigicon rounded' %>
+</div>
 
-<div class="left two_thirds_last">
+<div class="center one_third_last">
+  <a href="<%= reseller_products_path(@reseller) + "?query=#{@query}" %>" class="ka_button small_button small_tealgrey"><span>Prodotti in vendita</span></a>
+  <p>
+    <% if(@partners.size!=0)
+         @partners.each do |partner| %>
+            <a href="<%= partner_path(partner) %>"><%= image_tag "partners/" + partner.image_url, :class => 'rounded thumb' %></a>
+    <%  end
+       end %>
+  </p>
+</div>
+
+<div class="one_third">
   <h1><%= @reseller.name %></h1><br>
   <p>Regione: <%= @reseller.region %></p>
   <p>Provincia: <%= @reseller.province %></p>
@@ -11,5 +24,12 @@
 
 <br class="clear">
 
-<a href="<%= "/resellers/?query=#{@query}" %>" class="ka_button small_button small_tealgrey"><span>Torna Ai Risultati Della Ricerca</span></a>
-<a href="<%= resellers_search_path %>" class="ka_button small_button small_tealgrey"><span>Nuova Ricerca</span></a>
+<div class="center">
+  <% if(@previous) %>
+      <a href="<%= reseller_path(@previous) + "?query=#{@query}" %>" class="ka_button small_button small_tealgrey"><span>Rivenditore precedente</span></a>
+  <% end %>
+    <a href="<%= "/resellers/?query=#{@query}" %>" class="ka_button small_button small_tealgrey"><span>Torna Ai Risultati Della Ricerca</span></a>
+  <% if(@next) %>
+    <a href="<%= reseller_path(@next) + "?query=#{@query}" %>" class="ka_button small_button small_tealgrey"><span>Prossimo rivenditore</span></a>
+  <% end %>
+</div>

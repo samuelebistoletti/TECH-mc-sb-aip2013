@@ -16,9 +16,21 @@
     <li><span class="bold">Luogo:</span> <%= @event.location %></li>
   </ul>
 
-  <div class="tabs-area ui-tabs ui-widget ui-widget-content ui-corner-all"><ul class="center tabset ui-tabs-nav ui-helper-reset ui-helper-clearfix ui-widget-header ui-corner-all"><li class="ui-state-default ui-corner-top ui-tabs-selected ui-state-active"><a href="#tab-" class="tab"><span>Ulteriori informazioni</span></a></li></ul>
+  <div class="tabs-area ui-tabs ui-widget ui-widget-content ui-corner-all"><ul class="center tabset ui-tabs-nav ui-helper-reset ui-helper-clearfix ui-widget-header ui-corner-all"><li class="ui-state-default ui-corner-top ui-tabs-selected ui-state-active"><a href="#tab-" class="tab"><span>Ulteriori informazioni</span></a></li><li class="ui-state-default ui-corner-top"><a href="#tab-1" class="tab"><span>Partners partecipanti</span></a></li></ul>
     <div id="tab-" class="tab-box ui-tabs-panel ui-widget-content ui-corner-bottom" style="">
       <p><%= raw(@event.extra_notes) %></p>
+      <br class="clear">
+    </div>
+    <div id="tab-1" class="tab-box ui-tabs-panel ui-widget-content ui-corner-bottom" style="">
+      <p>
+        <% if(@partners.size!=0)
+            @partners.each do |partner| %>
+                <a href="<%= partner_path(partner) %>"><%= image_tag "partners/" + partner.image_url, :class => 'rounded thumb' %></a>
+        <%  end
+           else %>
+        Nessun partner della nostra Azienda sarà presente a questo evento.
+        <% end %>
+      </p>
       <br class="clear">
     </div>
   </div>

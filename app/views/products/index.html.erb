@@ -1,13 +1,14 @@
 <% if(@products.size==0) %>
     <h3>Spiacenti, nessun prodotto corrisponde ai parametri desiderati.</h3>
 <% else
+     i = 0
      @products.each do |product| %>
-
-        <div class="one_fourth">
+        <% i = i+1 %>
+        <div class="one_fourth<% if(i%4==0) %>_last<% end %>">
           <div class="modern_img_frame modern_four_col_large">
 
             <div class="modern_preload_four_col_large">
-              <a href="<%= product_path(product.id) %>" class="attachment-fadeIn"><%= image_tag "products/" + product.image_url, :style => 'width: 190px; height: 111px;' %></a></div><!-- END preload -->
+              <a href="<%= @base_link + '/' + product.id.to_s + (@query && @query!='' ? '?query=' + @query : '') %>" class="attachment-fadeIn"><%= image_tag "products/" + product.image_url, :style => 'width: 190px; height: 111px;' %></a></div><!-- END preload -->
           </div><!-- END modern_frame -->
 
 

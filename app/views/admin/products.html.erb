@@ -16,7 +16,6 @@
   <tr>
     <th>Nome</th>
     <th>Descrizione</th>
-    <th>Specifiche Tecniche</th>
     <th>Immagine</th>
     <th></th>
     <th></th>
@@ -27,7 +26,6 @@
       <tr>
         <td><%= raw(product.name) %></td>
         <td><%= raw(product.description) %></td>
-        <td><%= raw(product.specifications) %></td>
         <td><%= image_tag('products/' + product.image_url, :class => 'rounded') %></td>
         <td><%= link_to image_tag("_global/show.png", :class => 'ico'), product %></td>
         <td><%= link_to image_tag("_global/edit.png", :class => 'ico'), edit_product_path(product) %></td>

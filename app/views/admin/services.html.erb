@@ -14,8 +14,6 @@
   <tr>
     <th>Nome</th>
     <th>Descrizione</th>
-    <th>Modalità Richiesta</th>
-    <th>Tipo Servizio</th>
     <th>Immagine</th>
     <th></th>
     <th></th>
@@ -26,13 +24,6 @@
       <tr>
         <td><%= raw(service.name) %></td>
         <td><%= raw(service.description) %></td>
-        <td><%= raw(service.procedure) %></td>
-        <% if service.service_type==0 %>
-            <td>Servizio applicabile a tutti i prodotti</td>
-        <% else if service.service_type==1 %>
-            <td>Servizio applicabile solo a prodotti selezionati</td>
-        <% end %>
-        <% end %>
         <td><%= image_tag('services/' + service.image_url, :class => 'rounded') %></td>
         <td><%= link_to image_tag("_global/show.png", :class => 'ico'), service %></td>
         <td><%= link_to image_tag("_global/edit.png", :class => 'ico'), edit_service_path(service) %></td>
