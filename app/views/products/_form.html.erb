@@ -20,8 +20,12 @@
     <%= f.text_area(:description, :size => "40x15") %>
   </div>
   <div class="field">
-    <%= f.label :category %><br />
-    <%= f.text_field :category %>
+    <%= f.label "Categoria di prodotto" %><br />
+    <%= collection_select :product, :category_id, @categories, :id, :name %>
+  </div>
+  <div class="field">
+    <%= f.label "Designer" %><br />
+    <%= collection_select :product, :designer_id, @designers, :id, :name %>
   </div>
   <div class="field">
     <%= f.label "Specifiche Tecniche" %><br />

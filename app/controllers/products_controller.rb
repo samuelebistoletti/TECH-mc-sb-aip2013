@@ -38,6 +38,8 @@ class ProductsController < ApplicationController
   def new
     @product = Product.new
     @title = "Nuovo Prodotto"
+    @designers = Designer.all
+    @categories = Category.all
 
     respond_to do |format|
       format.html # new.html.erb
