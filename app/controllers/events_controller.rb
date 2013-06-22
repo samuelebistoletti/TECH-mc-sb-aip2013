@@ -31,6 +31,7 @@ class EventsController < ApplicationController
   # GET /events/new
   # GET /events/new.json
   def new
+    @title = 'Nuovo Evento'
     @event = Event.new
 
     respond_to do |format|
@@ -41,17 +42,23 @@ class EventsController < ApplicationController
 
   # GET /events/1/edit
   def edit
+    @title = 'Modifica Evento'
     @event = Event.find(params[:id])
   end
 
   # POST /events
   # POST /events.json
   def create
-    @event = Event.new(params[:event])
+    image_io = params[:event][:image_url]
+    File.open(Rails.root.join('app','assets','images','events', image_io.original_filename), 'wb') do |file|
+      file.write(image_io.read)
+    end
+    params[:event][:image_url] = image_io.original_filename
 
+    @event = Event.new(params[:event])
     respond_to do |format|
       if @event.save
-        format.html { redirect_to @event, notice: 'Event was successfully created.' }
+        format.html { redirect_to admin_events_path, notice: 'Evento inserito con successo.' }
         format.json { render json: @event, status: :created, location: @event }
       else
         format.html { render action: "new" }
@@ -67,7 +74,7 @@ class EventsController < ApplicationController
 
     respond_to do |format|
       if @event.update_attributes(params[:event])
-        format.html { redirect_to @event, notice: 'Event was successfully updated.' }
+        format.html { redirect_to admin_events_path, notice: 'Evento aggiornato con successo.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }
@@ -83,7 +90,7 @@ class EventsController < ApplicationController
     @event.destroy
 
     respond_to do |format|
-      format.html { redirect_to events_url }
+      format.html { redirect_to admin_events_path }
       format.json { head :no_content }
     end
   end
