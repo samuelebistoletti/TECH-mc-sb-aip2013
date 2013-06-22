@@ -56,8 +56,13 @@ class ProductsController < ApplicationController
   # POST /products
   # POST /products.json
   def create
-    @product = Product.new(params[:product])
+    image_io = params[:product][:image_url]
+    File.open(Rails.root.join('app','assets','images','products', image_io.original_filename), 'wb') do |file|
+      file.write(image_io.read)
+    end
+    params[:product][:image_url] = image_io.original_filename
 
+    @product = Product.new(params[:product])
     respond_to do |format|
       if @product.save
         format.html { redirect_to admin_products_path, notice: 'Prodotto inserito con successo.' }

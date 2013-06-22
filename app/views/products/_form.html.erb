@@ -1,41 +1,47 @@
-<%= form_for(@product) do |f| %>
-  <% if @product.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@product.errors.count, "error") %> prohibited this product from being saved:</h2>
+<%= form_for @product, :html => {:class => "contact-form commentsblock"} do |f| %>
+    <% if @product.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(@product.errors.count, "error") %> prohibited this designer from being saved:</h2>
 
-      <ul>
-      <% @product.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
+          <ul>
+            <% @product.errors.full_messages.each do |msg| %>
+                <li><%= msg %></li>
+            <% end %>
+          </ul>
+        </div>
+    <% end %>
 
   <div class="field">
-    <%= f.label "Nome" %><br />
+    <%= f.label "Nome" %>
     <%= f.text_field :name %>
   </div>
+
   <div class="field">
-    <%= f.label "Descrizione" %><br />
+    <%= f.label "Descrizione" %>
     <%= f.text_area(:description, :size => "40x15") %>
   </div>
+
   <div class="field">
-    <%= f.label "Categoria di prodotto" %><br />
+    <%= f.label "Categoria di prodotto" %>
     <%= collection_select :product, :category_id, @categories, :id, :name %>
   </div>
+
   <div class="field">
-    <%= f.label "Designer" %><br />
+    <%= f.label "Designer" %>
     <%= collection_select :product, :designer_id, @designers, :id, :name %>
   </div>
+
   <div class="field">
-    <%= f.label "Specifiche Tecniche" %><br />
+    <%= f.label "Specifiche Tecniche" %>
     <%= f.text_area(:specifications, :size => "40x10") %>
   </div>
+
   <div class="field">
-    <%= f.label "URL Immagine" %><br />
-    <%= f.text_field :image_url %>
+    <%= f.label "Immagine" %>
+    <%= f.file_field :image_url %>
   </div>
-  <div class="actions">
-    <%= f.submit("Salva") %>
+
+  <div class="actions"><br>
+    <%= f.submit "Salva", :class => 'ka-form-submit' %>
   </div>
 <% end %>
