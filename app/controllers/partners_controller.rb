@@ -30,6 +30,7 @@ class PartnersController < ApplicationController
   # GET /partners/new.json
   def new
     @partner = Partner.new
+    @title = "Nuovo Partner"
 
     respond_to do |format|
       format.html # new.html.erb
@@ -40,16 +41,22 @@ class PartnersController < ApplicationController
   # GET /partners/1/edit
   def edit
     @partner = Partner.find(params[:id])
+    @title = "Modifica Partner"
   end
 
   # POST /partners
   # POST /partners.json
   def create
-    @partner = Partner.new(params[:partner])
+    image_io = params[:partner][:image_url]
+    File.open(Rails.root.join('app','assets','images','partners', image_io.original_filename), 'wb') do |file|
+      file.write(image_io.read)
+    end
+    params[:partner][:image_url] = image_io.original_filename
 
+    @partner = Partner.new(params[:partner])
     respond_to do |format|
       if @partner.save
-        format.html { redirect_to @partner, notice: 'Partner was successfully created.' }
+        format.html { redirect_to admin_partners_path, notice: 'Partner inserito con successo.' }
         format.json { render json: @partner, status: :created, location: @partner }
       else
         format.html { render action: "new" }
@@ -65,7 +72,7 @@ class PartnersController < ApplicationController
 
     respond_to do |format|
       if @partner.update_attributes(params[:partner])
-        format.html { redirect_to @partner, notice: 'Partner was successfully updated.' }
+        format.html { redirect_to admin_partners_path, notice: 'Partner modificato con successo.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }
@@ -81,7 +88,7 @@ class PartnersController < ApplicationController
     @partner.destroy
 
     respond_to do |format|
-      format.html { redirect_to partners_url }
+      format.html { redirect_to admin_partners_path }
       format.json { head :no_content }
     end
   end
