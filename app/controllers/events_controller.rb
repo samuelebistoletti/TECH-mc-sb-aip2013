@@ -26,12 +26,14 @@ class EventsController < ApplicationController
   end
 
   def create
+    #Carica l'immagine selezionata sul server
     if(params[:event][:image_url])
       image_io = params[:event][:image_url]
       File.open(Rails.root.join('app','assets','images','events', image_io.original_filename), 'wb') do |file|
         file.write(image_io.read)
       end
       params[:event][:image_url] = image_io.original_filename
+    #Se non è stata selezionata un'immagine viene caricata un'immagine di default
     else
       params[:event][:image_url] = 'missing.png'
     end
@@ -51,6 +53,7 @@ class EventsController < ApplicationController
   def update
     @event = Event.find(params[:id])
 
+    #Se è stata selezionata una nuova immagine la carica sul server
     if(params[:event][:image_url])
       image_io = params[:event][:image_url]
       File.open(Rails.root.join('app','assets','images','events', image_io.original_filename), 'wb') do |file|

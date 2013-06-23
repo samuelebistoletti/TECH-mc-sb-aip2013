@@ -20,6 +20,7 @@ class ContactsController < ApplicationController
 
     respond_to do |format|
       if @contact.save
+        #Redirect alla pagina di corretto invio del messaggio
         format.html { redirect_to :controller => "contacts", :action => "confirm", :id => @contact }
         format.json { render json: @contact }
       else
@@ -29,6 +30,7 @@ class ContactsController < ApplicationController
     end
   end
 
+  #Pagina di conferma di invio del messaggio
   def confirm
     @contact = Contact.find(params[:id])
     @title = 'Conferma'

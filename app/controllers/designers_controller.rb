@@ -25,12 +25,14 @@ class DesignersController < ApplicationController
   end
 
   def create
+    #Carica l'immagine selezionata sul server
     if(params[:designer][:image_url])
       image_io = params[:designer][:image_url]
       File.open(Rails.root.join('app','assets','images','designers', image_io.original_filename), 'wb') do |file|
         file.write(image_io.read)
       end
       params[:designer][:image_url] = image_io.original_filename
+    #Se non è stata selezionata un'immagine viene caricata un'immagine di default
     else
       params[:designer][:image_url] = 'missing.png';
     end
@@ -50,6 +52,7 @@ class DesignersController < ApplicationController
   def update
     @designer = Designer.find(params[:id])
 
+    #Se è stata selezionata una nuova immagine la carica sul server
     if(params[:designer][:image_url])
       image_io = params[:designer][:image_url]
       File.open(Rails.root.join('app','assets','images','designers', image_io.original_filename), 'wb') do |file|
