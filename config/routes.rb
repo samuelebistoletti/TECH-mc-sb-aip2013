@@ -1,6 +1,25 @@
 TECHMcSbAip2013::Application.routes.draw do
+  root :to => 'home#index'
+  match 'home' => 'home#index', :via => :get, :as => :home
+  match 'admin' => 'admin#index', :via => :get, :as => :admin
+  match 'products' => 'categories#index', :via => :get, :as => :products
+  match 'about_us' => 'about_us#company', :via => :get, :as => :about_us
 
   get "resellers/search"
+  get "resellers/product"
+  get "contacts/confirm"
+
+  get "about_us/tradition"
+  get "about_us/company"
+  get "about_us/index"
+
+  get "admin/designers"
+  get "admin/events"
+  get "admin/partners"
+  get "admin/resellers"
+  get "admin/services"
+  get "admin/contacts"
+  get "admin/products"
 
   resources :partners do
     resources :products
@@ -18,36 +37,10 @@ TECHMcSbAip2013::Application.routes.draw do
     resources :products
   end
 
-  get "admin/designers"
-  get "admin/events"
-  get "admin/partners"
-  get "admin/resellers"
-  get "admin/services"
-  get "admin/contacts"
-  get "contacts/confirm"
-  get 'admin/products'
-  get 'admin/index'
-
-  get "about_us/tradition"
-  get "about_us/company"
-  get "about_us/index"
-
-  resources :partners
   resources :services
-  resources :resellers
   resources :events
-  resources :designers
-  resources :home
-  resources :categories
   resources :products
   resources :contacts
-
-  root :to => 'home#index'
-
-  match 'admin' => 'admin#index', :via => :get, :as => :admin
-  match 'products' => 'categories#index', :via => :get, :as => :products
-  match 'home' => 'home#index', :via => :get, :as => :home
-  match 'about_us' => 'about_us#company', :via => :get, :as => :about_us
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
