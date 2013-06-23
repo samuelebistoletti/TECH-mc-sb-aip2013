@@ -1,7 +1,7 @@
 <%= image_tag "services/" + @service.image_url, :class => 'bigicon one_third rounded' %>
 
 <div class="left two_thirds_last">
-  <h1><%= @service.name %></h1>
+  <h1><%= raw(@service.name) %></h1>
   <p><%= raw(@service.description) %></p>
 </div>
 

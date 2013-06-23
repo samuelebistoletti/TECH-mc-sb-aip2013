@@ -9,8 +9,8 @@
 </div>
 
 <div class="two_thirds_last">
-  <h1><%= @event.name %></h1>
-  <p><%= @event.description %></p>
+  <h1><%= raw(@event.name) %></h1>
+  <p><%= raw(@event.description) %></p>
   <ul class="list">
     <li><span class="bold">Data:</span> <%= @event.date %></li>
     <li><span class="bold">Luogo:</span> <%= @event.location %></li>

@@ -14,9 +14,9 @@
 <% @resellers.each do |reseller| %>
   <ul class="list">
     <li><a href="<%= reseller_path(reseller) + "?query=#{@query}" %>"><%= reseller.name %></a>
-    <br><%= reseller.region %>
-    <br><%= reseller.province %>
-    <br><%= reseller.address %></li>
+    <br><%= raw(reseller.region) %>
+    <br><%= raw(reseller.province) %>
+    <br><%= raw(reseller.address) %></li>
   </ul>
 <% end %>
 

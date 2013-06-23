@@ -14,12 +14,12 @@
 </div>
 
 <div class="one_third">
-  <h1><%= @reseller.name %></h1><br>
-  <p>Regione: <%= @reseller.region %></p>
-  <p>Provincia: <%= @reseller.province %></p>
-  <p>Indirizzo: <%= @reseller.address %></p>
-  <p>Telefono: <%= @reseller.telephone %></p>
-  <p>Email: <%= @reseller.email %></p>
+  <h1><%= raw(@reseller.name) %></h1><br>
+  <p>Regione: <%= raw(@reseller.region) %></p>
+  <p>Provincia: <%= raw(@reseller.province) %></p>
+  <p>Indirizzo: <%= raw(@reseller.address) %></p>
+  <p>Telefono: <%= raw(@reseller.telephone) %></p>
+  <p>Email: <%= raw(@reseller.email) %></p>
 </div>
 
 <br class="clear">

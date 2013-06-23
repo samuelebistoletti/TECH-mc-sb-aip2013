@@ -9,8 +9,8 @@
 </div>
 
 <div class="two_thirds_last">
-  <h1><%= @partner.name %></h1>
-  <p><%= @partner.description %></p>
+  <h1><%= raw(@partner.name) %></h1>
+  <p><%= raw(@partner.description) %></p>
 
   <div class="center">
     <a href="<%= partner_products_path(@partner) %>" class="ka_button small_button small_tealgrey"><span>Vai ai suoi prodotti</span></a>

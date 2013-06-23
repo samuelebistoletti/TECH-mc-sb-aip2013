@@ -7,18 +7,18 @@
 
       <div class="left">
 
-        <h1><%= @product.name %></h1>
+        <h1><%= raw(@product.name) %></h1>
 
 
         <div>
 
           <ul class="list">
-            <li>Categoria: <a href="<%= category_path(@category) %>"><%= @category.name %></a></li>
+            <li>Categoria: <a href="<%= category_path(@category) %>"><%= raw(@category.name) %></a></li>
             <% if(@designer) %>
-                <li>Designer: <a href="<%= designer_path(@designer) %>"><%= @designer.name %></a></li>
+                <li>Designer: <a href="<%= designer_path(@designer) %>"><%= raw(@designer.name) %></a></li>
             <% end %>
             <% if(@partner) %>
-                <li>Prodotto da: <a href="<%= partner_path(@partner) %>"><%= @partner.name %></a></li>
+                <li>Prodotto da: <a href="<%= partner_path(@partner) %>"><%= raw(@partner.name) %></a></li>
             <% end %>
           </ul>
         </div>
@@ -32,7 +32,7 @@
 
 
    <div class="clear"></div>
-   <p><%= @product.description %></p>
+   <p><%= raw(@product.description) %></p>
 
    <div class="tabs-area ui-tabs ui-widget ui-widget-content ui-corner-all"><ul class="tabset ui-tabs-nav ui-helper-reset ui-helper-clearfix ui-widget-header ui-corner-all"><li class="ui-state-default ui-corner-top ui-tabs-selected ui-state-active"><a href="#tab-" class="tab"><span>Specifiche tecniche</span></a></li><li class="ui-state-default ui-corner-top"><a href="#tab-1" class="tab"><span>Servizi disponibili</span></a></li></ul>
      <div id="tab-" class="tab-box ui-tabs-panel ui-widget-content ui-corner-bottom" style="">
