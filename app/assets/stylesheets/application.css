@@ -26,3 +26,7 @@
 table td {min-width: 32px;}
 .thumb{width:128px; vertical-align: middle; margin: 5px;}
 .leftpad{padding-left: 10px;}
+h1, h2, h3, h4, h5 #main .comment-title, .four_o_four, .callout-wrap span, .search-title,.callout2, .comment-author-about, .logo-text {font-family:'Droid+Sans', Arial, sans-serif;}
+
+body,html{background-image:url(_global/low_contrast_linen.png) !important;background-position:left top !important;background-repeat:repeat !important;}
+#tt-boxed-layout {-moz-box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.5);-webkit-box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.5);box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.5);}

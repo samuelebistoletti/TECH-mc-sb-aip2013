@@ -25,7 +25,7 @@
 
 <div class="center">
   <% if(@back) %>
-      <a href="<%= @back %>" class="ka_button small_button small_tealgrey"><span>Torna indietro</span></a>
+      <a href="<%= @back %>" class="ka_button small_button small_tealgrey"><span><%= @back_text %></span></a>
   <% end %>
   <% if(@gd_link && @gd_text) %>
       <a href="<%= @gd_link %>" class="ka_button small_button small_tealgrey"><span><%= @gd_text %></span></a>

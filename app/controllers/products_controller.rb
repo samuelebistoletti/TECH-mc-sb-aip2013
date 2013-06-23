@@ -6,8 +6,10 @@ class ProductsController < ApplicationController
       @title = 'Prodotti nella categoria ' + @category.name
       @breadcrumb = '<a href="' + categories_path + '">Prodotti</a><span class="current_crumb">' + @category.name + '</span>'
       @products = Product.find_all_by_category_id(params[:category_id])
-      @gd_text = 'Esplora i prodotti di questa categoria';
-      @gd_link = category_path(@category) + '/products/' + @products.first().id.to_s
+      if(@products.size!=0)
+        @gd_text = 'Esplora i prodotti di questa categoria';
+        @gd_link = category_path(@category) + '/products/' + @products.first().id.to_s
+      end
       @base_link = category_products_path(@category)
 
     elsif(params[:designer_id])
@@ -16,9 +18,12 @@ class ProductsController < ApplicationController
       @title = 'Prodotti progettati da ' + @designer.name
       @breadcrumb = '<a href="' + designers_path + '">Designers</a><a href="' + designer_path(@designer) + '">' + @designer.name + '</a><span class="current_crumb">Prodotti </span>'
       @products = Product.find_all_by_designer_id(params[:designer_id])
-      @gd_text = 'Esplora i prodotti di questo designer';
-      @gd_link = designer_product_path(@designer,@products.first())
+      if(@products.size!=0)
+        @gd_text = 'Esplora i prodotti di questo designer';
+        @gd_link = designer_product_path(@designer,@products.first())
+      end
       @back = designer_path(@designer)
+      @back_text = 'Torna al designer'
       @base_link = designer_products_path(@designer)
 
     elsif(params[:partner_id])
@@ -27,9 +32,12 @@ class ProductsController < ApplicationController
       @title = 'Prodotti di ' + @partner.name
       @breadcrumb = '<a href="' + partners_path + '">Partners</a><a href="' + partner_path(@partner) + '">' + @partner.name + '</a><span class="current_crumb">Prodotti </span>'
       @products = Product.find_all_by_partner_id(params[:partner_id])
-      @gd_text = 'Scopri i prodotti di ' + @partner.name;
-      @gd_link = partner_product_path(@partner,@products.first())
+      if(@products.size!=0)
+        @gd_text = 'Scopri i prodotti di ' + @partner.name;
+        @gd_link = partner_product_path(@partner,@products.first())
+      end
       @back = partner_path(@partner)
+      @back_text = 'Torna al partner'
       @base_link = partner_products_path(@partner)
 
     elsif(params[:reseller_id])
@@ -39,9 +47,12 @@ class ProductsController < ApplicationController
       @breadcrumb = "<a href=\"#{resellers_search_path}\">Cerca rivenditori</a><a href=\"/resellers/?query=#{@query}\">Risultati della ricerca</a><a href=\"#{reseller_path(@reseller)+'?query='+@query}\">#{@reseller.name}</a><span class=\"current_crumb\">Prodotti</span>"
       #@breadcrumb = '<a href="' + resellers_path + '">Rivenditori</a><a href="' + reseller_path(@reseller) + '">' + @reseller.name + '</a><span class="current_crumb">Prodotti </span>'
       @products = @reseller.products
-      @gd_text = 'Scopri i prodotti venduti da questo rivenditori';
-      @gd_link = reseller_product_path(@reseller,@products.first())
+      if(@products.size!=0)
+        @gd_text = 'Scopri i prodotti venduti da questo rivenditori';
+        @gd_link = reseller_product_path(@reseller,@products.first())
+      end
       @back = reseller_path(@reseller)
+      @back_text = 'Torna al rivenditore'
       @base_link = reseller_products_path(@reseller)
     end
   end
