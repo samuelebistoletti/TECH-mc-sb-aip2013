@@ -10,6 +10,8 @@ class ProductsController < ApplicationController
         @gd_text = 'Esplora i prodotti di questa categoria';
         @gd_link = category_path(@category) + '/products/' + @products.first().id.to_s
       end
+      @back = categories_path
+      @back_text = 'Torna all\'elenco delle categorie'
       @base_link = category_products_path(@category)
 
     elsif(params[:designer_id])

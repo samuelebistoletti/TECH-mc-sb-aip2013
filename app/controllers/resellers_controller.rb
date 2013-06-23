@@ -47,7 +47,7 @@ class ResellersController < ApplicationController
     if(params[:query])
       @query = params[:query]
       @resellers = Reseller.where("region LIKE ? OR province LIKE ?", "%#{params[:query]}%", "%#{params[:query]}%")
-      @breadcrumb = "<a href=\"#{resellers_search_path}\">Cerca rivenditori</a><a href=\"/resellers/?query=#{@query}\">Risultati della ricerca</a><span class=\"current_crumb\">#{@title}</span>"
+      @breadcrumb = "<a href=\"#{resellers_search_path}\">Cerca rivenditori</a><a href=\"/resellers/?query=#{@query}\">Risultati della ricerca</a><span class=\"current_crumb\">#{@reseller.name}</span>"
     elsif(params[:product])
       @product = Product.find(params[:product])
       @category = @product.category

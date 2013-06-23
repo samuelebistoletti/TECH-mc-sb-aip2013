@@ -5,8 +5,9 @@
 <div class="center one_third_last">
   <a href="<%= reseller_products_path(@reseller) + "?query=#{@query}" %>" class="ka_button small_button small_tealgrey"><span>Prodotti in vendita</span></a>
   <p>
-    <% if(@partners.size!=0)
-         @partners.each do |partner| %>
+    <% if(@partners.size!=0) %>
+         <br>Qui troverai anche:<br>
+         <% @partners.each do |partner| %>
             <a href="<%= partner_path(partner) %>"><%= image_tag "partners/" + partner.image_url, :class => 'rounded thumb' %></a>
     <%  end
        end %>

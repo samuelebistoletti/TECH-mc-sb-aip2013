@@ -210,7 +210,7 @@ resellers = Reseller.create([
                  {name: 'Centro Arredamento Tosi',
                   region: 'Lombardia',
                   province: 'Varese',
-                  address: 'Via G. Fanti 6',
+                  address: 'Via G. Fanti 6, Varese',
                   email: 'info@arredamentitosi.com',
                   telephone: '+39 0331 635110',
                   image_url: 'tosi.jpg'
