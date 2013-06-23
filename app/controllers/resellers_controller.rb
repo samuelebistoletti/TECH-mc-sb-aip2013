@@ -6,38 +6,60 @@ class ResellersController < ApplicationController
   end
 
   def index
-    @query = params[:query]
-    @resellers = Reseller.where("region LIKE ? OR province LIKE ?", "%#{params[:query]}%", "%#{params[:query]}%")
-    @first = Reseller.first
-    @breadcrumb = "<a href=\"#{resellers_search_path}\">Cerca rivenditori</a><span class=\"current_crumb\">Risultati della ricerca</span>"
-    @title = 'Risultati della ricerca'
-
-    respond_to do |format|
-      if @resellers.size > 0
-        @title = "Sono stati trovati #{@resellers.size} rivenditori"
-        format.html # index.html.erb
-        format.json { render json: @resellers }
-      else
-        @title = "Nessun rivenditore trovato"
-        format.html # index.html.erb
-        format.json { render json: @resellers }
+    if(params[:query])
+      @query = params[:query]
+      @resellers = Reseller.where("region LIKE ? OR province LIKE ?", "%#{params[:query]}%", "%#{params[:query]}%")
+      @first = Reseller.first
+      @breadcrumb = "<a href=\"#{resellers_search_path}\">Cerca rivenditori</a><span class=\"current_crumb\">Risultati della ricerca</span>"
+      @title = 'Risultati della ricerca'
+      respond_to do |format|
+        if @resellers.size > 0
+          @title = "Sono stati trovati #{@resellers.size} rivenditori"
+          format.html # index.html.erb
+          format.json { render json: @resellers }
+        else
+          @title = "Nessun rivenditore trovato"
+          format.html # index.html.erb
+          format.json { render json: @resellers }
+        end
       end
+    elsif(params[:product])
+      @product = Product.find(params[:product])
+      @category = @product.category
+      @title = 'Ricerca rivenditori per "' + @product.name + '"'
+      @resellers = @product.resellers
+      @back = category_product_path(@category,@product)
+      @breadcrumb = "<a href=\"#{categories_path}\">Prodotti</a><a href=\"#{category_products_path(@category)}\">#{@category.name}</a><a href=\"#{category_product_path(@category,@product)}\">#{@product.name}</a><span class=\"current_crumb\">Ricerca rivenditori</span>"
+      if(@resellers.size!=0)
+        @gd = reseller_path(@resellers.first) + '?product=' + @product.id.to_s
+      end
+      render :template => 'resellers/find'
     end
   end
 
-  def product_search
-     @resellers = Reseller.where(:id => 'SELECT id FROM resellers')
-  end
-
   def show
-    @query = params[:query]
     @reseller = Reseller.find(params[:id])
-    @resellers = Reseller.where("region LIKE ? OR province LIKE ?", "%#{params[:query]}%", "%#{params[:query]}%")
-    @next = @resellers.first(:conditions => ['id > ?', params[:id]])
-    @previous = @resellers.last(:conditions => ['id < ?', params[:id]])
+
+    if(!params[:query] && !params[:product])
+      params[:query] = ''
+    end
+
+    if(params[:query])
+      @query = params[:query]
+      @resellers = Reseller.where("region LIKE ? OR province LIKE ?", "%#{params[:query]}%", "%#{params[:query]}%")
+      @breadcrumb = "<a href=\"#{resellers_search_path}\">Cerca rivenditori</a><a href=\"/resellers/?query=#{@query}\">Risultati della ricerca</a><span class=\"current_crumb\">#{@title}</span>"
+    elsif(params[:product])
+      @product = Product.find(params[:product])
+      @category = @product.category
+      @resellers = @product.resellers
+      @breadcrumb = "<a href=\"#{categories_path}\">Prodotti</a><a href=\"#{category_products_path(@category)}\">#{@category.name}</a><a href=\"#{category_product_path(@category,@product)}\">#{@product.name}</a><a href=\"#{resellers_path+'?product='+@product.id.to_s}\">Ricerca rivenditori</a><span class=\"current_crumb\">#{@reseller.name}</span>"
+    end
+
     @partners = Partner.where(:id => @reseller.products.select(:partner_id))
+    @next = @resellers.first(:conditions => ['resellers.id > ?', params[:id]])
+    @previous = @resellers.last(:conditions => ['resellers.id < ?', params[:id]])
+
     @title = @reseller.name
-    @breadcrumb = "<a href=\"#{resellers_search_path}\">Cerca rivenditori</a><a href=\"/resellers/?query=#{@query}\">Risultati della ricerca</a><span class=\"current_crumb\">#{@title}</span>"
   end
 
   def new

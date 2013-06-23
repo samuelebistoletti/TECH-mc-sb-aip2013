@@ -26,10 +26,10 @@
 
 <div class="center">
   <% if(@previous) %>
-      <a href="<%= reseller_path(@previous) + "?query=#{@query}" %>" class="ka_button small_button small_tealgrey"><span>Rivenditore precedente</span></a>
+      <a href="<%= reseller_path(@previous) + (@query?"?query=#{@query}":"?product=#{@product.id.to_s}") %>" class="ka_button small_button small_tealgrey"><span>Rivenditore precedente</span></a>
   <% end %>
-    <a href="<%= "/resellers/?query=#{@query}" %>" class="ka_button small_button small_tealgrey"><span>Torna Ai Risultati Della Ricerca</span></a>
+    <a href="<%= '/resellers/' + (@query?"?query=#{@query}":"?product=#{@product.id.to_s}") %>" class="ka_button small_button small_tealgrey"><span>Torna Ai Risultati Della Ricerca</span></a>
   <% if(@next) %>
-    <a href="<%= reseller_path(@next) + "?query=#{@query}" %>" class="ka_button small_button small_tealgrey"><span>Prossimo rivenditore</span></a>
+    <a href="<%= reseller_path(@next) + (@query?"?query=#{@query}":"?product=#{@product.id.to_s}") %>" class="ka_button small_button small_tealgrey"><span>Prossimo rivenditore</span></a>
   <% end %>
 </div>

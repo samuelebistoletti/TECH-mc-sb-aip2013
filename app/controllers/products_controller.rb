@@ -48,7 +48,7 @@ class ProductsController < ApplicationController
       #@breadcrumb = '<a href="' + resellers_path + '">Rivenditori</a><a href="' + reseller_path(@reseller) + '">' + @reseller.name + '</a><span class="current_crumb">Prodotti </span>'
       @products = @reseller.products
       if(@products.size!=0)
-        @gd_text = 'Scopri i prodotti venduti da questo rivenditori';
+        @gd_text = 'Scopri i prodotti venduti da questo rivenditore';
         @gd_link = reseller_product_path(@reseller,@products.first())
       end
       @back = reseller_path(@reseller)

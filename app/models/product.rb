@@ -5,4 +5,5 @@ class Product < ActiveRecord::Base
   belongs_to :category, :foreign_key => :category_id
   belongs_to :designer, :foreign_key => :designer_id
   belongs_to :partner, :foreign_key => :partner_id
+  has_and_belongs_to_many :resellers, association_foreign_key: 'reseller_id'
 end

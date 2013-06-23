@@ -1,0 +1,22 @@
+<% if @resellers.size == 0 %>
+    <h3>Spiacenti, al momento nessun rivenditore possiede il prodotto desiderato.</h3>
+<% else %>
+
+    <% @resellers.each do |reseller| %>
+        <ul class="list">
+          <li><a href="<%= reseller_path(reseller) + '?product=' + @product.id.to_s %>"><%= reseller.name %></a>
+            <br><%= raw(reseller.region) %>
+            <br><%= raw(reseller.province) %>
+            <br><%= raw(reseller.address) %></li>
+        </ul>
+    <% end %>
+<% end %>
+
+<div class="center">
+  <% if(@back) %>
+  <a href="<%= @back %>" class="ka_button small_button small_tealgrey"><span>Torna al prodotto</span></a>
+  <% end %>
+  <% if(@gd) %>
+      <a href="<%= @gd %>" class="ka_button small_button small_tealgrey"><span>Esplora i rivenditori per questo prodotto</span></a>
+  <% end %>
+</div>
