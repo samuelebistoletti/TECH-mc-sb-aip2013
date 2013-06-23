@@ -24,6 +24,8 @@
 
 <br class="clear">
 
+<div><iframe class="fullmap" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="http://maps.google.com/maps?f=q&source=s_q&hl=it&geocode=&q=<%= URI::escape(@reseller.province + ', ' + @reseller.address) %>&ie=UTF8&z=12&t=m&iwloc=near&output=embed"></iframe></div><br><br>
+
 <div class="center">
   <% if(@previous) %>
       <a href="<%= reseller_path(@previous) + (@query?"?query=#{@query}":"?product=#{@product.id.to_s}") %>" class="ka_button small_button small_tealgrey"><span>Rivenditore precedente</span></a>

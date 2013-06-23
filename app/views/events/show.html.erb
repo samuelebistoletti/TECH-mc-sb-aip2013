@@ -16,7 +16,7 @@
     <li><span class="bold">Luogo:</span> <%= @event.location %></li>
   </ul>
 
-  <div class="tabs-area ui-tabs ui-widget ui-widget-content ui-corner-all"><ul class="center tabset ui-tabs-nav ui-helper-reset ui-helper-clearfix ui-widget-header ui-corner-all"><li class="ui-state-default ui-corner-top ui-tabs-selected ui-state-active"><a href="#tab-" class="tab"><span>Ulteriori informazioni</span></a></li><li class="ui-state-default ui-corner-top"><a href="#tab-1" class="tab"><span>Partners partecipanti</span></a></li></ul>
+  <div class="tabs-area ui-tabs ui-widget ui-widget-content ui-corner-all"><ul class="center tabset ui-tabs-nav ui-helper-reset ui-helper-clearfix ui-widget-header ui-corner-all"><li class="ui-state-default ui-corner-top ui-tabs-selected ui-state-active"><a href="#tab-" class="tab"><span>Ulteriori informazioni</span></a></li><li class="ui-state-default ui-corner-top"><a href="#tab-1" class="tab"><span>Partners partecipanti</span></a></li><li class="ui-state-default ui-corner-top"><a href="#tab-2" class="tab"><span>Mappa</span></a></li></ul>
     <div id="tab-" class="tab-box ui-tabs-panel ui-widget-content ui-corner-bottom" style="">
       <p><%= raw(@event.extra_notes) %></p>
       <br class="clear">
@@ -32,6 +32,9 @@
         <% end %>
       </p>
       <br class="clear">
+    </div>
+    <div id="tab-2" class="tab-box ui-tabs-panel ui-widget-content ui-corner-bottom" style="">
+      <div><iframe class="minimap" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="http://maps.google.com/maps?f=q&source=s_q&hl=it&geocode=&q=<%= URI::escape(@event.location) %>&ie=UTF8&z=12&t=m&iwloc=near&output=embed"></iframe><br></div>
     </div>
   </div>
 
