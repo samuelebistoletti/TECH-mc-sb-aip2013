@@ -19,58 +19,33 @@ TECHMcSbAip2013::Application.routes.draw do
   end
 
   get "admin/designers"
-
   get "admin/events"
-
   get "admin/partners"
-
   get "admin/resellers"
-
   get "admin/services"
-
   get "admin/contacts"
-
   get "contacts/confirm"
-
-
-
-  resources :contacts
-
+  get 'admin/products'
+  get 'admin/index'
 
   get "about_us/tradition"
-
   get "about_us/company"
-
   get "about_us/index"
 
   resources :partners
-
-
   resources :services
-
-
   resources :resellers
-
-
   resources :events
-
-
   resources :designers
-
-
-  get 'admin/products'
-
-  get 'admin/index'
-
-  root :to => 'home#index'
-  resources :products
-  match 'categories/:id' => 'categories#show'
-  match 'products/:id' => 'products#show'
-  match 'designers/:id' => 'designers#show'
   resources :home
   resources :categories
+  resources :products
+  resources :contacts
+
+  root :to => 'home#index'
+
   match 'admin' => 'admin#index', :via => :get, :as => :admin
-  match 'products' => 'products#index', :via => :get, :as => :products
+  match 'products' => 'categories#index', :via => :get, :as => :products
   match 'home' => 'home#index', :via => :get, :as => :home
   match 'about_us' => 'about_us#company', :via => :get, :as => :about_us
 

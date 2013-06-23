@@ -17,11 +17,9 @@
   <%= javascript_include_tag 'jquery-ui-1.8.15.custom.min.js' %>
 
 
-
-
   <link rel="shortcut icon" href="assets/logo.jpg"/>
 
-  <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Droid+Sans" />
+  <%= stylesheet_link_tag 'droid' %>
 
 
 </head>
@@ -55,7 +53,7 @@
           <nav>
             <ul id="menu-main-nav">
               <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="<%= categories_path %>"><span><strong>Prodotti</strong><span class="navi-description">I nostri mobili</span></span></a>
-                <ul class="sub-menu">
+                <!--<ul class="sub-menu">
                   <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="<%= category_products_path(1) %>"><span>Mobili giorno</span></a></li>
                   <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="<%= category_products_path(2) %>"><span>Mobili bagno</span></a></li>
                   <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="<%= category_products_path(3) %>"><span>Divani e poltrone</span></a></li>
@@ -64,11 +62,11 @@
                   <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="<%= category_products_path(6) %>"><span>Sedie</span></a></li>
                   <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="<%= category_products_path(7) %>"><span>Letti</span></a></li>
                   <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="<%= category_products_path(8) %>"><span>Armadi</span></a></li>
-                </ul>
+                </ul>-->
               </li>
               <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="<%= designers_path %>"><span><strong>Designers</strong><span class="navi-description">I nostri esperti</span></span></a></li>
               <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="<%= services_path %>"><span><strong>Servizi</strong><span class="navi-description">Assistenza</span></span></a></li>
-              <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="<%= events_path %>"><span><strong>Eventi</strong><span class="navi-description">Esposizioni e fiere</span></span></a></li>
+              <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="<%= events_path %>"><span><strong>Eventi</strong><span class="navi-description">Partecipazioni e fiere</span></span></a></li>
               <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="<%= partners_path %>"><span><strong>Partners</strong><span class="navi-description">Collaborazioni</span></span></a></li>
               <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="<%= resellers_search_path %>"><span><strong>Rivenditori</strong><span class="navi-description">Showrooms</span></span></a></li>
             </ul>

@@ -1,17 +1,24 @@
 @import url('secondary-teal-grey.css');
 
+/*
+  CUSTOM
+*/
+h1, h2, h3, h4, h5 #main .comment-title, .four_o_four, .callout-wrap span, .search-title,.callout2, .comment-author-about, .logo-text {font-family:'Droid+Sans', Arial, sans-serif;}
+body,html{background-image:url(_global/low_contrast_linen.png) !important;background-position:left top !important;background-repeat:repeat !important;}
+#tt-boxed-layout {-moz-box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.5);-webkit-box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.5);box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.5);}
+
 /*------------------------------------------------*/
 /* HEADER 
 /*------------------------------------------------*/
-#header .header-holder {background:#19292E url(../assets/skins/karma-teal-grey/bg-header-holder.jpg) 0 0 repeat-x !important;}
-.big-banner #header .header-holder {background:#19292E url(../assets/skins/karma-teal-grey/bg-big-header-holder.png) 0 0 repeat-x !important;}
+#header .header-holder {background:#19292E url(skins/karma-teal-grey/bg-header-holder.jpg) 0 0 repeat-x !important;}
+.big-banner #header .header-holder {background:#19292E url(skins/karma-teal-grey/bg-big-header-holder.png) 0 0 repeat-x !important;}
 .top-block {background:#19292E !important;}
 
 /*------------------------------------------------*/
 /* FOOTER
 /*------------------------------------------------*/
-#footer {background:#19292E url(../assets/skins/karma-teal-grey/bg-footer.jpg) repeat-x !important;}
-#footer_bottom {background:#111C20 url(../assets/skins/karma-teal-grey/bg-footer-bottom.jpg) repeat-x !important;color: #868686 !important;}
+#footer {background:#19292E url(skins/karma-teal-grey/bg-footer.jpg) repeat-x !important;}
+#footer_bottom {background:#111C20 url(skins/karma-teal-grey/bg-footer-bottom.jpg) repeat-x !important;color: #868686 !important;}
 
 /*------------------------------------------------*/
 /* NAVIGATION
@@ -30,40 +37,40 @@
 #menu-main-nav .drop ul li.current-menu-item a span,
 #menu-main-nav .drop ul .drop ul li.current-menu-item a,
 #menu-main-nav .drop ul .drop ul li.current-menu-item a span{text-decoration:none;color:#7A93A1 !important;} /* B. active dropdown link color (if different than A)  */
-#menu-main-nav li {background:url(../assets/_global/seperator-main-nav.png) 0 50% no-repeat !important;}
+#menu-main-nav li {background:url(_global/seperator-main-nav.png) 0 50% no-repeat !important;}
 
 /* dropdown */
-#menu-main-nav .drop .t {background:url(../assets/_global/global-sprite.png) -960px -1782px no-repeat !important;}
-#menu-main-nav .drop .b {background:url(../assets/_global/global-sprite.png) -960px -1793px no-repeat !important;}
+#menu-main-nav .drop .t {background:url(_global/global-sprite.png) -960px -1782px no-repeat !important;}
+#menu-main-nav .drop .b {background:url(_global/global-sprite.png) -960px -1793px no-repeat !important;}
 #menu-main-nav .drop .c, #menu-main-nav li.parent:hover {background:#111C20 !important;}
 /* IE only - un-comment for rounded corners 
-*:first-child+html #menu-main-nav li.parent:hover {background:url(../assets/_global/global-sprite.png) -960px -1721px no-repeat !important;}
+*:first-child+html #menu-main-nav li.parent:hover {background:url(_global/global-sprite.png) -960px -1721px no-repeat !important;}
 *:first-child+html #menu-main-nav li.parent:hover {background-color: transparent !important;}
 *:first-child+html #menu-main-nav li.parent {min-width: 88px !important;width: auto !important;} */
 
 /* dropdown link hover rounded image top */
 #menu-main-nav .drop ul li.hover a,
-#menu-main-nav .drop ul a:hover {background:#435961 url(../assets/skins/karma-teal-grey/bg-drop-li-t.jpg) no-repeat !important;}
+#menu-main-nav .drop ul a:hover {background:#435961 url(skins/karma-teal-grey/bg-drop-li-t.jpg) no-repeat !important;}
 #menu-main-nav .drop ul .drop ul li.hover a,
-#menu-main-nav .drop ul .drop ul a:hover {background:#435961 url(../assets/skins/karma-teal-grey/bg-drop-li-t.jpg) no-repeat !important;}
+#menu-main-nav .drop ul .drop ul a:hover {background:#435961 url(skins/karma-teal-grey/bg-drop-li-t.jpg) no-repeat !important;}
 #menu-main-nav .drop ul .drop ul .drop ul li.hover a,
-#menu-main-nav .drop ul .drop ul .drop ul a:hover {background:#435961 url(../assets/skins/karma-teal-grey/bg-drop-li-t.jpg) no-repeat !important;}
+#menu-main-nav .drop ul .drop ul .drop ul a:hover {background:#435961 url(skins/karma-teal-grey/bg-drop-li-t.jpg) no-repeat !important;}
 #menu-main-nav .drop ul .drop ul .drop ul li.current-menu-item a,
 #menu-main-nav .drop ul .drop ul .drop ul li.current_page_ancestor a,
 #menu-main-nav .drop ul .drop ul .drop ul li.hover a,
-#menu-main-nav .drop ul .drop ul .drop ul a:hover {background:#435961 url(../assets/skins/karma-teal-grey/bg-drop-li-t.jpg) no-repeat !important;}
+#menu-main-nav .drop ul .drop ul .drop ul a:hover {background:#435961 url(skins/karma-teal-grey/bg-drop-li-t.jpg) no-repeat !important;}
 
 /* dropdown link hover rounded image bottom */
 #menu-main-nav .drop ul li.hover a span,
-#menu-main-nav .drop ul a:hover span {background:url(../assets/skins/karma-teal-grey/bg-drop-li-b.jpg) 0 100% no-repeat !important;color:#FFF !important;}
+#menu-main-nav .drop ul a:hover span {background:url(skins/karma-teal-grey/bg-drop-li-b.jpg) 0 100% no-repeat !important;color:#FFF !important;}
 #menu-main-nav .drop ul .drop ul li.hover a span,
-#menu-main-nav .drop ul .drop ul a:hover span {background:url(../assets/skins/karma-teal-grey/bg-drop-li-b.jpg) 0 100% no-repeat !important;color:#FFF !important;}
+#menu-main-nav .drop ul .drop ul a:hover span {background:url(skins/karma-teal-grey/bg-drop-li-b.jpg) 0 100% no-repeat !important;color:#FFF !important;}
 #menu-main-nav .drop ul .drop ul .drop ul li.hover a span,
-#menu-main-nav .drop ul .drop ul .drop ul a:hover span {background:url(../assets/skins/karma-teal-grey/bg-drop-li-b.jpg) 0 100% no-repeat !important;color:#FFF !important;}
+#menu-main-nav .drop ul .drop ul .drop ul a:hover span {background:url(skins/karma-teal-grey/bg-drop-li-b.jpg) 0 100% no-repeat !important;color:#FFF !important;}
 #menu-main-nav .drop ul .drop ul .drop ul li.current-menu-item a span,
 #menu-main-nav .drop ul .drop ul .drop ul li.current_page_ancestor a span,
 #menu-main-nav .drop ul .drop ul .drop ul li.hover a span,
-#menu-main-nav .drop ul .drop ul .drop ul a:hover span {background:url(../assets/skins/karma-teal-grey/bg-drop-li-b.jpg) 0 100% no-repeat !important;color:#FFF !important;}
+#menu-main-nav .drop ul .drop ul .drop ul a:hover span {background:url(skins/karma-teal-grey/bg-drop-li-b.jpg) 0 100% no-repeat !important;color:#FFF !important;}
 
 /* misc nav settings */
 #menu-main-nav li.current-menu-parent li a span,

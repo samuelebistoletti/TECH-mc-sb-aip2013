@@ -23,8 +23,15 @@
   </ul>
 </div>
 
-<div class="top"></div>
-<div class="callout-wrap"><span>Benvenuto sul sito ufficiale di HomeFurniture & Co.!!</span></div>
+<div class="clear top"></div>
+<div class="callout-wrap center"><span>Benvenuto sul sito ufficiale di HomeFurniture & Co.!!</span></div>
+<div class="clear"></div>
+
+<div class="testimonials" style="position: relative; height: 93px;">
+  <blockquote style="position: absolute; top: 0px; left: 0px; display: none; z-index: 4; opacity: 0;"><p>Home Furniture & Co. offre un ampio assortimento di articoli d'arredamento belli e funzionali a prezzi così vantaggiosi da permettere al maggior numero possibile di persone di acquistarli. Questa è l'idea che sta al centro di ogni nostra attivit&agrave;, dallo sviluppo all'acquisto dei prodotti, fino al modo in cui vendiamo i nostri articoli nei negozi di tutta Italia.<cite>– Giovanni Landelli, Home Furniture Manager</cite></p></blockquote>
+  <blockquote style="position: absolute; top: 0px; left: 0px; display: block; z-index: 5; opacity: 1; width: 800px; height: 93px;"><p>Sostenibilità, per Home Furniture, significa prendersi cura delle persone e dell'ambiente. Da tempo siamo impegnati su questi fronti insieme ai nostri co-worker, fornitori e partner. I risultati del nostro lavoro si vedono nei prodotti e nelle soluzioni innovative che Home Furniture offre ai clienti, e nel modo in cui gestiamo le nostre attività commerciali.<cite>– Mario Dell'Acqua, Home Furniture Resources Coordinator</cite></p></blockquote>
+  <blockquote style="position: absolute; top: 0px; left: 0px; display: none; z-index: 2; opacity: 0;"><p>L'assortimento IKEA si concentra su articoli d’arredamento belli, funzionali e a prezzi bassi e offre soluzioni per tutte le stanze della casa. Cerca di soddisfare i gusti di tutti, sia di chi ama un design minimalista che di chi predilige uno stile romantico.<cite>– Giovanni Landelli, Home Furniture Manager</cite></p></blockquote>
+</div>
 
 
 <script type="text/javascript">
@@ -40,6 +47,26 @@
             pager: '.jquery-pager',
             cleartypeNoBg: true
         });
+
+
     });
-    //]]>
+
+    jQuery(document).ready(function(){
+        function adjust_container_height(){
+            //get the height of the current testimonial slide
+            var hegt = jQuery(this).height();
+            //set the container's height to that of the current slide
+            jQuery(this).parent().animate({height:hegt});
+        }
+        jQuery('.testimonials').after('<div class="testimonial-pager">&nbsp;</div>').cycle({
+            fx: 'fade',
+            timeout: '12000',
+            height: 'auto',
+            pause: '0',
+            pager: '.testimonial-pager',
+            before: adjust_container_height,
+            cleartypeNoBg: true
+
+        });
+    });
 </script>
