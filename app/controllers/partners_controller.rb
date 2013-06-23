@@ -50,6 +50,14 @@ class PartnersController < ApplicationController
   def update
     @partner = Partner.find(params[:id])
 
+    if(params[:partner][:image_url])
+      image_io = params[:partner][:image_url]
+      File.open(Rails.root.join('app','assets','images','partners', image_io.original_filename), 'wb') do |file|
+        file.write(image_io.read)
+      end
+      params[:partner][:image_url] = image_io.original_filename
+    end
+
     respond_to do |format|
       if @partner.update_attributes(params[:partner])
         format.html { redirect_to admin_partners_path, notice: 'Partner modificato con successo.' }

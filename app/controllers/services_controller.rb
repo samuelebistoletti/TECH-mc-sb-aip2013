@@ -51,6 +51,14 @@ class ServicesController < ApplicationController
   def update
     @service = Service.find(params[:id])
 
+    if(params[:service][:image_url])
+      image_io = params[:service][:image_url]
+      File.open(Rails.root.join('app','assets','images','services', image_io.original_filename), 'wb') do |file|
+        file.write(image_io.read)
+      end
+      params[:service][:image_url] = image_io.original_filename
+    end
+
     respond_to do |format|
       if @service.update_attributes(params[:service])
         format.html { redirect_to admin_services_path, notice: 'Servizio cancellato con successo.' }

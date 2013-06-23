@@ -154,6 +154,14 @@ class ProductsController < ApplicationController
   def update
     @product = Product.find(params[:id])
 
+    if(params[:product][:image_url])
+      image_io = params[:product][:image_url]
+      File.open(Rails.root.join('app','assets','images','products', image_io.original_filename), 'wb') do |file|
+        file.write(image_io.read)
+      end
+      params[:product][:image_url] = image_io.original_filename
+    end
+
     respond_to do |format|
       if @product.update_attributes(params[:product])
         format.html { redirect_to admin_products_path, notice: 'Product aggiornato con successo.' }

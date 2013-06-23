@@ -72,6 +72,14 @@ class ResellersController < ApplicationController
   def update
     @reseller = Reseller.find(params[:id])
 
+    if(params[:reseller][:image_url])
+      image_io = params[:reseller][:image_url]
+      File.open(Rails.root.join('app','assets','images','resellers', image_io.original_filename), 'wb') do |file|
+        file.write(image_io.read)
+      end
+      params[:reseller][:image_url] = image_io.original_filename
+    end
+
     respond_to do |format|
       if @reseller.update_attributes(params[:reseller])
         format.html { redirect_to admin_resellers_path, notice: 'Rivenditore modificato con successo.' }

@@ -51,6 +51,14 @@ class EventsController < ApplicationController
   def update
     @event = Event.find(params[:id])
 
+    if(params[:event][:image_url])
+      image_io = params[:event][:image_url]
+      File.open(Rails.root.join('app','assets','images','events', image_io.original_filename), 'wb') do |file|
+        file.write(image_io.read)
+      end
+      params[:event][:image_url] = image_io.original_filename
+    end
+
     respond_to do |format|
       if @event.update_attributes(params[:event])
         format.html { redirect_to admin_events_path, notice: 'Evento aggiornato con successo.' }
