@@ -1,53 +1,29 @@
 class PartnersController < ApplicationController
-  # GET /partners
-  # GET /partners.json
   def index
     @title = 'I nostri partners'
     @breadcrumb = '<span class="current_crumb">Partners </span>'
     @partners = Partner.all
     @first = Partner.first()
-
-    respond_to do |format|
-      format.html # index.html.erb
-      format.json { render json: @partners }
-    end
   end
 
-  # GET /partners/1
-  # GET /partners/1.json
   def show
     @partner = Partner.find(params[:id])
     @title = @partner.name
     @breadcrumb = '<a href="' + partners_path + '">Partners</a><span class="current_crumb">' + @partner.name + '</span>'
     @next = Partner.first(:conditions => ['id > ?', params[:id]])
     @previous = Partner.last(:conditions => ['id < ?', params[:id]])
-
-    respond_to do |format|
-      format.html # show.html.erb
-      format.json { render json: @partner }
-    end
   end
 
-  # GET /partners/new
-  # GET /partners/new.json
   def new
     @partner = Partner.new
     @title = "Nuovo Partner"
-
-    respond_to do |format|
-      format.html # new.html.erb
-      format.json { render json: @partner }
-    end
   end
 
-  # GET /partners/1/edit
   def edit
     @partner = Partner.find(params[:id])
     @title = "Modifica Partner"
   end
 
-  # POST /partners
-  # POST /partners.json
   def create
     if(params[:partner][:image_url])
       image_io = params[:partner][:image_url]
@@ -71,8 +47,6 @@ class PartnersController < ApplicationController
     end
   end
 
-  # PUT /partners/1
-  # PUT /partners/1.json
   def update
     @partner = Partner.find(params[:id])
 
@@ -87,8 +61,6 @@ class PartnersController < ApplicationController
     end
   end
 
-  # DELETE /partners/1
-  # DELETE /partners/1.json
   def destroy
     @partner = Partner.find(params[:id])
     @partner.destroy

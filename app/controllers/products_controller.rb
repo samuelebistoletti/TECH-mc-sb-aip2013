@@ -1,6 +1,4 @@
 class ProductsController < ApplicationController
-  # GET /products
-  # GET /products.json
   def index
     if(params[:category_id])
 
@@ -39,18 +37,14 @@ class ProductsController < ApplicationController
       @reseller = Reseller.find(params[:reseller_id])
       @title = 'Prodotti venduti da ' + @reseller.name
       @breadcrumb = "<a href=\"#{resellers_search_path}\">Cerca rivenditori</a><a href=\"/resellers/?query=#{@query}\">Risultati della ricerca</a><a href=\"#{reseller_path(@reseller)+'?query='+@query}\">#{@reseller.name}</a><span class=\"current_crumb\">Prodotti</span>"
-      #@breadcrumb = '<a href="' + resellers_path + '">Rivenditori</a><a href="' + reseller_path(@reseller) + '">' + @reseller.name + '</a><span class="current_crumb">Prodotti </span>'
       @products = @reseller.products
       @gd_text = 'Scopri i prodotti venduti da questo rivenditori';
       @gd_link = reseller_product_path(@reseller,@products.first())
       @back = reseller_path(@reseller)
       @base_link = reseller_products_path(@reseller)
-
     end
   end
 
-  # GET /products/1
-  # GET /products/1.json
   def show
     @product = Product.find(params[:id])
     @images = @product.images
@@ -104,26 +98,17 @@ class ProductsController < ApplicationController
       p = @reseller.products.last(:conditions => ['products.id < ?', params[:id]])
       @next_link = reseller_product_path(@reseller, n) if(n)
       @previous_link = reseller_product_path(@reseller, p) if(p)
-
     end
   end
 
-  # GET /products/new
-  # GET /products/new.json
   def new
     @product = Product.new
     @title = "Nuovo Prodotto"
     @designers = Designer.all
     @categories = Category.all
     @partners = Partner.all
-
-    respond_to do |format|
-      format.html # new.html.erb
-      format.json { render json: @product }
-    end
   end
 
-  # GET /products/1/edit
   def edit
     @product = Product.find(params[:id])
     @title = "Modifica Prodotto"
@@ -132,8 +117,6 @@ class ProductsController < ApplicationController
     @partners = Partner.all
   end
 
-  # POST /products
-  # POST /products.json
   def create
     if(params[:product][:image_url])
       image_io = params[:product][:image_url]
@@ -157,8 +140,6 @@ class ProductsController < ApplicationController
     end
   end
 
-  # PUT /products/1
-  # PUT /products/1.json
   def update
     @product = Product.find(params[:id])
 
@@ -173,8 +154,6 @@ class ProductsController < ApplicationController
     end
   end
 
-  # DELETE /products/1
-  # DELETE /products/1.json
   def destroy
     @product = Product.find(params[:id])
     @product.destroy

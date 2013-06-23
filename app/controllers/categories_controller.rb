@@ -4,5 +4,4 @@ class CategoriesController < ApplicationController
     @title = 'Categorie di prodotto'
     @breadcrumb = ''
   end
-
 end

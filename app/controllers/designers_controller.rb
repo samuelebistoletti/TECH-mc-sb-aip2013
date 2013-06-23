@@ -1,52 +1,29 @@
 class DesignersController < ApplicationController
-  # GET /designers
-  # GET /designers.json
   def index
     @title = 'I nostri designers'
     @breadcrumb = '<span class="current_crumb">Designers </span>'
     @designers = Designer.all
     @first = Designer.first()
-
-    respond_to do |format|
-      format.html # index.html.erb
-      format.json { render json: @designers }
-    end
   end
 
-  # GET /designers/1
-  # GET /designers/1.json
   def show
     @designer = Designer.find(params[:id])
     @title = @designer.name
     @breadcrumb = '<a href="' + designers_path + '">Designers</a><span class="current_crumb">' + @designer.name + '</span>'
     @next = Designer.first(:conditions => ['id > ?', params[:id]])
     @previous = Designer.last(:conditions => ['id < ?', params[:id]])
-    respond_to do |format|
-      format.html # show.html.erb
-      format.json { render json: @designer }
-    end
   end
 
-  # GET /designers/new
-  # GET /designers/new.json
   def new
     @designer = Designer.new
     @title = "Nuovo Designer"
-
-    respond_to do |format|
-      format.html # new.html.erb
-      format.json { render json: @designer }
-    end
   end
 
-  # GET /designers/1/edit
   def edit
     @designer = Designer.find(params[:id])
     @title = "Modifica Designer"
   end
 
-  # POST /designers
-  # POST /designers.json
   def create
     if(params[:designer][:image_url])
       image_io = params[:designer][:image_url]
@@ -70,8 +47,6 @@ class DesignersController < ApplicationController
     end
   end
 
-  # PUT /designers/1
-  # PUT /designers/1.json
   def update
     @designer = Designer.find(params[:id])
 
@@ -86,8 +61,6 @@ class DesignersController < ApplicationController
     end
   end
 
-  # DELETE /designers/1
-  # DELETE /designers/1.json
   def destroy
     @designer = Designer.find(params[:id])
     @designer.destroy

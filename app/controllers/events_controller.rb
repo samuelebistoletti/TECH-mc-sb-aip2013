@@ -1,20 +1,11 @@
 class EventsController < ApplicationController
-  # GET /events
-  # GET /events.json
   def index
     @title = 'I nostri eventi'
     @breadcrumb = '<span class="current_crumb">Eventi</span>'
     @events = Event.all
     @first = Event.first()
-
-    respond_to do |format|
-      format.html # index.html.erb
-      format.json { render json: @events }
-    end
   end
 
-  # GET /events/1
-  # GET /events/1.json
   def show
     @event = Event.find(params[:id])
     @title = @event.name
@@ -22,33 +13,18 @@ class EventsController < ApplicationController
     @next = Event.first(:conditions => ['id > ?', params[:id]])
     @previous = Event.last(:conditions => ['id < ?', params[:id]])
     @partners = @event.partners
-
-    respond_to do |format|
-      format.html # show.html.erb
-      format.json { render json: @event }
-    end
   end
 
-  # GET /events/new
-  # GET /events/new.json
   def new
     @title = 'Nuovo Evento'
     @event = Event.new
-
-    respond_to do |format|
-      format.html # new.html.erb
-      format.json { render json: @event }
-    end
   end
 
-  # GET /events/1/edit
   def edit
     @title = 'Modifica Evento'
     @event = Event.find(params[:id])
   end
 
-  # POST /events
-  # POST /events.json
   def create
     if(params[:event][:image_url])
       image_io = params[:event][:image_url]
@@ -72,8 +48,6 @@ class EventsController < ApplicationController
     end
   end
 
-  # PUT /events/1
-  # PUT /events/1.json
   def update
     @event = Event.find(params[:id])
 
@@ -88,8 +62,6 @@ class EventsController < ApplicationController
     end
   end
 
-  # DELETE /events/1
-  # DELETE /events/1.json
   def destroy
     @event = Event.find(params[:id])
     @event.destroy

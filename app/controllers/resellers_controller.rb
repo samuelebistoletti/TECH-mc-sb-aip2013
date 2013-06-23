@@ -3,15 +3,8 @@ class ResellersController < ApplicationController
     @title = 'Ricerca Rivenditori'
     @breadcrumb = '<span class="current_crumb">Cerca rivenditori</span>'
     @reseller = Reseller.all
-
-    respond_to do |format|
-      format.html # search.html.erb
-      format.json { render json: @reseller}
-    end
   end
 
-  # GET /resellers
-  # GET /resellers.json
   def index
     @query = params[:query]
     @resellers = Reseller.where("region LIKE ? OR province LIKE ?", "%#{params[:query]}%", "%#{params[:query]}%")
@@ -32,8 +25,6 @@ class ResellersController < ApplicationController
     end
   end
 
-  # GET /resellers/1
-  # GET /resellers/1.json
   def show
     @query = params[:query]
     @reseller = Reseller.find(params[:id])
@@ -43,33 +34,18 @@ class ResellersController < ApplicationController
     @partners = Partner.where(:id => @reseller.products.select(:partner_id))
     @title = @reseller.name
     @breadcrumb = "<a href=\"#{resellers_search_path}\">Cerca rivenditori</a><a href=\"/resellers/?query=#{@query}\">Risultati della ricerca</a><span class=\"current_crumb\">#{@title}</span>"
-
-    respond_to do |format|
-      format.html # show.html.erb
-      format.json { render json: @reseller }
-    end
   end
 
-  # GET /resellers/new
-  # GET /resellers/new.json
   def new
     @reseller = Reseller.new
     @title = "Nuovo Rivenditore"
-
-    respond_to do |format|
-      format.html # new.html.erb
-      format.json { render json: @reseller }
-    end
   end
 
-  # GET /resellers/1/edit
   def edit
     @reseller = Reseller.find(params[:id])
     @title = "Modifica Rivenditore"
   end
 
-  # POST /resellers
-  # POST /resellers.json
   def create
     if(params[:reseller][:image_url])
       image_io = params[:reseller][:image_url]
@@ -93,8 +69,6 @@ class ResellersController < ApplicationController
     end
   end
 
-  # PUT /resellers/1
-  # PUT /resellers/1.json
   def update
     @reseller = Reseller.find(params[:id])
 
@@ -109,8 +83,6 @@ class ResellersController < ApplicationController
     end
   end
 
-  # DELETE /resellers/1
-  # DELETE /resellers/1.json
   def destroy
     @reseller = Reseller.find(params[:id])
     @reseller.destroy
