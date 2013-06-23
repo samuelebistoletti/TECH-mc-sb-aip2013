@@ -11,7 +11,7 @@
 
       <div class="home-banner-sub">
         <div class="home-banner-sub-content">
-          <a href="<%= product_path(product) %>">	<%= image_tag 'products/' + product.image_url, :style => 'width: 404px; height: 256px;' %></a>
+          <a href="<%= product_path(product) %>"><%= image_tag 'products/' + product.image_url, :class => 'home_carousel' %></a>
           <div class="home-banner-bottom">&nbsp;</div>
         </div><!-- end home-banner-sub-content -->
       </div><!-- end home-banner-sub -->
@@ -47,8 +47,6 @@
             pager: '.jquery-pager',
             cleartypeNoBg: true
         });
-
-
     });
 
     jQuery(document).ready(function(){
