@@ -174,7 +174,7 @@ events = Event.create([
                  description: 'L\'appuntamento con il prossimo Salone Internazionale del Mobile &egrave; per il 9 aprile 2014 presso la Zona Fiere di Rho. I Saloni 2013 Salone Internazionale del Mobile, Euroluce, SaloneUfficio, Salone Internazionale del Complemento d\'Arredo, SaloneSatellite',
                  date: '09-04-2014',
                  image_url: 'salone_mobile.jpg',
-                 location: 'Fiera Milano Rho',
+                 location: 'Fiera Milano Spa, Rho',
                  extra_notes: 'Ingressi: Porta Sud, Porta Est, Porta Ovest, Cargo 5 (solo SaloneSatellite).<br>Gli studenti possono visitare la fiera durante tutto il periodo di svolgimento. La tessera studenti valida 1 ingresso da Euro 18,00 pu&ograve; essere acquistata in fiera. Tessere per il pubblico, in vendita solo sabato e domenica presso la fiera.'},
 
                 {name: 'Sorarreda 2013',
@@ -188,7 +188,7 @@ events = Event.create([
                  description: 'Veniteci a trovare alla Fiera della Casa 2013 il 23 giugno 2013.',
                  date: '23-06-2013',
                  image_url: 'fiera_casa.jpg',
-                 location: 'Via Pascoli, Milano',
+                 location: 'Milano',
                  extra_notes: 'Nessun\'altra indicazione'},
                ])
 

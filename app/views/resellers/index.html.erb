@@ -21,8 +21,8 @@
 <% end %>
 
 <br>
-
-<a href="<%= resellers_search_path %>" class="ka_button small_button small_tealgrey"><span>Nuova Ricerca</span></a>
-<a href="<%= reseller_path(@first) + "?query=#{@query}" %>" class="ka_button small_button small_tealgrey"><span>Esplora i rivenditori</span></a>
-
+<div class="center">
+    <a href="<%= resellers_search_path %>" class="ka_button small_button small_tealgrey"><span>Nuova Ricerca</span></a>
+    <a href="<%= reseller_path(@first) + "?query=#{@query}" %>" class="ka_button small_button small_tealgrey"><span>Esplora i rivenditori</span></a>
+</div>
 <% end %>
