@@ -13,7 +13,7 @@
         <div>
 
           <ul class="list">
-            <li>Categoria: <a href="<%= category_path(@category) %>"><%= raw(@category.name) %></a></li>
+            <li>Categoria: <a href="<%= category_products_path(@category) %>"><%= raw(@category.name) %></a></li>
             <% if(@designer) %>
                 <li>Designer: <a href="<%= designer_path(@designer) %>"><%= raw(@designer.name) %></a></li>
             <% end %>

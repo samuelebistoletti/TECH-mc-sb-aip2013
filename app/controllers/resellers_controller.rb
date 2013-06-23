@@ -25,6 +25,10 @@ class ResellersController < ApplicationController
     end
   end
 
+  def product_search
+     @resellers = Reseller.where(:id => 'SELECT id FROM resellers')
+  end
+
   def show
     @query = params[:query]
     @reseller = Reseller.find(params[:id])
