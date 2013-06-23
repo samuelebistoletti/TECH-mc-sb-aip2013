@@ -37,6 +37,7 @@ class ProductsController < ApplicationController
       @reseller = Reseller.find(params[:reseller_id])
       @title = 'Prodotti venduti da ' + @reseller.name
       @breadcrumb = "<a href=\"#{resellers_search_path}\">Cerca rivenditori</a><a href=\"/resellers/?query=#{@query}\">Risultati della ricerca</a><a href=\"#{reseller_path(@reseller)+'?query='+@query}\">#{@reseller.name}</a><span class=\"current_crumb\">Prodotti</span>"
+      #@breadcrumb = '<a href="' + resellers_path + '">Rivenditori</a><a href="' + reseller_path(@reseller) + '">' + @reseller.name + '</a><span class="current_crumb">Prodotti </span>'
       @products = @reseller.products
       @gd_text = 'Scopri i prodotti venduti da questo rivenditori';
       @gd_link = reseller_product_path(@reseller,@products.first())
@@ -90,7 +91,6 @@ class ProductsController < ApplicationController
       params[:query] ? @query = params[:query] : @query = ''
       @reseller = Reseller.find(params[:reseller_id])
       @breadcrumb = "<a href=\"#{resellers_search_path}\">Cerca rivenditori</a><a href=\"/resellers/?query=#{@query}\">Risultati della ricerca</a><a href=\"#{reseller_path(@reseller)+'?query='+@query}\">#{@reseller.name}</a><a href=\"#{reseller_products_path(@reseller)+'?query='+@query}\">Prodotti</a><span class=\"current_crumb\">#{@product.name}</span>"
-      #@breadcrumb = '<a href="' + resellers_path + '">Rivenditori</a><a href="' + reseller_path(@reseller) + '">' + @reseller.name + '</a><a href="' + reseller_products_path(@reseller) + '">Prodotti</a><span class="current_crumb">' + @product.name + '</span>'
       @up_text = 'Vai ai prodotti venduti da ' + @reseller.name
       @up_link = reseller_products_path(@reseller)
 
